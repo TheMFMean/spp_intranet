@@ -1,16 +1,82 @@
-1. Pull latest repo updates onto server
-cd /srv/backend
-git pull origin main
-2. Check repo status
-cd /srv/backend
-git status
-3. Switch branches (if Codex created a branch)
-git checkout <branch-name>
-4. Update dependencies if needed
-npm install
-5. Restart services after pulling code
-pm2 restart all
-6. View last commits
-git log --oneline --decorate --graph -n 10
-7. Hard reset if something goes sideways
-git reset --hard origin/main
+Codex Connector Actions
+
+check_repo_initialized
+Check if a GitHub repository has been set up.
+
+download_user_content
+Download user content.
+
+fetch
+Fetch a file from GitHub by URL.
+
+fetch_blob
+Fetch blob content by SHA from the given repository.
+
+fetch_commit
+Fetch commit content.
+
+fetch_file
+Fetch file content by path and ref from the given repository.
+
+fetch_issue
+Fetch GitHub issue.
+
+fetch_issue_comments
+Fetch comments for a GitHub issue.
+
+fetch_pr
+Fetch a GitHub pull request.
+
+fetch_pr_comments
+Fetch comments for a pull request.
+
+fetch_pr_file_patch
+Fetch file patch content for a GitHub pull request file.
+
+fetch_pr_files
+Fetch the list of files in a pull request.
+
+fetch_pr_reviews
+Fetch reviews for a pull request.
+
+fetch_repository
+Fetch repository metadata.
+
+fetch_repository_languages
+Fetch programming language statistics for a repository.
+
+fetch_repository_readme
+Fetch the README file for a repository.
+
+search_code
+Search for code within a repository.
+
+search_issues
+Search for issues within a repository.
+
+search_prs
+Search for pull requests.
+
+search_repositories
+Search for repositories.
+
+submit_commit_comment
+Add a comment to a commit.
+
+submit_issue_comment
+Add a comment to an issue.
+
+submit_pr_comment
+Add a comment to a pull request.
+
+submit_pr_review
+Submit a pull request review.
+
+update_issue
+Update issue fields.
+
+update_pr
+Update pull request fields.
+
+update_repository
+Update repository metadata.
