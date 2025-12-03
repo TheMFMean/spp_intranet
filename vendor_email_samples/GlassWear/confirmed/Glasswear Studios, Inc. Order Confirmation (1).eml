@@ -1,0 +1,316 @@
+Delivered-To: matt@sodapoppiercing.com
+Received: by 2002:a05:7010:4811:b0:4ec:9866:c91e with SMTP id m17csp442407mdi;
+        Wed, 19 Nov 2025 12:31:10 -0800 (PST)
+X-Forwarded-Encrypted: i=4; AJvYcCULngi2WQYtgWiQHWrYb++LJLLFPs+vpktu0oFqXHfqyMatrm0dBQquINCzys1BYCKuT6yJ@sodapoppiercing.com
+X-Received: by 2002:a05:622a:1908:b0:4ed:3e3e:a287 with SMTP id d75a77b69052e-4ee49f83adcmr5351921cf.24.1763584270411;
+        Wed, 19 Nov 2025 12:31:10 -0800 (PST)
+ARC-Seal: i=3; a=rsa-sha256; t=1763584270; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=ALSraDVnEjDRl2RDhssp6mNzI5qsn/Ck6C/uq7+sCrt5B7fLk1cSACUjQpG95SAvjE
+         /O5nYiS7nam00Oaiw0/1Fl2uv27HguQOxedDiOIgyD5TurjncsR1iDRuZrkqadcZa/jW
+         eV4jwpaXY/n0xYBV3aN3un2A9Tyz3zkVfaD6pU+jM2PTKv5O31lmg4psC4ef0xEtODsN
+         0qE3LPZmiJGwNAex6+xpiIy780+avvehzEiLxZF0T1QfEMTuznoISpHXDgokv5Lx+dTH
+         KCwv+ChJuRrgPh9cDRxix5sDixZOx/ZntUe0NEFfx+xZhrO1LHhZJsoqYs//i0B0jT0N
+         AHyg==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:content-transfer-encoding:message-id:to
+         :from:subject:mime-version:date:sender;
+        bh=d4JMECxoDuUQTyFZoV/bmxc8YD0mJffpZuEh3qzI7Fg=;
+        fh=Q+38oDeBOSBTyH4JACh7ERNDUTDXHTP/cbpATrwwxQo=;
+        b=f0RLE/k0u2HODmd9ZOuKKZEfWL6xpdjkGqt9bnhx+kNcwa7JxYyfRbzCmndOX/6yAX
+         ocfEUs/0lBQkMOYMWE1hNwwlsberuhevQqK+uxe/XKJUYfeKN2oNx2psSeOvKnOmfmo2
+         3bPVppPPh3Mxh321/ZFbBVwv1S0jSM//JALaQDRSPUEsPkiG5O3VIxulRTTSGoIdbXED
+         ODZj1YITQ0+FrjqX8g43DZdc9YSbUBj2tV5mH+V7L9ctpE78QVoCj5F3fgJp9Y9tftNc
+         iVerrulvN/E1CurTZM9YYIB/up+go57lkO7zQqx3csK8ZXvoaEhOD+BPQJqzYtzga95j
+         l7Uw==;
+        dara=google.com
+ARC-Authentication-Results: i=3; mx.google.com;
+       arc=pass (i=2 spf=pass spfdomain=glasswearstudios.com dkim=pass dkdomain=glasswearstudios.com dmarc=pass fromdomain=glasswearstudios.com);
+       spf=permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbc7yvw6v34lrbdos7deamgqeealh4vq@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) smtp.mailfrom=jewelryorders+bncBC7YVW6V34LRBDOS7DEAMGQEEALH4VQ@sodapoppiercing.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE arc=pass) header.from=glasswearstudios.com;
+       dara=neutral header.i=@sodapoppiercing.com
+Return-Path: <jewelryorders+bncBC7YVW6V34LRBDOS7DEAMGQEEALH4VQ@sodapoppiercing.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id d75a77b69052e-4ee48e213bbsor2706621cf.10.2025.11.19.12.31.10
+        for <matt@sodapoppiercing.com>
+        (Google Transport Security);
+        Wed, 19 Nov 2025 12:31:10 -0800 (PST)
+Received-SPF: permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbc7yvw6v34lrbdos7deamgqeealh4vq@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       arc=pass (i=2 spf=pass spfdomain=glasswearstudios.com dkim=pass dkdomain=glasswearstudios.com dmarc=pass fromdomain=glasswearstudios.com);
+       spf=permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbc7yvw6v34lrbdos7deamgqeealh4vq@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) smtp.mailfrom=jewelryorders+bncBC7YVW6V34LRBDOS7DEAMGQEEALH4VQ@sodapoppiercing.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE arc=pass) header.from=glasswearstudios.com;
+       dara=neutral header.i=@sodapoppiercing.com
+ARC-Seal: i=2; a=rsa-sha256; t=1763584270; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=SyaM/2hGGsnAcKiNbKf89RzDxeF52o12ZopSGG1Vmm4K6YL+SpnXdDwHe67dDV/AZH
+         9xy8hmc1HBHn50A8UNd5kiJEjlbo2PJ51QrWhg80GiRrfWN6NOawnTHY0kR1yVNWFDUm
+         j6baIpp3YquDTsVCobUdvHmpnQq1x4rocQPRoIdSFXn3dasJdkyCmP1gdG8X2H9xm5fx
+         DLuwiG//0PwJI8AE4DZzNoklXUM2ubTiJ2L70OhjNRPFJKM31rIwoEQeKjtNIYySixrd
+         xvUiJWFyVQM+ZVP9RE/Qul/STUpNfXuK5mYnRqUI303lG2pn6/N1sC5LnxzSTLO9Yt5Q
+         FJzA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:content-transfer-encoding:message-id:to
+         :from:subject:mime-version:date:sender;
+        bh=d4JMECxoDuUQTyFZoV/bmxc8YD0mJffpZuEh3qzI7Fg=;
+        fh=Q+38oDeBOSBTyH4JACh7ERNDUTDXHTP/cbpATrwwxQo=;
+        b=BOui2FgS0XaxtDckOsrY8udMLsiwhNn5zt2/YuWa3pA6xuawA12LJn4V9btIxjfPHU
+         BrjNnI+2OvmB91ri64SE0tBrCaWTkUeKWYbY8MQBnTDcMXcK3FEKdQGP2vxkJiZi7isM
+         mrDNSTQ8asMDqejIJMYxu0JDG0uk2t9BYgvTINqJ4FkHWICst2BQFk1BWtEb441NJS6x
+         fygrjDMAtZ8qt4+6mDlnBjDG9QkVKSyvXw3yK7i34+9TBKqXayjG+i8OqYjJFPF6JxiY
+         m+aniWauXcmtCTrkyqVtHV+1/DUpAXdntGj/eFkYyjqCA3WxQIMeGhACcbnkRCDfMXde
+         8BYA==;
+        darn=sodapoppiercing.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@glasswearstudios.com header.s=pic header.b=rWh6POJM;
+       spf=pass (google.com: domain of bounce+a027da.419313-jewelryorders=sodapoppiercing.com@glasswearstudios.com designates 159.112.241.230 as permitted sender) smtp.mailfrom="bounce+a027da.419313-jewelryorders=sodapoppiercing.com@glasswearstudios.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=glasswearstudios.com
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763584270; x=1764189070;
+        h=list-unsubscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-original-authentication-results:x-original-sender
+         :content-transfer-encoding:message-id:to:from:subject:mime-version
+         :date:sender:x-beenthere:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=d4JMECxoDuUQTyFZoV/bmxc8YD0mJffpZuEh3qzI7Fg=;
+        b=h3mEWNtE0tN//wxNx8OzdId55BEhyR1V0TGzz34IC7Atvc74Upl2EcwQCLXuQrljDB
+         hLdBTN/jaJ3lrksLCl/hEQnyPBgjp1IOBI8/4YKflvbrjawk13JZ3cQqzT6Umnng7CRq
+         X78X+Pu6HYK5f4KuSAu1UjT8XhMgz4sTSSbH0ne0QqVOrAU4LqD0da3Pep6X2ZWX/EgE
+         kVdn+SKTbHMdx6pm5F5WYZq0yfKZ6znrNLLOVWU6vouoXHX9512e4iDARVChCKohnGbd
+         YJRU9e9r5fx9mdt0Ok+2ewz/D6E8hqSg9W2UOmn5UZD85yrJnHOo1czttTaZLE24bzQd
+         IYqg==
+X-Forwarded-Encrypted: i=2; AJvYcCUCcL51qOA2YzExwDpxTBF/WGwPk3bPS+fEFCmnMkEwXR5cdL/cz8NOxWruS7iwSwOqW8ay@sodapoppiercing.com
+X-Gm-Message-State: AOJu0Yx87TKg57gUpB9+edoMxjlCUxHoofRRz72KmWaL6H+CbSFTWzKU
+	meeOyqu3ubnxv2pXjcloMteD2839D7BQi+sMS+Z1oWfV9qJmMAMBMXv6RAxEOld6appAVg==
+X-Google-Smtp-Source: AGHT+IHI/wA2zv8F7UOLX4q6ZppJKnpFLp99h5QVXdWs6yKZq86vWMx9dE40I0y/vQxKoMUcQxE/1Q==
+X-Received: by 2002:ac8:5a03:0:b0:4ee:1b0e:861d with SMTP id d75a77b69052e-4ee49f9123cmr5303471cf.26.1763584269787;
+        Wed, 19 Nov 2025 12:31:09 -0800 (PST)
+X-BeenThere: jewelryorders@sodapoppiercing.com; h="Ae8XA+ayZlyYBR7ucYNM4sbnTwDsEWy3X0eJ7v9/bMB9ROwfQA=="
+Received: by 2002:ac8:578d:0:b0:4ee:217f:a9d9 with SMTP id d75a77b69052e-4ee490be641ls5100751cf.0.-pod-prod-03-us;
+ Wed, 19 Nov 2025 12:31:09 -0800 (PST)
+X-Received: by 2002:ac8:7d0b:0:b0:4ee:9b1:e2e with SMTP id d75a77b69052e-4ee49f33220mr5651361cf.6.1763584268947;
+        Wed, 19 Nov 2025 12:31:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1763584268; cv=none;
+        d=google.com; s=arc-20240605;
+        b=RfhY3INy0gXbxn2ahx6AaLG20RN3T8oEk2xa06oRLckBE1TcV+XMlORWBgsRoj9R9J
+         QB3lQ7dmrZwWWYlU8LQzjYZbN/+RDJM675xdfKGNnMYthgTUQqDw1vGuXse31Gvrxcvy
+         st67bH4l46zMGZihJY8WK74miciPHk2mhhKm/s+LrtqPPiX9n58xgCr9MWTpL5PUlKxF
+         sDU/DSMB0GewUekUiV4YqKSWJQy/qZvW6Vpavkppe7bO/+fiC+3bohRiufZTaCoOVj/u
+         QqF/Ab/bJcWE3a4nv8bUiDeF083ReqQWNOqjDWxGgLOYTdfcR0/pXDB2QLOMAHVB0wkt
+         QN4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:message-id:to:from:subject:mime-version
+         :date:sender:dkim-signature;
+        bh=d4JMECxoDuUQTyFZoV/bmxc8YD0mJffpZuEh3qzI7Fg=;
+        fh=b46/NFn5bF9MYzoq0g4JWmajhnTmrcwb44ZgZEAaibo=;
+        b=HPalbVKf/mS4QhLGCt/9tvf5PXRa3Ap/aATTJsjarkNFK4TuP6iF6l3rO8gnIDcQZJ
+         eAvfjc/rEvt1D01jLZAmgL3or1skZGe8zC/AOonJMevHZMjYPz0ifWjcHg+EmbUS7NOT
+         idR6MOAFpo8lV06n8x4ImDIt5ImBDN3e99siJ4FxJW30Y5scJM9+0IHSZqc6EZIzaooU
+         7pu+TgRZmaO5T7mi1EOTh2RwQT+XC/zF5cEaFm3X02+QlITbKeIwYpE5XNWKf7CvgGQG
+         w331Wch/F+WzRlbolrse1J2fiNc+wqMAUg61vQc1CHZGuoyN/1nvoPtwMNO1KcaKYy83
+         O86A==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@glasswearstudios.com header.s=pic header.b=rWh6POJM;
+       spf=pass (google.com: domain of bounce+a027da.419313-jewelryorders=sodapoppiercing.com@glasswearstudios.com designates 159.112.241.230 as permitted sender) smtp.mailfrom="bounce+a027da.419313-jewelryorders=sodapoppiercing.com@glasswearstudios.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=glasswearstudios.com
+Received: from m241-230.mailgun.net (m241-230.mailgun.net. [159.112.241.230])
+        by mx.google.com with UTF8SMTPS id d75a77b69052e-4ee48e49ddbsi2069421cf.355.2025.11.19.12.31.08
+        for <jewelryorders@sodapoppiercing.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 19 Nov 2025 12:31:08 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce+a027da.419313-jewelryorders=sodapoppiercing.com@glasswearstudios.com designates 159.112.241.230 as permitted sender) client-ip=159.112.241.230;
+X-Mailgun-Sid: WyI1M2EwNCIsImpld2VscnlvcmRlcnNAc29kYXBvcHBpZXJjaW5nLmNvbSIsIjQxOTMxMyJd
+Received: by ec01d9e4ec029814640d9547d8f0ae900b85072694c10b096dc1273fa7327a07 with HTTP
+ id 691e290c170c55748eba4cb1; Wed, 19 Nov 2025 20:31:08 GMT
+X-Mailgun-Sending-Ip-Pool-Name: Tenant Transactional IPs
+X-Mailgun-Sending-Ip-Pool: 6894d2793962fb7097469a38
+X-Mailgun-Sending-Ip: 159.112.241.230
+Sender: office@glasswearstudios.com
+Date: Wed, 19 Nov 2025 20:31:08 +0000
+Mime-Version: 1.0
+Subject: Glasswear Studios, Inc. Order Confirmation
+From: "office@glasswearstudios.com" <office@glasswearstudios.com>
+To: jewelryorders@sodapoppiercing.com
+Message-Id: <20251119203108.3ff92baab29f8686@glasswearstudios.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=ascii
+X-Original-Sender: office@glasswearstudios.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@glasswearstudios.com header.s=pic header.b=rWh6POJM;       spf=pass
+ (google.com: domain of bounce+a027da.419313-jewelryorders=sodapoppiercing.com@glasswearstudios.com
+ designates 159.112.241.230 as permitted sender) smtp.mailfrom="bounce+a027da.419313-jewelryorders=sodapoppiercing.com@glasswearstudios.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=glasswearstudios.com
+Precedence: list
+Mailing-list: list jewelryorders@sodapoppiercing.com; contact jewelryorders+owners@sodapoppiercing.com
+List-ID: <jewelryorders.sodapoppiercing.com>
+X-Spam-Checked-In-Group: jewelryorders@sodapoppiercing.com
+X-Google-Group-Id: 479861830095
+List-Post: <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/post>,
+ <mailto:jewelryorders@sodapoppiercing.com>
+List-Help: <https://support.google.com/a/sodapoppiercing.com/bin/topic.py?topic=25838>,
+ <mailto:jewelryorders+help@sodapoppiercing.com>
+List-Archive: <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/>
+List-Unsubscribe: <mailto:googlegroups-manage+479861830095+unsubscribe@googlegroups.com>,
+ <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/subscribe>
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+<script type=3D"application/ld+json">{"@context":"https://schema.org","@typ=
+e":"Order","orderNumber":34064,"orderDate":"2025-11-19","customer":{"@type"=
+:"Person","name":"William Wood","email":"mailto:jewelryorders@sodapoppierci=
+ng.com","telephone":"(503) 880-6610","address":{"@type":"PostalAddress","ad=
+dressCountry":"United States","addressLocality":"Portland","addressRegion":=
+"OR","postalCode":"97227","streetAddress":"3972 N Mississippi Ave, "}},"bil=
+lingAddress":{"@type":"PostalAddress","addressCountry":"United States","add=
+ressLocality":"Portland","addressRegion":"OR","postalCode":"97227","streetA=
+ddress":"3972 N Mississippi Ave, "}}</script>
+</head>
+<style type=3D"text/css">body,table,td {font: 11px Verdana; color: #000000;=
+}</style>
+<body text=3D"#000000">
+<table width=3D"650" border=3D"1" cellspacing=3D"0" cellpadding=3D"20" bgco=
+lor=3D"#FFFFFF" bordercolor=3D"#CCCCCC" align=3D"center">
+  <tr>
+    <td>
+      <table width=3D"100%" border=3D"0" cellspacing=3D"1" cellpadding=3D"5=
+">
+        <tr valign=3D"top">=20
+          <td><a href=3D"http://www.glasswearstudios.com/Default.asp"><img =
+src=3D"https://www.glasswearstudios.com/v/vspfiles/templates/District2.5/im=
+ages/company/logo.jpg" border=3D0></a></td>
+		  <td align=3D"right">CustomerID# 19122</td>
+		</tr>
+	  </table>
+	  <br>
+      <br>
+      Thank you for your order. Your order number is 34064, placed 11/19/20=
+25
+      at 12:31PM. <br>
+      <br>
+      <table width=3D"100%" border=3D"0" cellspacing=3D"1" cellpadding=3D"5=
+">
+        <tr valign=3D"top">=20
+          <td><b>Bill To:</b><br> <br>
+            Soda Pop Piercing<br /> William&nbsp;Wood<br>
+            3972 N Mississippi Ave<br>
+             Portland, OR&nbsp;97227=20
+            <br>
+            United States <br>
+            (503) 880-6610<br>
+			jewelryorders@sodapoppiercing.com<br>
+			<br></td>
+          <td><b>Ship To:</b><br> <br>
+            Soda Pop Piercing<br /> William&nbsp;Wood<br>
+            3972 N Mississippi Ave<br>
+             Portland, OR&nbsp;97227=20
+            <br>
+            United States <br>
+            (503) 880-6610 <br> </td>
+        </tr>
+        <tr valign=3D"top">=20
+          <td><b>Payment Info:</b> <br> <br>
+            <b>Credit Card</b>:&nbsp;<span class=3D"span_CardType">American=
+ Express</span><br> Exp: 05/2029<br>************1010<br> <br> </td>
+          <td><b>Shipping Method:</b><br> <br>
+            U.P.S. Ground<br> </td>
+        </tr>
+        <tr valign=3D"top">=20
+          <td colspan=3D"2"><b>Order Details:</b><br> <br>
+            <table width=3D"100%" bgcolor=3D"#EEEEEE"><tr><td><b>Code</b></=
+td><td><b>Item</b></td><td><b>Quanty (sold per piece)</b></td><td><b>Price<=
+/b></td><td><b>Grand Total</b></td></tr><tr><td>CFP-GRN-SF-0019</td><td>Col=
+orfront Plug - Green - Single Flare - 19mm - 3/4"<br /></td><td>2</td><td><=
+nobr>$8.55</nobr></td><td><nobr>$17.10</nobr></td></tr><tr><td>CFP-BLK-SF-0=
+019</td><td>Colorfront Plug - Black - Single Flare - 19mm - 3/4"<br /></td>=
+<td>2</td><td><nobr>$8.55</nobr></td><td><nobr>$17.10</nobr></td></tr><tr><=
+td>QNS-0001</td><td>Nostril Screw Retainer - 18 gauge 1mm - Straight - WS -=
+ 6.5mm - 1/4"<br /></td><td>10</td><td><nobr>$4.75</nobr></td><td><nobr>$47=
+=2E50</nobr></td></tr><tr><td>QNS-0004<=
+/td><td>Nostril Screw Retainer - 18 ga=
+uge 1mm - Straight - WS - 8mm - 5/16"<br /></td><td>15</td><td><nobr>$4.75<=
+/nobr></td><td><nobr>$71.25</nobr></td></tr><tr><td>QNS-0007</td><td>Nostri=
+l Screw Retainer - 18 gauge 1mm - Straight - WS - 9.5mm - 3/8"<br /></td><t=
+d>10</td><td><nobr>$4.75</nobr></td><td><nobr>$47.50</nobr></td></tr><tr><t=
+d>QNS-0010</td><td>Nostril Screw Retainer - 16 gauge 1.3mm - Straight - WS =
+- 6.5mm - 1/4"<br /></td><td>10</td><td><nobr>$4.75</nobr></td><td><nobr>$4=
+7.50</nobr></td></tr><tr><td>QNS-0016</td><td>Nostril Screw Retainer - 16 g=
+auge 1.3mm - Straight - WS - 9.5mm - 3/8"<br /></td><td>5</td><td><nobr>$4.=
+75</nobr></td><td><nobr>$23.75</nobr></td></tr><tr><td>QN-0002</td><td>Flat=
+ Flare Curve Retainer (navel, vertical labret) - 16 gauge 1.3mm - WS - 8mm =
+- 5/16"<br /></td><td>5</td><td><nobr>$4.28</nobr></td><td><nobr>$21.40</no=
+br></td></tr><tr><td>QN-0003</td><td>Flat Flare Curve Retainer (navel, vert=
+ical labret) - 16 gauge 1.3mm - WS - 9.5mm - 3/8"<br /></td><td>5</td><td><=
+nobr>$4.28</nobr></td><td><nobr>$21.40</nobr></td></tr><tr><td>QN-0004</td>=
+<td>Flat Flare Curve Retainer (navel, vertical labret) - 16 gauge 1.3mm - W=
+S - 11mm - 7/16"<br /></td><td>5</td><td><nobr>$4.28</nobr></td><td><nobr>$=
+21.40</nobr></td></tr><tr><td>QSF-0023</td><td>Single Flare Retainer - 14 g=
+auge 1.5mm - Large Flare (appx 3mm larger than gauge) - WS - 8mm - 5/16"<br=
+ /></td><td>5</td><td><nobr>$3.80</nobr></td><td><nobr>$19.00</nobr></td></=
+tr><tr><td>QSF-0025</td><td>Single Flare Retainer - 14 gauge 1.5mm - Large =
+Flare (appx 3mm larger than gauge) - WS - 9.5mm - 3/8"<br /></td><td>5</td>=
+<td><nobr>$3.80</nobr></td><td><nobr>$19.00</nobr></td></tr><tr><td>QNF-001=
+7</td><td>No Flare Bar - 14 gauge 1.5mm - WS - 16mm - 5/8"<br /></td><td>5<=
+/td><td><nobr>$3.33</nobr></td><td><nobr>$16.65</nobr></td></tr><tr><td>QNF=
+-0023</td><td>No Flare Bar - 12 gauge 2mm - WS - 16mm - 5/8"<br /></td><td>=
+5</td><td><nobr>$3.80</nobr></td><td><nobr>$19.00</nobr></td></tr><tr><td>Q=
+NF-0024</td><td>No Flare Bar - 12 gauge 2mm - WS - 19mm - 3/4"<br /></td><t=
+d>3</td><td><nobr>$3.80</nobr></td><td><nobr>$11.40</nobr></td></tr><tr><td=
+>CFP-WHT-SF-0002</td><td>Colorfront Plug - White - Single Flare - 2.5mm - 1=
+0gauge<br /></td><td>4</td><td><nobr>$2.85</nobr></td><td><nobr>$11.40</nob=
+r></td></tr><tr><td>CFP-WHT-SF-0003</td><td>Colorfront Plug - White - Singl=
+e Flare - 3mm - 8gauge<br /></td><td>7</td><td><nobr>$3.32</nobr></td><td><=
+nobr>$23.24</nobr></td></tr><tr><td>CFP-WHT-SF-0004</td><td>Colorfront Plug=
+ - White - Single Flare - 4mm - 6gauge<br /></td><td>2</td><td><nobr>$3.80<=
+/nobr></td><td><nobr>$7.60</nobr></td></tr><tr><td>CFP-WHT-SF-0005</td><td>=
+Colorfront Plug - White - Single Flare - 5mm - 4gauge<br /></td><td>2</td><=
+td><nobr>$3.80</nobr></td><td><nobr>$7.60</nobr></td></tr><tr><td>CFP-WHT-S=
+F-0006</td><td>Colorfront Plug - White - Single Flare - 6mm ~ 2gauge<br /><=
+/td><td>2</td><td><nobr>$4.28</nobr></td><td><nobr>$8.56</nobr></td></tr><t=
+r><td>CFP-WHT-SF-0007</td><td>Colorfront Plug - White - Single Flare - 7mm =
+- 1gauge<br /></td><td>2</td><td><nobr>$4.75</nobr></td><td><nobr>$9.50</no=
+br></td></tr><tr><td>CFP-WHT-SF-0009</td><td>Colorfront Plug - White - Sing=
+le Flare - 9mm ~ 00g<br /></td><td>2</td><td><nobr>$5.70</nobr></td><td><no=
+br>$11.40</nobr></td></tr><tr><td>CFP-WHT-SF-0013</td><td>Colorfront Plug -=
+ White - Single Flare - 13mm - 1/2"<br /></td><td>2</td><td><nobr>$6.65</no=
+br></td><td><nobr>$13.30</nobr></td></tr><tr><td>CFP-BLK-SF-0001</td><td>Co=
+lorfront Plug - Black - Single Flare - 2mm - 12gauge<br /></td><td>7</td><t=
+d><nobr>$2.85</nobr></td><td><nobr>$19.95</nobr></td></tr><tr><td>CFP-BLK-S=
+F-0002</td><td>Colorfront Plug - Black - Single Flare - 2.5mm - 10gauge<br =
+/></td><td>3</td><td><nobr>$2.85</nobr></td><td><nobr>$8.55</nobr></td></tr=
+><tr><td>CFP-BLK-SF-0003</td><td>Colorfront Plug - Black - Single Flare - 3=
+mm - 8gauge<br /></td><td>6</td><td><nobr>$3.32</nobr></td><td><nobr>$19.92=
+</nobr></td></tr><tr><td>CFP-BLK-SF-0004</td><td>Colorfront Plug - Black - =
+Single Flare - 4mm - 6gauge<br /></td><td>6</td><td><nobr>$3.80</nobr></td>=
+<td><nobr>$22.80</nobr></td></tr><tr><td>CFP-BLK-SF-0005</td><td>Colorfront=
+ Plug - Black - Single Flare - 5mm - 4gauge<br /></td><td>2</td><td><nobr>$=
+3.80</nobr></td><td><nobr>$7.60</nobr></td></tr><tr><td>CFP-BLK-SF-0006</td=
+><td>Colorfront Plug - Black - Single Flare - 6mm ~ 2gauge<br /></td><td>4<=
+/td><td><nobr>$4.28</nobr></td><td><nobr>$17.12</nobr></td></tr><tr><td>CFP=
+-BLK-SF-0008</td><td>Colorfront Plug - Black - Single Flare - 8mm - 0gauge<=
+br /></td><td>2</td><td><nobr>$5.22</nobr></td><td><nobr>$10.44</nobr></td>=
+</tr><tr><td>DSC-96</td><td>Wholesale new member<br /></td><td>1</td><td><n=
+obr>-$92.99</nobr></td><td><nobr>-$92.99</nobr></td></tr><tr><td colspan=3D=
+5>&nbsp;</td></tr><tr><td colspan=3D3>&nbsp;</td><td align=3D"right"> Subto=
+tal: </td><td>$526.94</td></tr><tr><td colspan=3D3>&nbsp;</td><td align=3D"=
+right"> Tax: </td><td>$0.00</td></tr><tr><td colspan=3D3>&nbsp;</td><td ali=
+gn=3D"right"> Shipping Cost: </td><td>$11.45</td></tr><tr><td colspan=3D3>&=
+nbsp;</td><td align=3D"right"> Grand Total: </td><td>$538.39</td></tr></tab=
+le> <br> </td>
+        </tr>
+      </table>
+	 =20
+      <br>
+      <br>
+      Thank you for shopping at Glasswear Studios, Inc.!<br>
+      Visit us again at <a href=3D"http://www.glasswearstudios.com/">http:/=
+/www.glasswearstudios.com/</a></td>
+  </tr>
+</table>
+</body>
+</html>

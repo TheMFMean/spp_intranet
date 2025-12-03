@@ -1,0 +1,84 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  // URL is provided via prisma.config.ts / env(DATABASE_URL) in your setup
+  // If you ever need it inline instead, you can add:
+  // url = env("DATABASE_URL")
+}
+
+model Order {
+  id                String      @id @default(cuid())
+  vendorId          String
+  vendorOrderNumber String?
+  customerId        String?
+  gmailMessageId    String      @unique
+  gmailThreadId     String?
+  orderDate         DateTime?
+
+  // Lifecycle status from parsers / event detection
+  orderStatus       String?
+
+  billTo            String?
+  shipTo            String?
+
+  subtotal          Decimal?    @db.Decimal(10, 2)
+  shipping          Decimal?    @db.Decimal(10, 2)
+  tax               Decimal?    @db.Decimal(10, 2)
+  total             Decimal?    @db.Decimal(10, 2)
+  currency          String?     @default("USD")
+
+  rawText           String?
+  parsedJson        Json?
+  attachments       Json?
+  primaryPdfFilename String?
+  vendorMeta        Json?
+
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  items             OrderItem[]
+
+  @@index([vendorId, vendorOrderNumber])
+}
+
+model OrderItem {
+  id          String   @id @default(cuid())
+
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  // Line level data
+  lineNumber  Int?
+  description String
+  quantity    Int      @default(1)
+  unitPrice   Decimal? @db.Decimal(10, 2)
+  lineTotal   Decimal? @db.Decimal(10, 2)
+
+  // Vendor and internal identification
+  vendor_sku       String?   // vendor specific SKU, from email (Glasswear code, NeoMetal code, etc)
+  sku              String?   // can be used as canonical or legacy SKU
+  internalSku      String?
+  vendorMeta       Json?
+
+  // Duplicated order level metadata for analytics and easier querying
+  vendorId          String?
+  vendorOrderNumber String?
+  orderDate         DateTime?
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([orderId])
+  @@index([vendorId, vendorOrderNumber])
+}

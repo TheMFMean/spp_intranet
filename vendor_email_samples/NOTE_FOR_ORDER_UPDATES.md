@@ -1,0 +1,1 @@
+Note: some vendors may send order “update” emails. These will have to be compared to original order to determine the difference and not duplicate items in our data

@@ -1,0 +1,832 @@
+Delivered-To: matt@sodapoppiercing.com
+Received: by 2002:a05:7010:352:b0:48c:9c56:1db1 with SMTP id o18csp1858593mdh;
+        Tue, 9 Sep 2025 06:46:45 -0700 (PDT)
+X-Forwarded-Encrypted: i=4; AJvYcCWciJUaA0/VL0Ny8PRMYcB2U0QLz/FzFXLI2FFtgMH0EQ3CQYmwtzwapQ328DQnPahNBM/F@sodapoppiercing.com
+X-Received: by 2002:a05:6830:2a03:b0:741:bf2f:ee87 with SMTP id 46e09a7af769-74c7da81da0mr8462282a34.0.1757425604955;
+        Tue, 09 Sep 2025 06:46:44 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1757425604; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=cuqhsrKO1jrjd4+Wlst55+YtveTv/WXx+ayreGyquyGXpJv19a4vcVRyfkD2eS2vIE
+         qI4BUkzXLjDgU0sXlCPlRhWULxFCamdgC4ftQ1iadiWbtvaWxvcCmSR2Cf4qL02YMl+T
+         Y5ZTxAcBk3lbfZGkskHqD/az/OPlEzGEu8Cat1eYCsbjhEr1UW1sr0Wv9lSF3nhNtLR/
+         96rsUaDe6qm/uvuq1++x1k+iKdfj6CRFijZboqw2bX+cwFdFkx60Vkemo3LbGjAtpRzV
+         jYhDXcXdbW+8ZAKDfgYk0nRSK7kJGs4ogcPuQdxF51osnAYqPZTE7wGo5F9X7q9pBAIK
+         oY6A==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:to:feedback-id:reply-to:subject:message-id
+         :mime-version:from:date:dkim-signature;
+        bh=XWCr9AWVtO9V+sPZQBSdYgCzP9IGDJT88D14ouSJJ+A=;
+        fh=H55ySFfk5ZASIC0boURx/IMfnHPIaE+XNLBAj8xcLfQ=;
+        b=Q1xTA31jfVDzgOyHaQdm0zqipIYr4j1Z28Ejp9b4pLyW36CVRyg8p40z2h9VzKnE4P
+         TD6cG9IG6z+ibJAWElBWAAlu2Jj5T6anmfcN+BRBfq+l4YW32inVeVNWpG7ivO6p4ytk
+         EdZep+Vrdl+pEBMsd7qrm8f+dKQs0iT920AR+nHksG4vaTNTavTyFuRX9AQWA/I5B4L/
+         WZLrCus+fXDLOPL6PqD0uMFcMucixor/CUnIQ65ZJh2mblrfOoKndXgxu8YLsfjurhYt
+         GFyt1cx3cyb/7KdOr+jttIvJWUHc2JKJ8RkoxKyuwGMxjjn4FTyHDacT3LFNEF6H660L
+         P1Hg==;
+        dara=google.com
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@sodapoppiercing-com.20230601.gappssmtp.com header.s=20230601 header.b=p58PZ7k2;
+       arc=pass (i=2 spf=pass spfdomain=mailer.t.shopifyemail.com dkim=pass dkdomain=t.shopifyemail.com dmarc=pass fromdomain=shopifyemail.com);
+       spf=permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbaabbqw7qddamgqeif45eyi@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) smtp.mailfrom=jewelryorders+bncBAABBQW7QDDAMGQEIF45EYI@sodapoppiercing.com;
+       dara=pass header.i=@sodapoppiercing.com
+Return-Path: <jewelryorders+bncBAABBQW7QDDAMGQEIF45EYI@sodapoppiercing.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 8926c6da1cb9f-5106a8c5bfasor2138830173.2.2025.09.09.06.46.44
+        for <matt@sodapoppiercing.com>
+        (Google Transport Security);
+        Tue, 09 Sep 2025 06:46:44 -0700 (PDT)
+Received-SPF: permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbaabbqw7qddamgqeif45eyi@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@sodapoppiercing-com.20230601.gappssmtp.com header.s=20230601 header.b=p58PZ7k2;
+       arc=pass (i=2 spf=pass spfdomain=mailer.t.shopifyemail.com dkim=pass dkdomain=t.shopifyemail.com dmarc=pass fromdomain=shopifyemail.com);
+       spf=permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbaabbqw7qddamgqeif45eyi@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) smtp.mailfrom=jewelryorders+bncBAABBQW7QDDAMGQEIF45EYI@sodapoppiercing.com;
+       dara=pass header.i=@sodapoppiercing.com
+ARC-Seal: i=2; a=rsa-sha256; t=1757425604; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=Y3EWAKD/3jEz9+iX3h6gsDvVKlEfN8yei1zu/q3TCrns93hsXZwMYpD1aYx2nMDEEV
+         CNosS/p8q2WwjcBG2iaJi7EDvMKSSdf3yoollmNAaT3I+NEZ8Gbz8+nyVsUSMiax6/c3
+         cGqG4FUGIeKswmhryzS2BTv4vF+nLbBTa3oa5E0gs8tUHPTYMYisp9IsrKu3hMS4Kmsl
+         9nrdYUfQC+Lwi58xbWWAQyTiQoGdjNUJmc12Gtrm0msXQ8TXz+u0QWeXK0W/gCyq2CSx
+         ru9IAO8YNWm5Sr41IOx/QGp5qS+w8BvHWlWojkzqli6JJUpeKDpaIPJYu2qn4lBucKLy
+         aQBw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:to:feedback-id:reply-to:subject:message-id
+         :mime-version:from:date:dkim-signature;
+        bh=XWCr9AWVtO9V+sPZQBSdYgCzP9IGDJT88D14ouSJJ+A=;
+        fh=H55ySFfk5ZASIC0boURx/IMfnHPIaE+XNLBAj8xcLfQ=;
+        b=L6cl0L1A6Bka20StldYUOABjcdi8CjfFkzVNvQ4OpnIBUsqB+UK1TYJxxf/i/a9+GR
+         hIL8jYf3OCIYLPv5LyBAsq0FSvXYAwHrOSP0jYroaIdMyhZxp0NVvd9bRKCu8TlIKnrF
+         AsK45SqI5VK/ZufF2vNuii4XmT5yQNY9SQrHPjNzhwvwBYfYcTFUTZ/HmGJBFd0tINKi
+         E2kxJYADOqJH9hiytrBZLOZSFh+6ldbFw5WZRyBpbTYWqKPgE1JdZTO2FHva+IM2PzVw
+         wo+Uf6sqUuHtu+tUznv4IU17n88Un8I07/8+Z1VS9dFmDG1TZmf0Hc8yIuGJEwPHertI
+         Dk9w==;
+        darn=sodapoppiercing.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@t.shopifyemail.com header.s=s1 header.b=HN7NDkFx;
+       spf=pass (google.com: domain of bounces+10739947-da77-jewelryorders=sodapoppiercing.com@mailer.t.shopifyemail.com designates 149.72.250.101 as permitted sender) smtp.mailfrom="bounces+10739947-da77-jewelryorders=sodapoppiercing.com@mailer.t.shopifyemail.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=shopifyemail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sodapoppiercing-com.20230601.gappssmtp.com; s=20230601; t=1757425604; x=1758030404; darn=sodapoppiercing.com;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:x-original-authentication-results
+         :x-original-sender:to:feedback-id:reply-to:subject:message-id
+         :mime-version:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=XWCr9AWVtO9V+sPZQBSdYgCzP9IGDJT88D14ouSJJ+A=;
+        b=p58PZ7k2kXQRf4olpya4udbUgi79VIRi6Ev1eKBfAmhmBg0PmSkxCNOrqOSfnv1n4J
+         nCJPc6hKDQZA3igCG9nG0qp40NWJ3bdmKLixTA8OkpvLwH71EokWETIXKszp26yoSaEl
+         djWek7rdkAroyNEuGbWNRtHp8Dz9hneX3LdQsLYGtsevjuUObUWy2/hqioR2ObCsKWsq
+         lKtKoaV66im4Elesl/39uAbyppaiy3nKD19lA1kmNpy7xYy4Jqax0lfsuIJJOckZj1rY
+         l1ZJtI3046cAvW+BenvXFf8ej/9oQQSfCB8d3Gwh0hegiaB4geIfmpQH0y70CMuM3WTu
+         d2Sw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757425604; x=1758030404;
+        h=list-unsubscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-original-authentication-results:x-original-sender:to:feedback-id
+         :reply-to:subject:message-id:mime-version:from:date:x-beenthere
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XWCr9AWVtO9V+sPZQBSdYgCzP9IGDJT88D14ouSJJ+A=;
+        b=EOxw5YpkvbsOkmJKLvzy6IANe59f88WAAKJjRhpnfpmdiRgtzi4rlMIvrNDh8dzo2J
+         MPhlhIHcDQ45nXJ11ExCookFXGlyywvUw1YG870Sr5ivO9MMtpmin9g+INz2pzrebZ42
+         w/OAyaDLFMXWdTSNnINAS2QkI7YLXaIdkXc77DWngzLVEf4shW/a7GAyQqdpXo2CTBTY
+         o4KZel+iOjGDtKCZBzBzsz+z4qVTC7KtyKZjy+zI7HTGG4w/7HR/PKKk+51KuQv/OkyX
+         nwwGjHHaQIOFQxAIHEDpHHxQGA4ERTKbW6aJqhtx4wcoFyJPgiagOzZDwdLQdY4649ON
+         Pn2Q==
+X-Forwarded-Encrypted: i=2; AJvYcCXP/NOoGXG7g1tZ3Xy4/KxPmXT5rpLD6VLGQARMST7327oz+Be/sk4ePvr52ZJ9SeoAlNAt@sodapoppiercing.com
+X-Gm-Message-State: AOJu0YzljUQXoLnpZjM75mq6m6oXOvBIzYHfsXKKBg1C/V0QWQ8eviqR
+	f/ekpWOM7bq53CttxQhp0YVp7+8hBu1dhCXGznNHJ5L8QsIsvdYcvCfVYzzo2uPnAxCWJg==
+X-Google-Smtp-Source: AGHT+IHSmqiF5zhVctdOqd+ScQ52Ha6oEIHEjKBiUvsR7Y7Ee3suE5Uq/aKn2LlSXVzuWha+k8wU5w==
+X-Received: by 2002:a05:622a:124c:b0:4b3:4d20:2fb with SMTP id d75a77b69052e-4b5f847c5aamr143110511cf.37.1757425602941;
+        Tue, 09 Sep 2025 06:46:42 -0700 (PDT)
+X-BeenThere: jewelryorders@sodapoppiercing.com; h=AZMbMZcMTT/U2pl9vlmmlGbsT+TIOl7sQMIE5r1MVHm+blxgGA==
+Received: by 2002:ac8:5f0a:0:b0:4b3:49d8:e669 with SMTP id d75a77b69052e-4b5eaa1ec4cls52574891cf.2.-pod-prod-00-us;
+ Tue, 09 Sep 2025 06:46:42 -0700 (PDT)
+X-Received: by 2002:a05:622a:d0:b0:4b4:3789:53db with SMTP id d75a77b69052e-4b5f8382550mr129259061cf.2.1757425601835;
+        Tue, 09 Sep 2025 06:46:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1757425601; cv=none;
+        d=google.com; s=arc-20240605;
+        b=F5jqedlneX/PCY3yStRIiV4PXSspyWHLJrS05fw7R8J5wT8ulF+PUOZYfDIh+SyFD+
+         CTjWMlQ104gzJ/HjWCyU1Ttp9D9+4cXO3eA3xvI4XHztfHdbZyyhOlI0ia5IvPILb7qZ
+         vsvoiKQnDzNPZUxnlZXuL9RNa4aZzC0UQVdFRpQytR6/AoeKKyv8Q9TmKaCzRH3qvS23
+         Oez/5XMwhPqVaCt7h/zuy3LO8RqIboiyKkK5owsVax8M6hZJEnqPpu+N8CYUYQX/xhmn
+         nlhhydPQRczYKLTGfhw1cuda2JyLUgGdcGGy8wsE4s5WVnPgeat9GPNA8H/AUvpRU0wJ
+         bR9Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:feedback-id:reply-to:subject:message-id:mime-version:from:date
+         :dkim-signature;
+        bh=XWCr9AWVtO9V+sPZQBSdYgCzP9IGDJT88D14ouSJJ+A=;
+        fh=b46/NFn5bF9MYzoq0g4JWmajhnTmrcwb44ZgZEAaibo=;
+        b=Yjp3ctNXHzXD30MXm0n664vOvg1pe+LfbcQi5ypZQBCrge65Et4d6rTmEbP4KGd/5L
+         f8ND3MaFuS8azPTj71vS5SlLgSa46gskDr8VAfpe39QTKlfG3MvI0gcJITAsTSfVcXIY
+         oeKPL7tI7NbsyB04jkFEXgRLnYCZ5va6PcrNC9gUzTzWsU78/gV+1yZfMJSy8UoOWnea
+         KnS+nDxFmtOI8XPuKrYr/hviAo/LEuHEgqULXhkyas79i25CtVZmp+BmeGKzgzynlfW3
+         t3RA33zxBBI9qhb3GES0aePAIWBkBlndiAX4CD4bkcg2NlM5psuxDWjqCxX2RKOuqPBI
+         AiSg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@t.shopifyemail.com header.s=s1 header.b=HN7NDkFx;
+       spf=pass (google.com: domain of bounces+10739947-da77-jewelryorders=sodapoppiercing.com@mailer.t.shopifyemail.com designates 149.72.250.101 as permitted sender) smtp.mailfrom="bounces+10739947-da77-jewelryorders=sodapoppiercing.com@mailer.t.shopifyemail.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=shopifyemail.com
+Received: from o19.mailer.shopify.com (o19.mailer.shopify.com. [149.72.250.101])
+        by mx.google.com with ESMTPS id d75a77b69052e-4b61bc32beasi6817381cf.1176.2025.09.09.06.46.41
+        for <jewelryorders@sodapoppiercing.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 09 Sep 2025 06:46:41 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+10739947-da77-jewelryorders=sodapoppiercing.com@mailer.t.shopifyemail.com designates 149.72.250.101 as permitted sender) client-ip=149.72.250.101;
+Received: by recvd-769f975875-t8bjd with SMTP id recvd-769f975875-t8bjd-1-68C02FC1-1F
+	2025-09-09 13:46:41.456904217 +0000 UTC m=+571367.396105726
+Received: from MTA3Mzk5NDc (unknown)
+	by geopod-ismtpd-80 (SG) with HTTP
+	id 9tkAeXQVTAWQUS-yzWx3_Q
+	Tue, 09 Sep 2025 13:46:41.388 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=ebc283ff48af4c8414f91d8f97f28dc04aee198f38fa3813ad5be4aa2ae4
+Date: Tue, 09 Sep 2025 13:46:41 +0000 (UTC)
+From: "'JTW, LLC' via Jewelry Orders" <jewelryorders@sodapoppiercing.com>
+Mime-Version: 1.0
+Message-ID: <E1020004-1863A145E1E39602-B86B0211@shopify.com>
+Subject: Refund notification
+Reply-To: "JTW, LLC" <jtw@jewelrythisway.com>
+Feedback-Id: s_29886972:shopify
+X-SG-EID: =?us-ascii?Q?u001=2EYkX+T+2rv7MYt78wiCXIHuzmTGCetOj3FBxf=2F5OJLQM+Oec0qQCfk6rlZ?=
+ =?us-ascii?Q?7yumn8IjNsmfuwqaxnLnwQJZQT7J1IJJqobPBG2?=
+ =?us-ascii?Q?AWRRhGg8aJbVt8ZSq8VX6vX7KWdtkBCDawGV6yF?=
+ =?us-ascii?Q?9NA5N3ArqDANOUcOdRm0yYSWnP6bFlQqkMxXE4N?=
+ =?us-ascii?Q?axniistGANOF4=2FmOzdCinGKEqPHJjdA8=2FLkN3YU?=
+ =?us-ascii?Q?ZxG6undfe3LcmzyO9PsB=2FY9zmoMMGaTGBbplOn1?=
+ =?us-ascii?Q?8uI4lY1ZINPYpggOXqpGtcoU+g=3D=3D?=
+X-SG-ID: =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprDITwp3LLcgXu9gv?=
+ =?us-ascii?Q?F1Oq5oTf1VY9MM=2F=2FZCviT=2FP37sq3yBfEv7cK=2FQ5?=
+ =?us-ascii?Q?MXeGpsyYoUd5wZ8fGMPybj7Sp8lS1zgTD=2FSMsrI?=
+ =?us-ascii?Q?cRXewmB1cn=2FtB+FiBpzFpHRYP=2FmQ=2FU3dyyEegdF?=
+ =?us-ascii?Q?gj4EdHnSzijFDtfw+aljVcXxY0a=2FLIGdnmWJd+e?=
+ =?us-ascii?Q?TbcMnJP4hA1gXNBGKZFPlFyLKwXXsjeogxmmeZp?=
+ =?us-ascii?Q?SYPCCODoDlrTqC+bhoY0stptFDmtvCmd6Ht=2F=2Fu7?=
+ =?us-ascii?Q?3dZik=2FbLbDvsDN+QyZsUqM5J5Eg0XX=2FUe7qUltM?=
+ =?us-ascii?Q?O67FeQAqlgGSk8ECObkfD04ouKYk+NCTmeHquCw?=
+ =?us-ascii?Q?u=2FHMmTC=2FQNhFFpBcYRVI6q5ss6N7dvWoOlTnpx1?=
+ =?us-ascii?Q?=2Fp+SC2M6i70aJOGaN8Yg7hLT5awA6FZwXise0ml?=
+ =?us-ascii?Q?5+5GCWcBAgCIv4=2F3LjO7YCxvdUUaRjp=2FtrYkH7O?=
+ =?us-ascii?Q?XidAJZg+CPdHmyZ32ZyLEx4KtFY5OYetCOgFMDa?=
+ =?us-ascii?Q?6tfTtPAzSIIAYjgj4Ykr1p=2FwZTDHMMzbZxUHTwn?=
+ =?us-ascii?Q?XW9+Ms=2FNP6xqFWOY5nsDTeEc78795pvUcpdPuM2?=
+ =?us-ascii?Q?Ia64QGvVS=2FOplym4HdexjnVZGYKfRPzYNynks2z?=
+ =?us-ascii?Q?Q3PrFzvl8Sxvqll5atRY4BPF=2FauUmhftXvDP0sl?=
+ =?us-ascii?Q?EL1JKOGRAnyL+Jicw1itYYiCyiwBNmC485at1bi?=
+ =?us-ascii?Q?6aZHaiGaV1uLniGdpzeiW9PFLq9LAqTiQv+kDA9?=
+ =?us-ascii?Q?GhCtz+kbvg3eBLYmExCgpdsCcKO64wrsDTc1Q2t?=
+ =?us-ascii?Q?hcdYdRbzMLINcoeKUQVaX9w9=2FR6swha+vtkHKUy?=
+ =?us-ascii?Q?VqrKtO3HJG6WnGjxjfv24uletG2yR8s9GVXRnv7?=
+ =?us-ascii?Q?MM9WSJ7GKL5we3a2XZwWkhAH7nCpGX6G=2FWqr2IH?=
+ =?us-ascii?Q?S+hAoOz=2FCngJGekjSLSDwj1TDGR0oPC0WR50Z7r?=
+ =?us-ascii?Q?UXNmpw15WsOK83kWoChpEM97if2ug0zYisFRjpN?=
+ =?us-ascii?Q?m5OjLrbV0IyMVLfsmhUY7wqfjAfU28vX=2FMIMBcn?=
+ =?us-ascii?Q?arHZpi5n+v5OPdiSAI43Q0EDidnVdfuZ2asyGYc?=
+ =?us-ascii?Q?WDx0RqHRJlpyUKjM=2FbhXDfzO6KJlz9Ah6g1wjBh?=
+ =?us-ascii?Q?URV3jqJeD6sKqN+DxH2zSvdL36nNHv9Z9noSJni?=
+ =?us-ascii?Q?gI47Zx0SjsgnCeusEU5URy4SfAFOHvsGuPav7=2F5?=
+ =?us-ascii?Q?Iw7j2Vt1q+8P26S736sT04TmTsdZJ5=2FCCx1+M9F?=
+ =?us-ascii?Q?kOlyZ=2FM1aopEYBpTRByd7oCN=2FQa8GsILMOhRtXc?=
+ =?us-ascii?Q?3JyF=2Ffphjvspgr=2F5rOX+cVNXA1zjMerWMZzlTwC?=
+ =?us-ascii?Q?Gun2qSjMlyLq85X+QRgqyolYZqZzf4WlGJjdZYa?=
+ =?us-ascii?Q?SFUW13cebP9SzcI=2FLN7xw4AP6w=2FCRz8PtrI1sZa?=
+ =?us-ascii?Q?=2FWPoIEvYfwkKxscsHFxtlKfzDFCmT9FtR79LAmU?=
+ =?us-ascii?Q?XI2E=2F5oyFYQ3LbTmbf1k1N6Dsij3ka7Z9t4JTwy?=
+ =?us-ascii?Q?ELc5Rze5c=2FyxrApi9nf4Z9WlohfdOyUpg=3D=3D?=
+To: jewelryorders@sodapoppiercing.com
+X-Entity-ID: u001.D9edqrJqq1mBiMWXOpwDgw==
+X-Original-Sender: store+29886972@t.shopifyemail.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@t.shopifyemail.com header.s=s1 header.b=HN7NDkFx;       spf=pass
+ (google.com: domain of bounces+10739947-da77-jewelryorders=sodapoppiercing.com@mailer.t.shopifyemail.com
+ designates 149.72.250.101 as permitted sender) smtp.mailfrom="bounces+10739947-da77-jewelryorders=sodapoppiercing.com@mailer.t.shopifyemail.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=shopifyemail.com
+X-Original-From: "JTW, LLC" <store+29886972@t.shopifyemail.com>
+Precedence: list
+Mailing-list: list jewelryorders@sodapoppiercing.com; contact jewelryorders+owners@sodapoppiercing.com
+List-ID: <jewelryorders.sodapoppiercing.com>
+X-Spam-Checked-In-Group: jewelryorders@sodapoppiercing.com
+X-Google-Group-Id: 479861830095
+List-Post: <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/post>,
+ <mailto:jewelryorders@sodapoppiercing.com>
+List-Help: <https://support.google.com/a/sodapoppiercing.com/bin/topic.py?topic=25838>,
+ <mailto:jewelryorders+help@sodapoppiercing.com>
+List-Archive: <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/>
+List-Unsubscribe: <mailto:googlegroups-manage+479861830095+unsubscribe@googlegroups.com>,
+ <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/subscribe>
+
+--ebc283ff48af4c8414f91d8f97f28dc04aee198f38fa3813ad5be4aa2ae4
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Mime-Version: 1.0
+
+You have received a refund
+
+*****************************************************************
+JTW, LLC=20
+( https://jewelry-this-way.myshopify.com?syclid=3D50d64f78-a03a-4143-8d91-1=
+804e2427f97 )
+
+*****************************************************************
+
+Order #10524
+
+--------------------------
+You have received a refund
+--------------------------
+
+Total amount refunded: $15.06 USD
+
+Order summary
+-------------
+
+Gold Seam Rings - Cup and Divot =D7 1
+
+14K White Gold - Cup and Divot / 18g / 5/16"
+
+$56.98
+
+Subtotal
+
+$56.98
+
+Shipping
+
+$15.06
+
+Taxes
+
+$0.00
+
+Total
+
+$72.04 USD
+
+American Express (ending in 1002)
+
+$72.04
+
+Refund
+
+American express
+
+- $15.06
+
+If you have any questions, reply to this email or
+contact us at jtw@jewelrythisway.com
+--ebc283ff48af4c8414f91d8f97f28dc04aee198f38fa3813ad5be4aa2ae4
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=iso-8859-1
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w=
+3.org/TR/REC-html40/loose.dtd"><html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"/>
+<style>body {
+margin: 0;
+}
+h1 a:hover {
+font-size: 30px; color: #333;
+}
+h1 a:active {
+font-size: 30px; color: #333;
+}
+h1 a:visited {
+font-size: 30px; color: #333;
+}
+a:hover {
+text-decoration: none;
+}
+a:active {
+text-decoration: none;
+}
+a:visited {
+text-decoration: none;
+}
+.button__text:hover {
+color: #fff; text-decoration: none;
+}
+.button__text:active {
+color: #fff; text-decoration: none;
+}
+.button__text:visited {
+color: #fff; text-decoration: none;
+}
+a:hover {
+color: #1990C6;
+}
+a:active {
+color: #1990C6;
+}
+a:visited {
+color: #1990C6;
+}
+@media (max-width: 600px) {
+  .container {
+    width: 94% !important;
+  }
+  .main-action-cell {
+    float: none !important; margin-right: 0 !important;
+  }
+  .secondary-action-cell {
+    text-align: center; width: 100%;
+  }
+  .header {
+    margin-top: 20px !important; margin-bottom: 2px !important;
+  }
+  .shop-name__cell {
+    display: block;
+  }
+  .order-number__cell {
+    display: block; text-align: left !important; margin-top: 20px;
+  }
+  .po-number__cell {
+    display: block; text-align: left !important; margin-top: 5px;
+  }
+  .button {
+    width: 100%;
+  }
+  .or {
+    margin-right: 0 !important;
+  }
+  .apple-wallet-button {
+    text-align: center;
+  }
+  .customer-info__item {
+    display: block; width: 100% !important;
+  }
+  .spacer {
+    display: none;
+  }
+  .subtotal-spacer {
+    display: none;
+  }
+  .return__mobile-padding {
+    margin-top: 19px; padding-top: 19px;
+  }
+}
+</style>
+</head>
+<body style=3D"margin: 0;">
+
+
+
+
+ =20
+  <title>You have received a refund</title>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"/=
+>
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width"/>
+ =20
+ =20
+
+
+ =20
+    <table class=3D"body" style=3D"height: 100% !important; width: 100% !im=
+portant; border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr>
+        <td style=3D"font-family: -apple-system, BlinkMacSystemFont, &#34;S=
+egoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Ca=
+ntarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica Neu=
+e&#34;, sans-serif;">
+          <table class=3D"header row" style=3D"width: 100%; border-spacing:=
+ 0; border-collapse: collapse; margin: 40px 0 20px;">
+  <tbody><tr>
+    <td class=3D"header__cell" style=3D"font-family: -apple-system, BlinkMa=
+cSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;U=
+buntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;,=
+ &#34;Helvetica Neue&#34;, sans-serif;">
+      <center>
+
+        <table class=3D"container" style=3D"width: 560px; text-align: left;=
+ border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+          <tbody><tr>
+            <td style=3D"font-family: -apple-system, BlinkMacSystemFont, &#=
+34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#3=
+4;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica=
+ Neue&#34;, sans-serif;">
+
+              <table class=3D"row" style=3D"width: 100%; border-spacing: 0;=
+ border-collapse: collapse;">
+                <tbody><tr>
+                  <td class=3D"shop-name__cell" style=3D"font-family: -appl=
+e-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Ox=
+ygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34=
+;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif;">
+                      <h1 class=3D"shop-name__text" style=3D"font-weight: n=
+ormal; font-size: 30px; color: #333; margin: 0;">
+                        <a href=3D"https://jewelry-this-way.myshopify.com/_=
+t/c/v3/AADOhg6_DWORgTxR3ea_JbgF1_9gVw28434brld1WpHkh1z5nUwaA-DkN9ZXdcK_joTM=
+avYt4hwbTgHlnWgUxEEFAyKMNeG8IQDiJe3eePK1ip9bS0HQiSflT6bXr3YRALyk2W0CAjwMO27=
+jtHg9e_BVRhwF40s50RRt7Y505eOrwoHxSdccWoq8aMZsO7mKb4cmQiM4A744ASQLmoqnguYPFA=
+WCid_VI8X2j6a29CIYmfTf6QEfvLdqDhmqmlx20f-EYiLWF4WvdATr_vfNOyE7yAhbOiz-4V-xA=
+Oe4pYaD82auTl2q8-BKaCT3I-JbTxU1SCU5Mj6UqDr5zsaAz1DFK97XKarxAix2ONlK2ep-qvlu=
+h17lxDZO" style=3D"font-size: 30px; color: #333; text-decoration: none;">JT=
+W, LLC</a>
+                      </h1>
+                  </td>
+
+                    <td class=3D"order-number__cell" style=3D"font-family: =
+-apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#=
+34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;,=
+ &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; text-transform=
+: uppercase; font-size: 14px; color: #999;" align=3D"right">
+                      <span class=3D"order-number__text" style=3D"font-size=
+: 16px;">
+                        Order #10524
+                      </span>
+                    </td>
+                </tr>
+              </tbody></table>
+
+            </td>
+          </tr>
+        </tbody></table>
+
+      </center>
+    </td>
+  </tr>
+</tbody></table>
+
+          <table class=3D"row content" style=3D"width: 100%; border-spacing=
+: 0; border-collapse: collapse;">
+  <tbody><tr>
+    <td class=3D"content__cell" style=3D"font-family: -apple-system, BlinkM=
+acSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;=
+Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;=
+, &#34;Helvetica Neue&#34;, sans-serif; padding-bottom: 40px; border-width:=
+ 0;">
+      <center>
+        <table class=3D"container" style=3D"width: 560px; text-align: left;=
+ border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+          <tbody><tr>
+            <td style=3D"font-family: -apple-system, BlinkMacSystemFont, &#=
+34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#3=
+4;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica=
+ Neue&#34;, sans-serif;">
+             =20
+            <h2 style=3D"font-weight: normal; font-size: 24px; margin: 0 0 =
+10px;">You have received a refund</h2>
+            <p style=3D"color: #777; line-height: 150%; font-size: 16px; ma=
+rgin: 0;">Total amount refunded: <strong style=3D"font-size: 16px; color: #=
+555;">$15.06 USD</strong></p>
+
+            </td>
+          </tr>
+        </tbody></table>
+      </center>
+    </td>
+  </tr>
+</tbody></table>
+
+          <table class=3D"row section" style=3D"width: 100%; border-spacing=
+: 0; border-collapse: collapse;">
+  <tbody><tr>
+    <td class=3D"section__cell" style=3D"font-family: -apple-system, BlinkM=
+acSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;=
+Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;=
+, &#34;Helvetica Neue&#34;, sans-serif; padding: 40px 0;">
+      <center>
+        <table class=3D"container" style=3D"width: 560px; text-align: left;=
+ border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+          <tbody><tr>
+            <td style=3D"font-family: -apple-system, BlinkMacSystemFont, &#=
+34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#3=
+4;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica=
+ Neue&#34;, sans-serif;">
+              <h3 style=3D"font-weight: normal; font-size: 20px; margin: 0 =
+0 25px;">Order summary</h3>
+            </td>
+          </tr>
+        </tbody></table>
+        <table class=3D"container" style=3D"width: 560px; text-align: left;=
+ border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+          <tbody><tr>
+            <td style=3D"font-family: -apple-system, BlinkMacSystemFont, &#=
+34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#3=
+4;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica=
+ Neue&#34;, sans-serif;">
+             =20
+           =20
+<table class=3D"row" style=3D"width: 100%; border-spacing: 0; border-collap=
+se: collapse;">
+ =20
+  <tbody><tr class=3D"order-list__item" style=3D"width: 100%; border-top-wi=
+dth: 1px; border-top-color: #e5e5e5; border-top-style: none;">
+    <td class=3D"order-list__item__cell" style=3D"font-family: -apple-syste=
+m, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#3=
+4;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid =
+Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif;">
+      <table style=3D"border-spacing: 0; border-collapse: collapse;">
+        <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemF=
+ont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#3=
+4;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;He=
+lvetica Neue&#34;, sans-serif;">
+         =20
+            <img src=3D"https://cdn.shopify.com/s/files/1/2988/6972/product=
+s/af9b845dc215cf26556e1de0e0903c21_f896473f-bcd4-4444-a45e-f7adc5468e06_com=
+pact_cropped.jpg?v=3D1747767782" align=3D"left" width=3D"60" height=3D"60" =
+class=3D"order-list__product-image" style=3D"margin-right: 15px; border-rad=
+ius: 8px; border: 1px solid #e5e5e5;"/>
+         =20
+        </td>
+        <td class=3D"order-list__product-description-cell" style=3D"font-fa=
+mily: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#3=
+4;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans=
+&#34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 1=
+00%;">
+         =20
+
+         =20
+
+          <span class=3D"order-list__item-title" style=3D"font-size: 16px; =
+font-weight: 600; line-height: 1.4; color: #555;">Gold Seam Rings - Cup and=
+ Divot=A0=D7=A01</span><br/>
+
+         =20
+            <span class=3D"order-list__item-variant" style=3D"font-size: 14=
+px; color: #999; font-weight: 400;">14K White Gold - Cup and Divot / 18g / =
+5/16&#34;</span><br/>
+         =20
+
+         =20
+
+         =20
+
+         =20
+           =20
+         =20
+        </td>
+          <td class=3D"order-list__price-cell" style=3D"font-family: -apple=
+-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxy=
+gen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;=
+Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;=
+">
+           =20
+            <p class=3D"order-list__item-price" style=3D"color: #555; line-=
+height: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" ali=
+gn=3D"right">
+             =20
+                $56.98
+             =20
+            </p>
+          </td>
+      </tr></tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+            <table class=3D"row subtotal-lines" style=3D"width: 100%; borde=
+r-spacing: 0; border-collapse: collapse; margin-top: 15px; border-top-width=
+: 1px; border-top-color: #e5e5e5; border-top-style: solid;">
+  <tbody><tr>
+    <td class=3D"subtotal-spacer" style=3D"font-family: -apple-system, Blin=
+kMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#3=
+4;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#3=
+4;, &#34;Helvetica Neue&#34;, sans-serif; width: 40%;"></td>
+    <td style=3D"font-family: -apple-system, BlinkMacSystemFont, &#34;Segoe=
+ UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantar=
+ell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#3=
+4;, sans-serif;">
+      <table class=3D"row subtotal-table" style=3D"width: 100%; border-spac=
+ing: 0; border-collapse: collapse; margin-top: 20px;">
+       =20
+
+       =20
+<tbody><tr class=3D"subtotal-line">
+  <td class=3D"subtotal-line__title" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 2px 0;">
+    <p style=3D"color: #777; line-height: 1.2em; font-size: 16px; margin: 4=
+px 0 0;">
+      <span style=3D"font-size: 16px;">Subtotal</span>
+    </p>
+  </td>
+  <td class=3D"subtotal-line__value" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 2px 0;" align=3D"righ=
+t">
+    <strong style=3D"font-size: 16px; color: #555;">$56.98</strong>
+  </td>
+</tr>
+
+       =20
+         =20
+<tr class=3D"subtotal-line">
+  <td class=3D"subtotal-line__title" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 2px 0;">
+    <p style=3D"color: #777; line-height: 1.2em; font-size: 16px; margin: 4=
+px 0 0;">
+      <span style=3D"font-size: 16px;">Shipping</span>
+    </p>
+  </td>
+  <td class=3D"subtotal-line__value" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 2px 0;" align=3D"righ=
+t">
+    <strong style=3D"font-size: 16px; color: #555;">$15.06</strong>
+  </td>
+</tr>
+
+       =20
+
+       =20
+
+       =20
+<tr class=3D"subtotal-line">
+  <td class=3D"subtotal-line__title" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 2px 0;">
+    <p style=3D"color: #777; line-height: 1.2em; font-size: 16px; margin: 4=
+px 0 0;">
+      <span style=3D"font-size: 16px;">Taxes</span>
+    </p>
+  </td>
+  <td class=3D"subtotal-line__value" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 2px 0;" align=3D"righ=
+t">
+    <strong style=3D"font-size: 16px; color: #555;">$0.00</strong>
+  </td>
+</tr>
+
+
+       =20
+      </tbody></table>
+     =20
+     =20
+     =20
+      <table class=3D"row subtotal-table subtotal-table--total" style=3D"wi=
+dth: 100%; border-spacing: 0; border-collapse: collapse; margin-top: 20px; =
+border-top-width: 2px; border-top-color: #e5e5e5; border-top-style: solid;"=
+>
+     =20
+       =20
+<tbody><tr class=3D"subtotal-line">
+  <td class=3D"subtotal-line__title" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 20px 0 0;">
+    <p style=3D"color: #777; line-height: 1.2em; font-size: 16px; margin: 4=
+px 0 0;">
+      <span style=3D"font-size: 16px;">Total</span>
+    </p>
+  </td>
+  <td class=3D"subtotal-line__value" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 20px 0 0;" align=3D"r=
+ight">
+    <strong style=3D"font-size: 24px; color: #555;">$72.04 USD</strong>
+  </td>
+</tr>
+
+     =20
+      </tbody></table>
+
+     =20
+
+     =20
+     =20
+        <table class=3D"row subtotal-table" style=3D"width: 100%; border-sp=
+acing: 0; border-collapse: collapse; margin-top: 20px;">
+          <tbody><tr><td colspan=3D"2" class=3D"subtotal-table__line" style=
+=3D"font-family: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#3=
+4;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#3=
+4;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-seri=
+f; border-bottom-width: 1px; border-bottom-color: #e5e5e5; border-bottom-st=
+yle: solid; height: 1px; padding: 0;"></td></tr>
+          <tr><td colspan=3D"2" class=3D"subtotal-table__small-space" style=
+=3D"font-family: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#3=
+4;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#3=
+4;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-seri=
+f; height: 10px;"></td></tr>
+
+         =20
+           =20
+           =20
+         =20
+           =20
+             =20
+
+             =20
+<tr class=3D"subtotal-line">
+  <td class=3D"subtotal-line__title" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 2px 0;">
+    <p style=3D"color: #777; line-height: 1.2em; font-size: 16px; margin: 4=
+px 0 0;">
+      <span style=3D"font-size: 16px;">American Express (ending in 1002)</s=
+pan>
+    </p>
+  </td>
+  <td class=3D"subtotal-line__value" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 2px 0;" align=3D"righ=
+t">
+    <strong style=3D"font-size: 16px; color: #555;">$72.04</strong>
+  </td>
+</tr>
+
+           =20
+           =20
+         =20
+           =20
+           =20
+             =20
+
+             =20
+<tr class=3D"subtotal-line">
+  <td class=3D"subtotal-line__title" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 2px 0;">
+    <p style=3D"color: #777; line-height: 1.2em; font-size: 16px; margin: 4=
+px 0 0;">
+      <span style=3D"font-size: 16px;">Refund</span>
+        <br/>
+        <small style=3D"font-size: 14px; color: #999;">American express</sm=
+all>
+    </p>
+  </td>
+  <td class=3D"subtotal-line__value" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 2px 0;" align=3D"righ=
+t">
+    <strong style=3D"font-size: 16px; color: #555;">- $15.06</strong>
+  </td>
+</tr>
+
+           =20
+         =20
+        </tbody></table>
+     =20
+     =20
+    </td>
+  </tr>
+</tbody></table>
+
+
+            </td>
+          </tr>
+        </tbody></table>
+      </center>
+    </td>
+  </tr>
+</tbody></table>
+
+          <table class=3D"row footer" style=3D"width: 100%; border-spacing:=
+ 0; border-collapse: collapse; border-top-width: 1px; border-top-color: #e5=
+e5e5; border-top-style: solid;">
+  <tbody><tr>
+    <td class=3D"footer__cell" style=3D"font-family: -apple-system, BlinkMa=
+cSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;U=
+buntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;,=
+ &#34;Helvetica Neue&#34;, sans-serif; padding: 35px 0;">
+      <center>
+        <table class=3D"container" style=3D"width: 560px; text-align: left;=
+ border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+          <tbody><tr>
+            <td style=3D"font-family: -apple-system, BlinkMacSystemFont, &#=
+34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#3=
+4;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica=
+ Neue&#34;, sans-serif;">
+             =20
+              <p class=3D"disclaimer__subtext" style=3D"color: #999; line-h=
+eight: 150%; font-size: 14px; margin: 0;">If you have any questions, reply =
+to this email or contact us at <a href=3D"mailto:jtw@jewelrythisway.com" st=
+yle=3D"font-size: 14px; text-decoration: none; color: #1990C6;">jtw@jewelry=
+thisway.com</a></p>
+            </td>
+          </tr>
+        </tbody></table>
+      </center>
+    </td>
+  </tr>
+</tbody></table>
+
+<img src=3D"https://cdn.shopify.com/shopifycloud/shopify/assets/themes_supp=
+ort/notifications/spacer-1a26dfd5c56b21ac888f9f1610ef81191b571603cb207c6c0f=
+564148473cab3c.png" class=3D"spacer" height=3D"1" style=3D"min-width: 600px=
+; height: 0;"/>
+
+        </td>
+      </tr>
+    </tbody></table>
+ =20
+
+
+
+</body></html>
+--ebc283ff48af4c8414f91d8f97f28dc04aee198f38fa3813ad5be4aa2ae4--

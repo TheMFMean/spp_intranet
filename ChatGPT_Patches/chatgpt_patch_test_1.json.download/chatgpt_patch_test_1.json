@@ -1,0 +1,4 @@
+{
+  "target": "test/patchTest_fromSafari.js",
+  "content": "console.log('ChatGPT Safari patch test working');\n"
+}

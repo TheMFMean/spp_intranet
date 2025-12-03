@@ -1,0 +1,2218 @@
+Delivered-To: matt@sodapoppiercing.com
+Received: by 2002:a05:7110:60a:b0:25b:7614:c0a8 with SMTP id i10csp45755gec;
+        Mon, 10 Feb 2025 17:39:13 -0800 (PST)
+X-Forwarded-Encrypted: i=4; AJvYcCU2HohISaJZA96OiT9Vc6/c8IiujZDOqZBi+GgEhJTMJRVxRuuytT6PNjvBdQ7J33Rw2fDR@sodapoppiercing.com
+X-Received: by 2002:a17:903:240f:b0:21f:456:3afc with SMTP id d9443c01a7336-21f4e704aeamr278585655ad.29.1739237953564;
+        Mon, 10 Feb 2025 17:39:13 -0800 (PST)
+ARC-Seal: i=3; a=rsa-sha256; t=1739237953; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=Bd6kh7xBsMZJkiehbeRxWerp6wIQ/WiVWC+ShP1rvfGAWJNzXjSb6J7PowfIkl4T7X
+         ti6DjuWRB9N8dU7/XaXRm/jNFsrk8zA5qslyP/AMCRbfG4AL8OGzjmDBMesGMUM6q6xz
+         RoKmyVa80ceJ+cAqwFAE7SexiL2iaO+ltw4FaesiNnKEJyP+kyV589ZDukJKBZ5yy/lj
+         Z5SlG5xghzepyIeUZfwtMmIYHT264+o6+FSbW7bhJb4u41qpqAa7rVf21n9wMZyOsKwD
+         k5GlmdWAo24lXdDCIHhYp36gTwPTd1wi9+Iq7DCVYuc/o+drfv3xrFbkmun3TlScA/es
+         dbFw==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:to:subject:message-id:mime-version:from
+         :date:dkim-signature;
+        bh=su+HvR8z7dFeqWWvz/Iq5KmNvKIUhMp9f0eSwka9tPo=;
+        fh=wa4FQ4pWvgboplFagb7I3BV2zo42Ok66SjszMGzMS6g=;
+        b=C92D0qSqmwg5piomB9WnNKAN9fJ4h1X9NqkWMRoLzejCsg48L8Io+r5MdpsZwJJFOH
+         JP76Bs3kyfq3OxOXtIDIqwmz+f1kXClM0LcADNo8PgVknbayz8PvcbA1s91ElYSUjLI1
+         XI10PSWhjrGpKmGB96pA/I4E/3q0CobgefW/uXzDpozAZyUyS4ZZuM662sUaShs81mM+
+         LHMKzConW+bEaJtuIzWupb41NZGptrjJMlg7a7PiYgC6mdOXb7ZASxyDYpWjQIGHGJvG
+         6QaM/vs/IohW3Q16SJVfrSXgjwqhXnsM3fH9vycEoZOsV0dnhRUuZmy2X6uwDqvIDSNh
+         BEng==;
+        dara=google.com
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@sodapoppiercing-com.20230601.gappssmtp.com header.s=20230601 header.b=kbD3aBlZ;
+       arc=pass (i=2 spf=pass spfdomain=mailerg9j.emberjewelrywholesale.com dkim=pass dkdomain=emberjewelrywholesale.com dmarc=pass fromdomain=emberjewelrywholesale.com);
+       spf=permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbdr7bp4usuobbp6uvk6qmgqedwh5kea@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) smtp.mailfrom=jewelryorders+bncBDR7BP4USUOBBP6UVK6QMGQEDWH5KEA@sodapoppiercing.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE arc=pass) header.from=emberjewelrywholesale.com;
+       dara=pass header.i=@sodapoppiercing.com
+Return-Path: <jewelryorders+bncBDR7BP4USUOBBP6UVK6QMGQEDWH5KEA@sodapoppiercing.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id d9443c01a7336-21fa8bd5ff6sor16084505ad.3.2025.02.10.17.39.13
+        for <matt@sodapoppiercing.com>
+        (Google Transport Security);
+        Mon, 10 Feb 2025 17:39:13 -0800 (PST)
+Received-SPF: permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbdr7bp4usuobbp6uvk6qmgqedwh5kea@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@sodapoppiercing-com.20230601.gappssmtp.com header.s=20230601 header.b=kbD3aBlZ;
+       arc=pass (i=2 spf=pass spfdomain=mailerg9j.emberjewelrywholesale.com dkim=pass dkdomain=emberjewelrywholesale.com dmarc=pass fromdomain=emberjewelrywholesale.com);
+       spf=permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbdr7bp4usuobbp6uvk6qmgqedwh5kea@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) smtp.mailfrom=jewelryorders+bncBDR7BP4USUOBBP6UVK6QMGQEDWH5KEA@sodapoppiercing.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE arc=pass) header.from=emberjewelrywholesale.com;
+       dara=pass header.i=@sodapoppiercing.com
+ARC-Seal: i=2; a=rsa-sha256; t=1739237953; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=VPvLJndpjsdDjT4auxx0euKS8mBK4bPe9dfRKK1iUOxddPiHqVZfwyzFVgdAwFYKKn
+         5TVU/D6QYyeWhsS4tucvjlAiqICzEQsGdM289kvi9i/NuntejGI11oJu0Y6uIcdhiZnw
+         V0KcoCjIFVIhPPzT6ikh2JMctpHxyHWyk5M9jaIk742Quxw+smR8vF1prrr1zMsS4NIK
+         foAkzljV+59L76IKhvtjdEcpMZOKdXWura2Msq+2XxG+zlWi4QExHrtecK7HeOYe4vl+
+         yRkGrcId7RsSuBY7xFRf3643amMRpyc/S0SPKnF85gSMWUikcnmT5oyK5z6Nlwx9x2At
+         DzvQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:to:subject:message-id:mime-version:from
+         :date:dkim-signature;
+        bh=su+HvR8z7dFeqWWvz/Iq5KmNvKIUhMp9f0eSwka9tPo=;
+        fh=wa4FQ4pWvgboplFagb7I3BV2zo42Ok66SjszMGzMS6g=;
+        b=Aamn44EnktPbvN2u2/L3Py2HF+EsX7l2F7eLjflQByPWnoQqWie7xj0l6GmXXcuDdp
+         8PAoAVjk0nTr9IRwZJ8tCm5Fo3rBE/srWhrIQQuZjjGETUB2MCJ3WuKN/4xCvoo0Nn+h
+         dddiR8MNWJR/j16xs5UycqDUGXE0TfaDozyeDiwhINDzxtp8DtFOWbLlTDr1Z6jzNE3j
+         TeVrDWu4VqQdr5kUIgrZkuDZ3QeDEQw6RS81P0FK01Jh0IaNioFBlHV4CCqjqAHQQSrz
+         MKMKzng1G++iP1alBbhuRJ2EPFJG03L4cCRijw1PSvxkid6e6qu6syN6YV+zEVSXRV1L
+         mPoQ==;
+        darn=sodapoppiercing.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@emberjewelrywholesale.com header.s=g9j header.b="Sm/3a19q";
+       spf=pass (google.com: domain of bounces+16447675-63f8-jewelryorders=sodapoppiercing.com@mailerg9j.emberjewelrywholesale.com designates 149.72.238.129 as permitted sender) smtp.mailfrom="bounces+16447675-63f8-jewelryorders=sodapoppiercing.com@mailerg9j.emberjewelrywholesale.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=emberjewelrywholesale.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sodapoppiercing-com.20230601.gappssmtp.com; s=20230601; t=1739237953; x=1739842753; darn=sodapoppiercing.com;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:x-original-authentication-results
+         :x-original-sender:to:subject:message-id:mime-version:from:date:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=su+HvR8z7dFeqWWvz/Iq5KmNvKIUhMp9f0eSwka9tPo=;
+        b=kbD3aBlZX0Pejn+kS0lqffZT2EJpGoM21BgxSBPdG42+jYyPZxjbeIcWHUA0Djx6wH
+         uvB4Pjha7bWhMCvI/6PXBGrbaFHyhaKtKnyfVHUgvIVne8l3cFMa2bkS0NVEvMCsV87q
+         tEvSxdHbgHQHyXyk9hTmEVldBMU6AtSjoES41I11fjsOIC2dT4YVtd2pZka3mwlQvISm
+         bA7Wf00wc215wvQgraHxpXhJxYTJisXHUotwrJPIk3b+/SL/9a7Avm5RBietrrWuX/xW
+         dcyDMJMI2Ceia4hqQoNjTSlkD3TXRXWYLxtkedQlaMygwBopr7Jel6ZqDvd0xpDrP9yX
+         0ADA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739237953; x=1739842753;
+        h=list-unsubscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-original-authentication-results:x-original-sender:to:subject
+         :message-id:mime-version:from:date:x-beenthere:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=su+HvR8z7dFeqWWvz/Iq5KmNvKIUhMp9f0eSwka9tPo=;
+        b=rpj2zS2vDQlv9QJrox2BEMs38qV0vdL00JOZGmI8qUCNLdVgutOFSRZhqjxY1iNiY1
+         HojCd1FkKaxUwpPp+lgCYrtzalIlr06luPyf/wlKb6P7VcriJ251LvPCTHUAK+FzYMny
+         rF/VCQu8E6WRCw+bNZ8F6kaDWQ0Kcd3mFXwJuP+7pucqPrq4e5XA3bVcJjeUPmnzlFzz
+         bz+C5AWaWFVyqmlXEr/ZtuMAsbQKwYV8VsN7rdx0CwHbM383zn/lhnHXdY7HdlyDPXI9
+         LV28X6r8NyWkxNmDY+dso9qNFpvtMn8MDpTK4stBuY8k7gzyFnrhN4/nBKgigLqQgsIj
+         ndgw==
+X-Forwarded-Encrypted: i=2; AJvYcCXs+idPsInmj093kWYasFEs0/7Wb/487jLjzZx7TQ+c0Z72pf88ZfR5M7xwCrlOlY/h1zoR@sodapoppiercing.com
+X-Gm-Message-State: AOJu0Yyn7czzIP8/lYIUOSzNWG5amLB0d7SWw0/bIeoz7IeaAoPkKSYg
+	LoJToboOHQPEdnkS3vgci1m7w2mwp1aATkSH1rNyYN8Y8PIr0RKjQrLO1NH82HX+ng==
+X-Google-Smtp-Source: AGHT+IHtrSWzHDQs4L594f2CwqFObtNUBeaNUTgwFXib91cMivb6waOsjdz3rZcJNL3BkdyYvkYqXw==
+X-Received: by 2002:a17:902:cec5:b0:21f:93be:8b12 with SMTP id d9443c01a7336-21f93be8f56mr90547955ad.30.1739237951605;
+        Mon, 10 Feb 2025 17:39:11 -0800 (PST)
+X-BeenThere: jewelryorders@sodapoppiercing.com
+Received: by 2002:a17:90b:254c:b0:2fa:1e46:bfa with SMTP id
+ 98e67ed59e1d1-2faa3eb47dbls216996a91.1.-pod-prod-07-us; Mon, 10 Feb 2025
+ 17:39:10 -0800 (PST)
+X-Received: by 2002:a17:90b:184d:b0:2ee:fdf3:38dd with SMTP id 98e67ed59e1d1-2fa242e5d0dmr19323277a91.23.1739237950062;
+        Mon, 10 Feb 2025 17:39:10 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1739237950; cv=none;
+        d=google.com; s=arc-20240605;
+        b=i1l12ycioVhLtewLvlo/yqF1nRJQ4yT+AhQK1of50NXTTxbMQZFCz6RAFBLr8/bjs0
+         SdRY0cJjm8Sxf8iNKZBAnz0Bxo5ic2bceX/h/HQ07+SLWsBUIV0Uui5/iUE34SeHrLnN
+         JHXLu3KYAPVbNKD3B8HQ0FqmpXTzUr9KQuJXqNLf0f6bUhU1hslXjlnVGHvL17mL4JuJ
+         y/pUTiI/yRHqqkfXNQhmDuueEJ29yRIKWhsuhwC0625xBAQopm5/ClAf/Wv6JWABzzSy
+         31jO3eodAJTXRaPaJwYqp1jHZ472c/t5vHV7S0HIugX5UpjcRNOaZnyjsj3jNrxRtc4W
+         I10Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:mime-version:from:date:dkim-signature;
+        bh=su+HvR8z7dFeqWWvz/Iq5KmNvKIUhMp9f0eSwka9tPo=;
+        fh=b46/NFn5bF9MYzoq0g4JWmajhnTmrcwb44ZgZEAaibo=;
+        b=ajNQjNIgifMoL18MIJei+VTW218OAa3jP1vkIUf0QJWwMk6h7bgU6ecOjxRreVP6R3
+         zmbic2wGkgJSHEQnMOTkKoXPhASVWXJ/3unhCMrtmVj9P/a3565hXhu0j2iWkfCouXmb
+         pXTSlh0U0urx5DS0LqrLXbnuJo6JeQudhKc6No+BvXiYJkJVCdZzBBBzibr3vMCEg6Rq
+         B3tzW1rPtibmLWQImSi//W7jXTVx8YA7TIe5F9hhIvMwpTg6eoC+GvWq5dUgHqw2dpUL
+         Qqb675xe21kIxMyXoNKWklTVMFRjYNYsl6y7x/4uHCzT3SeLSObGcEuGfSxfSpm4TvoU
+         8Ptg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@emberjewelrywholesale.com header.s=g9j header.b="Sm/3a19q";
+       spf=pass (google.com: domain of bounces+16447675-63f8-jewelryorders=sodapoppiercing.com@mailerg9j.emberjewelrywholesale.com designates 149.72.238.129 as permitted sender) smtp.mailfrom="bounces+16447675-63f8-jewelryorders=sodapoppiercing.com@mailerg9j.emberjewelrywholesale.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=emberjewelrywholesale.com
+Received: from o9.mailer.shopify.com (o9.mailer.shopify.com. [149.72.238.129])
+        by mx.google.com with ESMTPS id 98e67ed59e1d1-2fa09a0ea74si15588596a91.14.2025.02.10.17.39.09
+        for <jewelryorders@sodapoppiercing.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 10 Feb 2025 17:39:09 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+16447675-63f8-jewelryorders=sodapoppiercing.com@mailerg9j.emberjewelrywholesale.com designates 149.72.238.129 as permitted sender) client-ip=149.72.238.129;
+Received: by recvd-5f54b5d587-djvzq with SMTP id recvd-5f54b5d587-djvzq-1-67AAAA3B-12
+	2025-02-11 01:39:07.982370588 +0000 UTC m=+7618667.904785604
+Received: from MTY0NDc2NzU (unknown)
+	by geopod-ismtpd-6 (SG) with HTTP
+	id q3nifcK_TLaygyaTbYP7_A
+	Tue, 11 Feb 2025 01:39:07.925 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=f8d31350e7add6d3c2bbad546b8d8104adb73009d4c7a98347ab0a1738cf
+Date: Tue, 11 Feb 2025 01:39:08 +0000 (UTC)
+From: Ember Body Jewelry <info@emberjewelrywholesale.com>
+Mime-Version: 1.0
+Message-ID: <E1020004-182303B2CC24535D-4510E24C@shopify.com>
+Subject: Order #3656 updated
+X-SG-EID: =?us-ascii?Q?u001=2EwDcTN=2FC+fX60ZqmvDD6jX9c2JfD11zomlZnLetoX8bkif3i1Ofd0xW1=2Fm?=
+ =?us-ascii?Q?uTjq8LZF30fU6uBUkimHuUfSrlotaJn3pBfrj1R?=
+ =?us-ascii?Q?TvGY5CRJwEug5yiJP9AiGuvgHVMhgODL4WnXN3V?=
+ =?us-ascii?Q?S3gzueG1I7lJTtSjQDZatEg6Tq=2FFVxPQXn4AxB1?=
+ =?us-ascii?Q?HBjTDWXc5om3uHDDLejLXRqRa3ve3UC30biqVas?=
+ =?us-ascii?Q?7xU9Wjj0osPi2x1h+69AGT0=2F4oQhG2UKwdukjzK?=
+ =?us-ascii?Q?RMQnm6R3n7gMIntsJ=2FpIpEKEEeZUOGl12IhOSJ6?=
+ =?us-ascii?Q?aMbJVaUw=3D?=
+X-SG-ID: =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprDITwp3LLcgXu9gv?=
+ =?us-ascii?Q?F1Oq5oTf1VY9MM=2F=2FZCviT=2FP37sq31qn9MxgEecF?=
+ =?us-ascii?Q?WFXREkgULPjC3wMCuxRzCfYzIGNgS3TLjJqyIRU?=
+ =?us-ascii?Q?Z90t0rRW5oFHLlcAjBp44mhJJzGhwYEf2OAk1uR?=
+ =?us-ascii?Q?CPxeZhDW3eq5EWc9OZ03UL=2FgLm0PQvXfFXvwYx0?=
+ =?us-ascii?Q?5rWFXcNpe6p=2FZHflSIrqh1+bLVuq1AKRDau72PR?=
+ =?us-ascii?Q?MpBntob3aoEdCtKmDdBYSID4Th9B5pJkLIB3nrx?=
+ =?us-ascii?Q?xEaW1CjrWkfwXRodGPmQK2kppLboguntKYSGBdA?=
+ =?us-ascii?Q?gImXjXlL4rTEHumNRMl5Iphdu0fIA7gHRseyvPO?=
+ =?us-ascii?Q?6YdMUhpnrPi=2FPT3D7vZIj1ynya62SOUt6HHxpj5?=
+ =?us-ascii?Q?rEjRsz6ePDzuhQkIbNFpsCAslLqFEfcige+C3rk?=
+ =?us-ascii?Q?QwORoYrMSgpTFdWmLXXqXMRZC7XyLH8e6tNUKc3?=
+ =?us-ascii?Q?4N2aTEgNJrDNz7v+ogOziuesogtqmIQBTTmT9R4?=
+ =?us-ascii?Q?CwHH+=2FsiJm3Jmy4AFV+9OkIMEjvsO9NNTAdDYHc?=
+ =?us-ascii?Q?lqXbsbf8K19D9rHRRosN7teOk0EnUdnph1kUrZv?=
+ =?us-ascii?Q?Sz3AbgGH83FAyYw1mUveQN+2ClsvX0A38KEqvyy?=
+ =?us-ascii?Q?K9qJwM=2F+ddPw0n1i41ftrIfl7VR5h5W+a2+cQmt?=
+ =?us-ascii?Q?vq8fqyR7DVLHCdQ0W9lfSiuUYM7ieeyJSadANv=2F?=
+ =?us-ascii?Q?nTS=2F22=2FlVVX1cFZSLVzgC7GdI2NHxBX9MuO9WCl?=
+ =?us-ascii?Q?giEZEhHysvsa6uosOOUgETgZ6yvTl3BufEW9CN5?=
+ =?us-ascii?Q?xPO+yESHBmLsDhQ6FcJJWjOyBQ0RdX3Z9UHZuq4?=
+ =?us-ascii?Q?LcJuBrQV1nZwKciSfGGvqpFbWIFS=2FzXyTlVUdOv?=
+ =?us-ascii?Q?mTalqwJuSskuir2giBoFDgnx=2FQlbBLG3bgxQB98?=
+ =?us-ascii?Q?ONVcfVa3G8EaOVfo6x3+Ss6y4XdNrpcP4grcr1i?=
+ =?us-ascii?Q?Wr6uMsdMBgwAeGqOYRG+IA9dX67cXb3lh5K7rgx?=
+ =?us-ascii?Q?qhoIRINnTGzHxQ4u+mWZLauNDROF7J=2FwFlc4EDW?=
+ =?us-ascii?Q?zCDoL1TQRCUfaaB6t4QI18Z9whT8iM6FIbbSiTA?=
+ =?us-ascii?Q?tEvDV+fv=2F+58ENi+yj0e9qEmOAlEo=2Foi5s=2Fgb5k?=
+ =?us-ascii?Q?xypjgoZ9S1x4IIAxACKTNhHXqEGTxKlKJfopokk?=
+ =?us-ascii?Q?8mHhZt98MEsUqggc7Q8FDKN=2FWAkB5qD0IDeGwuC?=
+ =?us-ascii?Q?jFFaUvDF19pM9=2Fk+BGJjqOxMyesMVkr8=2FOXjLW9?=
+ =?us-ascii?Q?CKlqYEsjPlxKxlKNjVkSOr439gXQCbeAlHpXiW4?=
+ =?us-ascii?Q?S4sR220wd04BSBKlBwTicW519d9CvIF65sH=2FFji?=
+ =?us-ascii?Q?u8jKG2G5Jm54yO3patoHEW7Ys3R+g1baMj54QQ5?=
+ =?us-ascii?Q?AkdmEozW8V4TKmGXBajlx9fhh+ilM5ViInBTEi0?=
+ =?us-ascii?Q?OP3dLhjSDKF+sk8pbfzsnbvrv?=
+To: jewelryorders@sodapoppiercing.com
+X-Entity-ID: u001.J4Obi2rT6BNe4d5doxxS0g==
+X-Original-Sender: info@emberjewelrywholesale.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@emberjewelrywholesale.com header.s=g9j header.b="Sm/3a19q";
+       spf=pass (google.com: domain of bounces+16447675-63f8-jewelryorders=sodapoppiercing.com@mailerg9j.emberjewelrywholesale.com
+ designates 149.72.238.129 as permitted sender) smtp.mailfrom="bounces+16447675-63f8-jewelryorders=sodapoppiercing.com@mailerg9j.emberjewelrywholesale.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=emberjewelrywholesale.com
+Precedence: list
+Mailing-list: list jewelryorders@sodapoppiercing.com; contact jewelryorders+owners@sodapoppiercing.com
+List-ID: <jewelryorders.sodapoppiercing.com>
+X-Spam-Checked-In-Group: jewelryorders@sodapoppiercing.com
+X-Google-Group-Id: 479861830095
+List-Post: <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/post>,
+ <mailto:jewelryorders@sodapoppiercing.com>
+List-Help: <https://support.google.com/a/sodapoppiercing.com/bin/topic.py?topic=25838>,
+ <mailto:jewelryorders+help@sodapoppiercing.com>
+List-Archive: <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/>
+List-Unsubscribe: <mailto:googlegroups-manage+479861830095+unsubscribe@googlegroups.com>,
+ <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/subscribe>
+
+--f8d31350e7add6d3c2bbad546b8d8104adb73009d4c7a98347ab0a1738cf
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Mime-Version: 1.0
+
+Your order was updated
+
+Ember Body Jewelry
+
+Order #3656
+
+----------------------
+Your order was updated
+----------------------
+
+View your order=20
+( https://emberjewelrywholesale.com/60155035848/orders/c08323eb171b0c9e750c=
+9fc9bdb839d2/authenticate?key=3Dc58e2cc07a01debcefb7a03636da1c22&syclid=3De=
+ed00bb8-9f26-47a2-8f17-1bdc645bc01f )
+
+
+or Visit our store=20
+( https://emberjewelrywholesale.com?syclid=3D2896d8fc-3f19-4d5d-a53d-ae34f8=
+4295f7 )
+
+
+Updated order
+-------------
+
+Rose Cut Bezel - Threadless End =D7
+2
+
+14K Yellow Gold / Garnet
+
+$140.00
+
+Discontinued =D7
+19
+
+$722.00
+
+Triple Threat - Threadless End =D7
+2
+
+14K Rose Gold / Faceted Rainbow Moonstone / White CZ
+
+$170.00
+
+Triple Threat - Smoky Quartz - Threadless End =D7
+2
+
+14K White Gold / Smoky Quartz / White CZ
+
+$140.00
+
+Triple Threat - Citrine - Threadless End =D7
+2
+
+14K Yellow Gold / Citrine / White CZ
+
+$140.00
+
+Triple Threat - Peridot - Threadless End =D7
+2
+
+14K Yellow Gold / Peridot / White CZ
+
+$140.00
+
+Triple Threat - Blue Topaz - Threadless End =D7
+2
+
+14K White Gold / Blue Topaz / White CZ
+
+$158.00
+
+High Roller - Threadless End =D7
+2
+
+14K Yellow Gold / White CZ
+
+$218.00
+
+Speak Easy - Threadless End =D7
+1
+
+14K Yellow Gold / White CZ
+
+$106.00
+
+Speak Easy - Threadless End =D7
+1
+
+14K White Gold / White CZ
+
+$106.00
+
+Speak Easy - Threadless End =D7
+1
+
+14K Rose Gold / White CZ
+
+$106.00
+
+High Noon - Colored CZ - Threadless End =D7
+1
+
+14K Yellow Gold / Emerald Green CZ
+
+$69.00
+
+High Noon - Colored CZ - Threadless End =D7
+2
+
+14K Rose Gold / Light Pink CZ
+
+$138.00
+
+High Noon - Colored CZ - Threadless End =D7
+1
+
+14K Yellow Gold / Grey Blue CZ
+
+$69.00
+
+High Noon - Colored CZ - Threadless End =D7
+1
+
+14K White Gold / Grey Blue CZ
+
+$69.00
+
+High Noon - Colored CZ - Threadless End =D7
+1
+
+14K Rose Gold / Grey Blue CZ
+
+$69.00
+
+Hoax - Threadless End =D7
+2
+
+14K Rose Gold / Swiss Blue Topaz
+
+$154.00
+
+Threadless End Display =D7
+1
+
+GIFT
+(-$40.00)
+
+$40.00
+
+Free
+
+Subtotal
+
+$2,714.00
+
+Shipping
+
+$0.00
+
+Taxes
+
+$0.00
+
+Total
+
+$2,714.00 USD
+
+You saved $40.00
+
+Customer information
+--------------------
+
+Payment
+-------
+
+Payment
+
+If you have any questions, reply to this email or
+contact us at info@emberjewelrywholesale.com
+--f8d31350e7add6d3c2bbad546b8d8104adb73009d4c7a98347ab0a1738cf
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=iso-8859-1
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w=
+3.org/TR/REC-html40/loose.dtd"><html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"/>
+<style>body {
+margin: 0;
+}
+h1 a:hover {
+font-size: 30px; color: #333;
+}
+h1 a:active {
+font-size: 30px; color: #333;
+}
+h1 a:visited {
+font-size: 30px; color: #333;
+}
+a:hover {
+text-decoration: none;
+}
+a:active {
+text-decoration: none;
+}
+a:visited {
+text-decoration: none;
+}
+.button__text:hover {
+color: #fff; text-decoration: none;
+}
+.button__text:active {
+color: #fff; text-decoration: none;
+}
+.button__text:visited {
+color: #fff; text-decoration: none;
+}
+a:hover {
+color: #024059;
+}
+a:active {
+color: #024059;
+}
+a:visited {
+color: #024059;
+}
+@media (max-width: 600px) {
+  .container {
+    width: 94% !important;
+  }
+  .main-action-cell {
+    float: none !important; margin-right: 0 !important;
+  }
+  .secondary-action-cell {
+    text-align: center; width: 100%;
+  }
+  .header {
+    margin-top: 20px !important; margin-bottom: 2px !important;
+  }
+  .shop-name__cell {
+    display: block;
+  }
+  .order-number__cell {
+    display: block; text-align: left !important; margin-top: 20px;
+  }
+  .po-number__cell {
+    display: block; text-align: left !important; margin-top: 5px;
+  }
+  .button {
+    width: 100%;
+  }
+  .or {
+    margin-right: 0 !important;
+  }
+  .apple-wallet-button {
+    text-align: center;
+  }
+  .customer-info__item {
+    display: block; width: 100% !important;
+  }
+  .spacer {
+    display: none;
+  }
+  .subtotal-spacer {
+    display: none;
+  }
+  .return__mobile-padding {
+    margin-top: 19px; padding-top: 19px;
+  }
+}
+</style>
+</head>
+<body style=3D"margin: 0;">
+
+
+ =20
+  <title>Your order was updated </title>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"/=
+>
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width"/>
+ =20
+ =20
+
+
+ =20
+    <table class=3D"body" style=3D"height: 100% !important; width: 100% !im=
+portant; border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr>
+        <td style=3D"font-family: -apple-system, BlinkMacSystemFont, &#34;S=
+egoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Ca=
+ntarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica Neu=
+e&#34;, sans-serif;">
+          <table class=3D"header row" style=3D"width: 100%; border-spacing:=
+ 0; border-collapse: collapse; margin: 40px 0 20px;">
+  <tbody><tr>
+    <td class=3D"header__cell" style=3D"font-family: -apple-system, BlinkMa=
+cSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;U=
+buntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;,=
+ &#34;Helvetica Neue&#34;, sans-serif;">
+      <center>
+
+        <table class=3D"container" style=3D"width: 560px; text-align: left;=
+ border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+          <tbody><tr>
+            <td style=3D"font-family: -apple-system, BlinkMacSystemFont, &#=
+34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#3=
+4;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica=
+ Neue&#34;, sans-serif;">
+
+              <table class=3D"row" style=3D"width: 100%; border-spacing: 0;=
+ border-collapse: collapse;">
+                <tbody><tr>
+                  <td class=3D"shop-name__cell" style=3D"font-family: -appl=
+e-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Ox=
+ygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34=
+;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif;">
+                      <img src=3D"https://cdn.shopify.com/s/files/1/0601/55=
+03/5848/files/DarkIcon_9aeae6cf-8981-456c-8976-1a5d3f621506.png?3763" alt=
+=3D"Ember Body Jewelry" width=3D"80"/>
+                  </td>
+
+                    <td style=3D"font-family: -apple-system, BlinkMacSystem=
+Font, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#=
+34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;H=
+elvetica Neue&#34;, sans-serif;">
+                      <table class=3D"order-po-number__container" style=3D"=
+border-spacing: 0; border-collapse: collapse; margin-left: auto; margin-rig=
+ht: 0;">
+                        <tbody><tr>
+                          <td class=3D"order-number__cell" style=3D"font-fa=
+mily: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#3=
+4;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans=
+&#34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; text-tra=
+nsform: uppercase; font-size: 14px; color: #999;" align=3D"right">
+                            <span class=3D"order-number__text" style=3D"fon=
+t-size: 16px;">
+                              Order #3656
+                            </span>
+                          </td>
+                        </tr>
+                      </tbody></table>
+                    </td>
+                </tr>
+              </tbody></table>
+
+            </td>
+          </tr>
+        </tbody></table>
+
+      </center>
+    </td>
+  </tr>
+</tbody></table>
+
+          <table class=3D"row content" style=3D"width: 100%; border-spacing=
+: 0; border-collapse: collapse;">
+  <tbody><tr>
+    <td class=3D"content__cell" style=3D"font-family: -apple-system, BlinkM=
+acSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;=
+Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;=
+, &#34;Helvetica Neue&#34;, sans-serif; padding-bottom: 40px; border-width:=
+ 0;">
+      <center>
+        <table class=3D"container" style=3D"width: 560px; text-align: left;=
+ border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+          <tbody><tr>
+            <td style=3D"font-family: -apple-system, BlinkMacSystemFont, &#=
+34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#3=
+4;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica=
+ Neue&#34;, sans-serif;">
+             =20
+            <h2 style=3D"font-weight: normal; font-size: 24px; margin: 0 0 =
+10px;">Your order was updated </h2>
+            <p style=3D"color: #777; line-height: 150%; font-size: 16px; ma=
+rgin: 0;"></p>
+           =20
+           =20
+              <table class=3D"row actions" style=3D"width: 100%; border-spa=
+cing: 0; border-collapse: collapse; margin-top: 20px;">
+  <tbody><tr>
+    <td class=3D"empty-line" style=3D"font-family: -apple-system, BlinkMacS=
+ystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubu=
+ntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &=
+#34;Helvetica Neue&#34;, sans-serif; line-height: 0em;">=A0</td>
+  </tr>
+  <tr>
+    <td class=3D"actions__cell" style=3D"font-family: -apple-system, BlinkM=
+acSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;=
+Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;=
+, &#34;Helvetica Neue&#34;, sans-serif;">
+      <table class=3D"button main-action-cell" style=3D"border-spacing: 0; =
+border-collapse: collapse; float: left; margin-right: 15px;">
+        <tbody><tr>
+          <td class=3D"button__cell" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; border-radius: 4px;" align=3D"=
+center" bgcolor=3D"#024059"><a href=3D"https://emberjewelrywholesale.com/_t=
+/c/A1020004-182303B2CC2465D4-0329E079?l=3DAABKcJNkGjYAbzClXOJu2E0IOzHJV5gzI=
+tPmNkIUYsD8US57sVJCE4GYPyQJbdFlDtWLWL7TgrzDe1iifsnr%2Fh%2Fq6sPzHkJoGBzxDnc5=
+xxfoO08B3rPm6E%2F9K5KXgW0Gg%2FgKRzK%2BqXBr176rWJeMR3p8rNYz5zwkOIIVs1b5syS27=
+rl2CKuFaRwnneK3%2BYqY95Bs6de06zbZdvWrBOv0DgiJKlzaUUtQjTaRW7aCoCm5wVZFLBuM74=
+TdKY06AuBFXV1gVvN9YCN2orbfjscOqPAxdpkEwv7LJ2gH4iFS%2BdYT7p9EDaz6%2FAOgkfgZ2=
+FLXSNi0g5K1os9sg2z9%2F%2BieFEVSpH7cw3EKZL2vzn9e1JQebfTmOQ1b&amp;c=3DAADmw%2=
+BTPET4oO3YA6urr7e7NNU1oMXg4tWCm5xe6yUBw5rcoGK%2FiCrDxf1CIVpQm5fO0%2Bqk0nvc7=
+R4gde2JsWVbzhK5rdyTTiDaXetTB%2F5OEdODP2TibVjDmHHOrStSG9%2BnlE%2BmHtVY4%2FIK=
+g7j9aGRs8c92tt6o3YKJVf%2BebJFFo3cFyiBPi3%2B8AV5xkUHM47jMUvCM5ruAt91D0oBTur2=
+u64K5Gg2zmwVhr6l6AM3hgPbAYlW6V7bBPy56GkhKC99JQZY%2FFPLQX6i4OogwzjPXLLENaV%2=
+FSeiQKsn2LafaAqSnUuvUk1snWWwGy%2BZK%2FKYHUN93K2lc1QVX8OOA%2FInWMYiO%2B4hpE3=
+q9TKDbDN%2Be%2Bh0H00nkeXo7PYKJax9XDOTeWpqQ0tMvEQCQkO0EbvTO2bSaRYrSh2RF3KqPc=
+I4A7qRa8LTyRi5ReoRKHwBHWFG25v6uBpqKOT1el4M4NJagLS%2FtpvUL%2B8pPQibbZ5" clas=
+s=3D"button__text" style=3D"font-size: 16px; text-decoration: none; display=
+: block; color: #fff; padding: 20px 25px;">View your order</a></td>
+        </tr>
+      </tbody></table>
+     =20
+    <table class=3D"link secondary-action-cell" style=3D"border-spacing: 0;=
+ border-collapse: collapse; margin-top: 19px;">
+      <tbody><tr>
+        <td class=3D"link__cell" style=3D"font-family: -apple-system, Blink=
+MacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34=
+;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34=
+;, &#34;Helvetica Neue&#34;, sans-serif; border-radius: 4px;" align=3D"cent=
+er">or <a href=3D"https://emberjewelrywholesale.com/_t/c/A1020004-182303B2C=
+C2465D4-0329E079?l=3DAAAIHxydcl409AvOUlJk3lyWUB8hbFV3EoRaUT6bH%2BOhxl9q7wJL=
+XEK2rcRpwhFhMDhUD1Wgtez81%2FNdSAddaDcRAN7sbEejZzZMTO3cvrnXzgJgWt%2BJxOAgr4P=
+IQ0ocbp4aAbkkX8D8%2B5hDcqb7n%2B%2FBscy0awTi4Lno%2BYwJ3ofASVLH6Adr9fxAue5VYL=
+Nw1%2B0%2BRUVxHZqZJsvmvplLMjdofwdOuqciEkPPyg%3D%3D&amp;c=3DAAD%2BIEDALf8vS3=
+lI5uV6Tb4gUdV2dxVitD7F7h9kNvZJnhc974%2FNM2ZBsrpA%2FRlS3g%2FL17FtcsYzAkAABYw=
+esn%2BapWCxx7UlnwXgoluDEbnWblm5b2W1XW75FcazwcaXBGtxUAUBmo5Ci%2Bs8lZilVXcvzw=
+C7XOC3nE6c5lBEv1auFoXCweectTV9PJwdRm%2Fuo1qI1rF624i4oxYRlFhqmDoCO084XfEm5fU=
+X7DHrT%2FjIAA3Oh9Ab02hIkhzkIZE%2Fp2hmCcWfFs0cLLd2x2TdVG86gaQe4qNpzU0tor8Pxc=
+5ZUT0JmzAMS4t%2Bajz3YYfbYMyNo2AyQgvFP%2FZ5wNPmXDFQRNTyxrPrSOt0aj%2BepNerPWD=
+QKbIFnOZUpMeIiH3VB7ibWDWx1J1YjNCV1CE6LhuT3yGA0jpvn3Yg7AcRXb%2BMPkq0mG5DCmCD=
+luob%2FIXZct%2Fg4dfL0DOaHQONyjMGl44sSztzeDe6l8vmzGmv" style=3D"font-size: 1=
+6px; text-decoration: none; color: #024059;">Visit our store</a>
+</td>
+      </tr>
+    </tbody></table>
+
+
+    </td>
+  </tr>
+</tbody></table>
+
+           =20
+
+            </td>
+          </tr>
+        </tbody></table>
+      </center>
+    </td>
+  </tr>
+</tbody></table>
+
+          <table class=3D"row section" style=3D"width: 100%; border-spacing=
+: 0; border-collapse: collapse;">
+  <tbody><tr>
+    <td class=3D"section__cell" style=3D"font-family: -apple-system, BlinkM=
+acSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;=
+Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;=
+, &#34;Helvetica Neue&#34;, sans-serif; padding: 40px 0;">
+      <center>
+        <table class=3D"container" style=3D"width: 560px; text-align: left;=
+ border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+          <tbody><tr>
+            <td style=3D"font-family: -apple-system, BlinkMacSystemFont, &#=
+34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#3=
+4;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica=
+ Neue&#34;, sans-serif;">
+              <h3 style=3D"font-weight: normal; font-size: 20px; margin: 0 =
+0 25px;">Updated order</h3>
+            </td>
+          </tr>
+        </tbody></table>
+        <table class=3D"container" style=3D"width: 560px; text-align: left;=
+ border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+          <tbody><tr>
+            <td style=3D"font-family: -apple-system, BlinkMacSystemFont, &#=
+34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#3=
+4;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica=
+ Neue&#34;, sans-serif;">
+             =20
+           =20
+<table class=3D"row" style=3D"width: 100%; border-spacing: 0; border-collap=
+se: collapse;">
+ =20
+   =20
+<tbody><tr class=3D"order-list__item" style=3D"width: 100%;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-bottom: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+          <img src=3D"https://cdn.shopify.com/s/files/1/0601/5503/5848/file=
+s/GarnetRoseCutBezel_compact_cropped.jpg?v=3D1701895415" align=3D"left" wid=
+th=3D"60" height=3D"60" class=3D"order-list__product-image" style=3D"margin=
+-right: 15px; border-radius: 8px; border: 1px solid #e5e5e5;"/>
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">Rose Cut Bezel - Threadless=
+ End=A0=D7=A0
+            2
+          </span><br/>
+
+       =20
+          <span class=3D"order-list__item-variant" style=3D"font-size: 14px=
+; color: #999; font-weight: 400;">14K Yellow Gold / Garnet</span><br/>
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              $140.00
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+   =20
+<tr class=3D"order-list__item" style=3D"width: 100%; border-top-width: 1px;=
+ border-top-color: #e5e5e5; border-top-style: solid;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-top: 15px; padding-b=
+ottom: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">Discontinued=A0=D7=A0
+            19
+          </span><br/>
+
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              $722.00
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+   =20
+<tr class=3D"order-list__item" style=3D"width: 100%; border-top-width: 1px;=
+ border-top-color: #e5e5e5; border-top-style: solid;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-top: 15px; padding-b=
+ottom: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+          <img src=3D"https://cdn.shopify.com/s/files/1/0601/5503/5848/file=
+s/Triple_Threat_PG_Moonstone_compact_cropped.jpg?v=3D1734226868" align=3D"l=
+eft" width=3D"60" height=3D"60" class=3D"order-list__product-image" style=
+=3D"margin-right: 15px; border-radius: 8px; border: 1px solid #e5e5e5;"/>
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">Triple Threat - Threadless =
+End=A0=D7=A0
+            2
+          </span><br/>
+
+       =20
+          <span class=3D"order-list__item-variant" style=3D"font-size: 14px=
+; color: #999; font-weight: 400;">14K Rose Gold / Faceted Rainbow Moonstone=
+ / White CZ</span><br/>
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              $170.00
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+   =20
+<tr class=3D"order-list__item" style=3D"width: 100%; border-top-width: 1px;=
+ border-top-color: #e5e5e5; border-top-style: solid;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-top: 15px; padding-b=
+ottom: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+          <img src=3D"https://cdn.shopify.com/s/files/1/0601/5503/5848/file=
+s/TripleThreatWGSmokyQuartz_b2896d66-3b83-484a-80cf-35d600ea2f1a_compact_cr=
+opped.jpg?v=3D1734902686" align=3D"left" width=3D"60" height=3D"60" class=
+=3D"order-list__product-image" style=3D"margin-right: 15px; border-radius: =
+8px; border: 1px solid #e5e5e5;"/>
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">Triple Threat - Smoky Quart=
+z - Threadless End=A0=D7=A0
+            2
+          </span><br/>
+
+       =20
+          <span class=3D"order-list__item-variant" style=3D"font-size: 14px=
+; color: #999; font-weight: 400;">14K White Gold / Smoky Quartz / White CZ<=
+/span><br/>
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              $140.00
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+   =20
+<tr class=3D"order-list__item" style=3D"width: 100%; border-top-width: 1px;=
+ border-top-color: #e5e5e5; border-top-style: solid;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-top: 15px; padding-b=
+ottom: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+          <img src=3D"https://cdn.shopify.com/s/files/1/0601/5503/5848/file=
+s/Triple_Threat_YY_Citrine_compact_cropped.jpg?v=3D1734766085" align=3D"lef=
+t" width=3D"60" height=3D"60" class=3D"order-list__product-image" style=3D"=
+margin-right: 15px; border-radius: 8px; border: 1px solid #e5e5e5;"/>
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">Triple Threat - Citrine - T=
+hreadless End=A0=D7=A0
+            2
+          </span><br/>
+
+       =20
+          <span class=3D"order-list__item-variant" style=3D"font-size: 14px=
+; color: #999; font-weight: 400;">14K Yellow Gold / Citrine / White CZ</spa=
+n><br/>
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              $140.00
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+   =20
+<tr class=3D"order-list__item" style=3D"width: 100%; border-top-width: 1px;=
+ border-top-color: #e5e5e5; border-top-style: solid;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-top: 15px; padding-b=
+ottom: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+          <img src=3D"https://cdn.shopify.com/s/files/1/0601/5503/5848/file=
+s/TripleThreatYYGreenTourmaline_41a3ffd3-78f4-4415-b37c-e69dd2b48e64_compac=
+t_cropped.jpg?v=3D1734765474" align=3D"left" width=3D"60" height=3D"60" cla=
+ss=3D"order-list__product-image" style=3D"margin-right: 15px; border-radius=
+: 8px; border: 1px solid #e5e5e5;"/>
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">Triple Threat - Peridot - T=
+hreadless End=A0=D7=A0
+            2
+          </span><br/>
+
+       =20
+          <span class=3D"order-list__item-variant" style=3D"font-size: 14px=
+; color: #999; font-weight: 400;">14K Yellow Gold / Peridot / White CZ</spa=
+n><br/>
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              $140.00
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+   =20
+<tr class=3D"order-list__item" style=3D"width: 100%; border-top-width: 1px;=
+ border-top-color: #e5e5e5; border-top-style: solid;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-top: 15px; padding-b=
+ottom: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+          <img src=3D"https://cdn.shopify.com/s/files/1/0601/5503/5848/file=
+s/Triple_Threat_WG_Blue_Topaz_compact_cropped.jpg?v=3D1734764575" align=3D"=
+left" width=3D"60" height=3D"60" class=3D"order-list__product-image" style=
+=3D"margin-right: 15px; border-radius: 8px; border: 1px solid #e5e5e5;"/>
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">Triple Threat - Blue Topaz =
+- Threadless End=A0=D7=A0
+            2
+          </span><br/>
+
+       =20
+          <span class=3D"order-list__item-variant" style=3D"font-size: 14px=
+; color: #999; font-weight: 400;">14K White Gold / Blue Topaz / White CZ</s=
+pan><br/>
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              $158.00
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+   =20
+<tr class=3D"order-list__item" style=3D"width: 100%; border-top-width: 1px;=
+ border-top-color: #e5e5e5; border-top-style: solid;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-top: 15px; padding-b=
+ottom: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+          <img src=3D"https://cdn.shopify.com/s/files/1/0601/5503/5848/file=
+s/High_Roller_YY_compact_cropped.jpg?v=3D1721423470" align=3D"left" width=
+=3D"60" height=3D"60" class=3D"order-list__product-image" style=3D"margin-r=
+ight: 15px; border-radius: 8px; border: 1px solid #e5e5e5;"/>
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">High Roller - Threadless En=
+d=A0=D7=A0
+            2
+          </span><br/>
+
+       =20
+          <span class=3D"order-list__item-variant" style=3D"font-size: 14px=
+; color: #999; font-weight: 400;">14K Yellow Gold / White CZ</span><br/>
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              $218.00
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+   =20
+<tr class=3D"order-list__item" style=3D"width: 100%; border-top-width: 1px;=
+ border-top-color: #e5e5e5; border-top-style: solid;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-top: 15px; padding-b=
+ottom: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+          <img src=3D"https://cdn.shopify.com/s/files/1/0601/5503/5848/file=
+s/Speak_Easy_YY_ee92b990-4743-4235-bf40-ce4b33ae28e4_compact_cropped.jpg?v=
+=3D1734762730" align=3D"left" width=3D"60" height=3D"60" class=3D"order-lis=
+t__product-image" style=3D"margin-right: 15px; border-radius: 8px; border: =
+1px solid #e5e5e5;"/>
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">Speak Easy - Threadless End=
+=A0=D7=A0
+            1
+          </span><br/>
+
+       =20
+          <span class=3D"order-list__item-variant" style=3D"font-size: 14px=
+; color: #999; font-weight: 400;">14K Yellow Gold / White CZ</span><br/>
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              $106.00
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+   =20
+<tr class=3D"order-list__item" style=3D"width: 100%; border-top-width: 1px;=
+ border-top-color: #e5e5e5; border-top-style: solid;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-top: 15px; padding-b=
+ottom: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+          <img src=3D"https://cdn.shopify.com/s/files/1/0601/5503/5848/file=
+s/Speak_Easy_WG_86819315-6e26-4c2f-8ec5-1c05fb63f25b_compact_cropped.jpg?v=
+=3D1734762730" align=3D"left" width=3D"60" height=3D"60" class=3D"order-lis=
+t__product-image" style=3D"margin-right: 15px; border-radius: 8px; border: =
+1px solid #e5e5e5;"/>
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">Speak Easy - Threadless End=
+=A0=D7=A0
+            1
+          </span><br/>
+
+       =20
+          <span class=3D"order-list__item-variant" style=3D"font-size: 14px=
+; color: #999; font-weight: 400;">14K White Gold / White CZ</span><br/>
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              $106.00
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+   =20
+<tr class=3D"order-list__item" style=3D"width: 100%; border-top-width: 1px;=
+ border-top-color: #e5e5e5; border-top-style: solid;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-top: 15px; padding-b=
+ottom: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+          <img src=3D"https://cdn.shopify.com/s/files/1/0601/5503/5848/file=
+s/Speak_Easy_RG_896d8119-2a60-487c-9e8d-59b8193edd94_compact_cropped.jpg?v=
+=3D1734762730" align=3D"left" width=3D"60" height=3D"60" class=3D"order-lis=
+t__product-image" style=3D"margin-right: 15px; border-radius: 8px; border: =
+1px solid #e5e5e5;"/>
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">Speak Easy - Threadless End=
+=A0=D7=A0
+            1
+          </span><br/>
+
+       =20
+          <span class=3D"order-list__item-variant" style=3D"font-size: 14px=
+; color: #999; font-weight: 400;">14K Rose Gold / White CZ</span><br/>
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              $106.00
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+   =20
+<tr class=3D"order-list__item" style=3D"width: 100%; border-top-width: 1px;=
+ border-top-color: #e5e5e5; border-top-style: solid;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-top: 15px; padding-b=
+ottom: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+          <img src=3D"https://cdn.shopify.com/s/files/1/0601/5503/5848/file=
+s/6_compact_cropped.jpg?v=3D1685347716" align=3D"left" width=3D"60" height=
+=3D"60" class=3D"order-list__product-image" style=3D"margin-right: 15px; bo=
+rder-radius: 8px; border: 1px solid #e5e5e5;"/>
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">High Noon - Colored CZ - Th=
+readless End=A0=D7=A0
+            1
+          </span><br/>
+
+       =20
+          <span class=3D"order-list__item-variant" style=3D"font-size: 14px=
+; color: #999; font-weight: 400;">14K Yellow Gold / Emerald Green CZ</span>=
+<br/>
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              $69.00
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+   =20
+<tr class=3D"order-list__item" style=3D"width: 100%; border-top-width: 1px;=
+ border-top-color: #e5e5e5; border-top-style: solid;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-top: 15px; padding-b=
+ottom: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+          <img src=3D"https://cdn.shopify.com/s/files/1/0601/5503/5848/file=
+s/HighNoonRGPink_compact_cropped.jpg?v=3D1685347716" align=3D"left" width=
+=3D"60" height=3D"60" class=3D"order-list__product-image" style=3D"margin-r=
+ight: 15px; border-radius: 8px; border: 1px solid #e5e5e5;"/>
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">High Noon - Colored CZ - Th=
+readless End=A0=D7=A0
+            2
+          </span><br/>
+
+       =20
+          <span class=3D"order-list__item-variant" style=3D"font-size: 14px=
+; color: #999; font-weight: 400;">14K Rose Gold / Light Pink CZ</span><br/>
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              $138.00
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+   =20
+<tr class=3D"order-list__item" style=3D"width: 100%; border-top-width: 1px;=
+ border-top-color: #e5e5e5; border-top-style: solid;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-top: 15px; padding-b=
+ottom: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+          <img src=3D"https://cdn.shopify.com/s/files/1/0601/5503/5848/file=
+s/5_compact_cropped.jpg?v=3D1685347716" align=3D"left" width=3D"60" height=
+=3D"60" class=3D"order-list__product-image" style=3D"margin-right: 15px; bo=
+rder-radius: 8px; border: 1px solid #e5e5e5;"/>
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">High Noon - Colored CZ - Th=
+readless End=A0=D7=A0
+            1
+          </span><br/>
+
+       =20
+          <span class=3D"order-list__item-variant" style=3D"font-size: 14px=
+; color: #999; font-weight: 400;">14K Yellow Gold / Grey Blue CZ</span><br/=
+>
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              $69.00
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+   =20
+<tr class=3D"order-list__item" style=3D"width: 100%; border-top-width: 1px;=
+ border-top-color: #e5e5e5; border-top-style: solid;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-top: 15px; padding-b=
+ottom: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+          <img src=3D"https://cdn.shopify.com/s/files/1/0601/5503/5848/file=
+s/HighNoonWGTZ_compact_cropped.jpg?v=3D1685347716" align=3D"left" width=3D"=
+60" height=3D"60" class=3D"order-list__product-image" style=3D"margin-right=
+: 15px; border-radius: 8px; border: 1px solid #e5e5e5;"/>
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">High Noon - Colored CZ - Th=
+readless End=A0=D7=A0
+            1
+          </span><br/>
+
+       =20
+          <span class=3D"order-list__item-variant" style=3D"font-size: 14px=
+; color: #999; font-weight: 400;">14K White Gold / Grey Blue CZ</span><br/>
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              $69.00
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+   =20
+<tr class=3D"order-list__item" style=3D"width: 100%; border-top-width: 1px;=
+ border-top-color: #e5e5e5; border-top-style: solid;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-top: 15px; padding-b=
+ottom: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+          <img src=3D"https://cdn.shopify.com/s/files/1/0601/5503/5848/file=
+s/HighNoonRGTZ_compact_cropped.jpg?v=3D1685347716" align=3D"left" width=3D"=
+60" height=3D"60" class=3D"order-list__product-image" style=3D"margin-right=
+: 15px; border-radius: 8px; border: 1px solid #e5e5e5;"/>
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">High Noon - Colored CZ - Th=
+readless End=A0=D7=A0
+            1
+          </span><br/>
+
+       =20
+          <span class=3D"order-list__item-variant" style=3D"font-size: 14px=
+; color: #999; font-weight: 400;">14K Rose Gold / Grey Blue CZ</span><br/>
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              $69.00
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+   =20
+<tr class=3D"order-list__item" style=3D"width: 100%; border-top-width: 1px;=
+ border-top-color: #e5e5e5; border-top-style: solid;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-top: 15px; padding-b=
+ottom: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+          <img src=3D"https://cdn.shopify.com/s/files/1/0601/5503/5848/file=
+s/HexaRG_compact_cropped.jpg?v=3D1735959194" align=3D"left" width=3D"60" he=
+ight=3D"60" class=3D"order-list__product-image" style=3D"margin-right: 15px=
+; border-radius: 8px; border: 1px solid #e5e5e5;"/>
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">Hoax - Threadless End=A0=D7=
+=A0
+            2
+          </span><br/>
+
+       =20
+          <span class=3D"order-list__item-variant" style=3D"font-size: 14px=
+; color: #999; font-weight: 400;">14K Rose Gold / Swiss Blue Topaz</span><b=
+r/>
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              $154.00
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+   =20
+<tr class=3D"order-list__item" style=3D"width: 100%; border-top-width: 1px;=
+ border-top-color: #e5e5e5; border-top-style: solid;">
+  <td class=3D"order-list__item__cell" style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;=
+, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sa=
+ns&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-top: 15px;">
+    <table style=3D"border-spacing: 0; border-collapse: collapse;">
+      <tbody><tr><td style=3D"font-family: -apple-system, BlinkMacSystemFon=
+t, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;=
+, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helv=
+etica Neue&#34;, sans-serif;">
+       =20
+          <img src=3D"https://cdn.shopify.com/s/files/1/0601/5503/5848/file=
+s/Display4_1_51088a45-99fc-43c5-961c-27eb09a2c18f_compact_cropped.jpg?v=3D1=
+714626870" align=3D"left" width=3D"60" height=3D"60" class=3D"order-list__p=
+roduct-image" style=3D"margin-right: 15px; border-radius: 8px; border: 1px =
+solid #e5e5e5;"/>
+       =20
+      </td>
+      <td class=3D"order-list__product-description-cell" style=3D"font-fami=
+ly: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;=
+, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#=
+34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; width: 100=
+%;">
+       =20
+
+       =20
+
+        <span class=3D"order-list__item-title" style=3D"font-size: 16px; fo=
+nt-weight: 600; line-height: 1.4; color: #555;">Threadless End Display=A0=
+=D7=A0
+            1
+          </span><br/>
+
+       =20
+
+         =20
+
+       =20
+
+       =20
+         =20
+           =20
+              <span class=3D"order-list__item-discount-allocation" style=3D=
+"font-size: 14px; display: block; line-height: 1.4; margin: 1px 0 0;">
+                <img src=3D"https://cdn.shopify.com/shopifycloud/shopify/as=
+sets/themes_support/notifications/discounttag-23d3dd52a101179fb1461daaba6b7=
+7388b99b6154de85840a5245b8d3930a68e.png" width=3D"18" height=3D"18" class=
+=3D"discount-tag-icon" style=3D"vertical-align: middle; margin-right: 6px;"=
+/>
+                <span style=3D"font-size: 14px; margin-left: -4px;">
+                  GIFT
+                  (-$40.00)
+                </span>
+              </span>
+           =20
+         =20
+       =20
+      </td>
+        <td class=3D"order-list__price-cell" style=3D"font-family: -apple-s=
+ystem, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxyge=
+n&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Dr=
+oid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; white-space: nowrap;">
+         =20
+            <del class=3D"order-list__item-original-price" style=3D"font-si=
+ze: 14px; display: block; text-align: right; color: #999;">$40.00</del>
+         =20
+          <p class=3D"order-list__item-price" style=3D"color: #555; line-he=
+ight: 150%; font-size: 16px; font-weight: 600; margin: 4px 0 0 15px;" align=
+=3D"right">
+           =20
+              Free
+           =20
+          </p>
+        </td>
+    </tr></tbody></table>
+  </td>
+</tr>
+
+ =20
+</tbody></table>
+
+            <table class=3D"row subtotal-lines" style=3D"width: 100%; borde=
+r-spacing: 0; border-collapse: collapse; margin-top: 15px; border-top-width=
+: 1px; border-top-color: #e5e5e5; border-top-style: solid;">
+  <tbody><tr>
+    <td class=3D"subtotal-spacer" style=3D"font-family: -apple-system, Blin=
+kMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#3=
+4;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#3=
+4;, &#34;Helvetica Neue&#34;, sans-serif; width: 40%;"></td>
+    <td style=3D"font-family: -apple-system, BlinkMacSystemFont, &#34;Segoe=
+ UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantar=
+ell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#3=
+4;, sans-serif;">
+      <table class=3D"row subtotal-table" style=3D"width: 100%; border-spac=
+ing: 0; border-collapse: collapse; margin-top: 20px;">
+
+       =20
+
+
+
+
+
+
+
+
+<tbody><tr class=3D"subtotal-line">
+  <td class=3D"subtotal-line__title" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 2px 0;">
+    <p style=3D"color: #777; line-height: 1.2em; font-size: 16px; margin: 4=
+px 0 0;">
+      <span style=3D"font-size: 16px;">Subtotal</span>
+    </p>
+  </td>
+  <td class=3D"subtotal-line__value" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 2px 0;" align=3D"righ=
+t">
+      <strong style=3D"font-size: 16px; color: #555;">$2,714.00</strong>
+  </td>
+</tr>
+
+
+
+
+
+
+       =20
+         =20
+           =20
+ =20
+<tr class=3D"subtotal-line">
+  <td class=3D"subtotal-line__title" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 2px 0;">
+    <p style=3D"color: #777; line-height: 1.2em; font-size: 16px; margin: 4=
+px 0 0;">
+      <span style=3D"font-size: 16px;">Shipping</span>
+    </p>
+  </td>
+  <td class=3D"subtotal-line__value" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 2px 0;" align=3D"righ=
+t">
+      <strong style=3D"font-size: 16px; color: #555;">$0.00</strong>
+  </td>
+</tr>
+
+
+
+         =20
+       =20
+
+       =20
+
+       =20
+<tr class=3D"subtotal-line">
+  <td class=3D"subtotal-line__title" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 2px 0;">
+    <p style=3D"color: #777; line-height: 1.2em; font-size: 16px; margin: 4=
+px 0 0;">
+      <span style=3D"font-size: 16px;">Taxes</span>
+    </p>
+  </td>
+  <td class=3D"subtotal-line__value" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 2px 0;" align=3D"righ=
+t">
+      <strong style=3D"font-size: 16px; color: #555;">$0.00</strong>
+  </td>
+</tr>
+
+
+       =20
+      </tbody></table>
+
+     =20
+     =20
+     =20
+     =20
+
+      <table class=3D"row subtotal-table subtotal-table--total" style=3D"wi=
+dth: 100%; border-spacing: 0; border-collapse: collapse; margin-top: 20px; =
+border-top-width: 2px; border-top-color: #e5e5e5; border-top-style: solid;"=
+>
+     =20
+       =20
+<tbody><tr class=3D"subtotal-line">
+  <td class=3D"subtotal-line__title" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 20px 0 0;">
+    <p style=3D"color: #777; line-height: 1.2em; font-size: 16px; margin: 4=
+px 0 0;">
+      <span style=3D"font-size: 16px;">Total</span>
+    </p>
+  </td>
+  <td class=3D"subtotal-line__value" style=3D"font-family: -apple-system, B=
+linkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, =
+&#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans=
+&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding: 20px 0 0;" align=3D"r=
+ight">
+      <strong style=3D"font-size: 24px; color: #555;">$2,714.00 USD</strong=
+>
+  </td>
+</tr>
+
+       =20
+          <tr class=3D"subtotal-line">
+            <td style=3D"font-family: -apple-system, BlinkMacSystemFont, &#=
+34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#3=
+4;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica=
+ Neue&#34;, sans-serif; padding: 20px 0 0;"></td>
+            <td class=3D"subtotal-line__value total-discount" style=3D"font=
+-family: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto=
+&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira S=
+ans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; color=
+: #777; font-size: 16px; line-height: 1.1; margin-top: 10px; padding: 20px =
+0 0;" align=3D"right">
+                You saved <span class=3D"total-discount--amount" style=3D"f=
+ont-size: 16px; color: #555;">$40.00</span>
+            </td>
+          </tr>
+       =20
+       =20
+       =20
+     =20
+      </tbody></table>
+
+     =20
+     =20
+
+
+     =20
+    </td>
+  </tr>
+</tbody></table>
+
+
+            </td>
+          </tr>
+        </tbody></table>
+      </center>
+    </td>
+  </tr>
+</tbody></table>
+
+          <table class=3D"row section" style=3D"width: 100%; border-spacing=
+: 0; border-collapse: collapse;">
+  <tbody><tr>
+    <td class=3D"section__cell" style=3D"font-family: -apple-system, BlinkM=
+acSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;=
+Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;=
+, &#34;Helvetica Neue&#34;, sans-serif; padding: 40px 0;">
+      <center>
+        <table class=3D"container" style=3D"width: 560px; text-align: left;=
+ border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+          <tbody><tr>
+            <td style=3D"font-family: -apple-system, BlinkMacSystemFont, &#=
+34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#3=
+4;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica=
+ Neue&#34;, sans-serif;">
+              <h3 style=3D"font-weight: normal; font-size: 20px; margin: 0 =
+0 25px;">Customer information</h3>
+            </td>
+          </tr>
+        </tbody></table>
+        <table class=3D"container" style=3D"width: 560px; text-align: left;=
+ border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+          <tbody><tr>
+            <td style=3D"font-family: -apple-system, BlinkMacSystemFont, &#=
+34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#3=
+4;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica=
+ Neue&#34;, sans-serif;">
+             =20
+            <table class=3D"row" style=3D"width: 100%; border-spacing: 0; b=
+order-collapse: collapse;">
+              <tbody><tr>
+               =20
+               =20
+              </tr>
+            </tbody></table>
+            <table class=3D"row" style=3D"width: 100%; border-spacing: 0; b=
+order-collapse: collapse;">
+              <tbody><tr>
+               =20
+               =20
+                  <td class=3D"customer-info__item" style=3D"font-family: -=
+apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#3=
+4;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, =
+&#34;Droid Sans&#34;, &#34;Helvetica Neue&#34;, sans-serif; padding-bottom:=
+ 40px; width: 50%;" valign=3D"top">
+                    <h4 style=3D"font-weight: 500; font-size: 16px; color: =
+#555; margin: 0 0 5px;">Payment</h4>
+                    <p class=3D"customer-info__item-content" style=3D"color=
+: #777; line-height: 150%; font-size: 16px; margin: 0;">
+                     =20
+                     =20
+                       =20
+                         =20
+                           =20
+                               =20
+                                 =20
+                                  <img src=3D"https://cdn.shopify.com/shopi=
+fycloud/shopify/assets/themes_support/notifications/american_express-44152b=
+af677c1090bbd5feb49c21ea85183a21c030f7489d8df470a48804d089.png" class=3D"cu=
+stomer-info__item-credit" height=3D"24" style=3D"height: 24px; display: inl=
+ine-block; margin-right: 10px; margin-top: 5px; margin-bottom: -6px;"/>
+                                  <span style=3D"font-size: 16px;">Payment<=
+/span><br/>
+                               =20
+                           =20
+                         =20
+                       =20
+                     =20
+                    </p>
+                  </td>
+               =20
+              </tr>
+              <tr>
+               =20
+              </tr>
+            </tbody></table>
+
+            </td>
+          </tr>
+        </tbody></table>
+      </center>
+    </td>
+  </tr>
+</tbody></table>
+
+          <table class=3D"row footer" style=3D"width: 100%; border-spacing:=
+ 0; border-collapse: collapse; border-top-width: 1px; border-top-color: #e5=
+e5e5; border-top-style: solid;">
+  <tbody><tr>
+    <td class=3D"footer__cell" style=3D"font-family: -apple-system, BlinkMa=
+cSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;U=
+buntu&#34;, &#34;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;,=
+ &#34;Helvetica Neue&#34;, sans-serif; padding: 35px 0;">
+      <center>
+        <table class=3D"container" style=3D"width: 560px; text-align: left;=
+ border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+          <tbody><tr>
+            <td style=3D"font-family: -apple-system, BlinkMacSystemFont, &#=
+34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#3=
+4;Cantarell&#34;, &#34;Fira Sans&#34;, &#34;Droid Sans&#34;, &#34;Helvetica=
+ Neue&#34;, sans-serif;">
+             =20
+              <p class=3D"disclaimer__subtext" style=3D"color: #999; line-h=
+eight: 150%; font-size: 14px; margin: 0;">If you have any questions, reply =
+to this email or contact us at <a href=3D"mailto:info@emberjewelrywholesale=
+.com" style=3D"font-size: 14px; text-decoration: none; color: #024059;">inf=
+o@emberjewelrywholesale.com</a></p>
+            </td>
+          </tr>
+        </tbody></table>
+      </center>
+    </td>
+  </tr>
+</tbody></table>
+
+<img src=3D"https://cdn.shopify.com/shopifycloud/shopify/assets/themes_supp=
+ort/notifications/spacer-1a26dfd5c56b21ac888f9f1610ef81191b571603cb207c6c0f=
+564148473cab3c.png" class=3D"spacer" height=3D"1" style=3D"min-width: 600px=
+; height: 0;"/>
+
+        </td>
+      </tr>
+    </tbody></table>
+ =20
+
+
+
+
+</body></html>
+--f8d31350e7add6d3c2bbad546b8d8104adb73009d4c7a98347ab0a1738cf--

@@ -1,0 +1,382 @@
+Delivered-To: matt@sodapoppiercing.com
+Received: by 2002:a05:7010:e38c:b0:48c:9c56:1db1 with SMTP id ma12csp9224694mdb;
+        Tue, 21 Oct 2025 08:44:41 -0700 (PDT)
+X-Forwarded-Encrypted: i=4; AJvYcCXX90NGge8tB3bo0VoeU0J47Qj2uX50pBSUMU1THHwww1KJaCO/pBhFGQbkw1CP+5PC4IDV@sodapoppiercing.com
+X-Received: by 2002:a05:690c:3684:b0:77f:b51f:6dbb with SMTP id 00721157ae682-7836d30e5dfmr154305927b3.42.1761061481537;
+        Tue, 21 Oct 2025 08:44:41 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1761061481; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=XGrgmwvukrZ9cIminN5zKbIWrd9m7pdQSaK4dFu0kqxY8Gi1cAvi4pBUN9Xq95C9nf
+         IX314cHyvoHaaDzFpXg3xLVrh7Knut7FlnNQCSe4Ca/IH5vVeEgY5vS+KVBfP0L0ndod
+         2JsuoZDE/xiAL0inMT2aBie996lG8rm8QX4911ViCr/VUnjrjXeYodsPkpTXts/JLJ4H
+         I3FjwYk70FUNEx0HxrtzQ12CbaVUHCFP6VlC823ohzD8t2aBXTM91oHI3iriooBIcYqW
+         cWjOS0bbKW/H7Wh+8Bsl+ELbsE4VoxpmJD2vncDqHD4Q7mwna9izdJVEoVHXZ8XPMdnt
+         kRzA==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:to:subject:message-id:date:from
+         :mime-version:dkim-signature;
+        bh=U00KYNQ+DiVNVqmru+s8VbNX3s5MkzAqDYPzanEfH2s=;
+        fh=qV6Gp3S4RZzOPgXH9+wqTV3RVRaP8yYQ2x9nJvF6pY4=;
+        b=bKb9juiwFBl9RQIDX4fdrVyx5URX1SQBy/agyZHjdNxYbgv8nnVNWw7ByoUnYfXRxu
+         BQwoz7QbUNAiZrgDrrKwG5nqN6u4A/mq8I9fV5foiXWZpN4WZhRHpMapX1QIvm7e5bKf
+         /lB/e+ltUuYYmDxpHe73vIPnBw72ldf4Bt6Okpm6me4EYFEaVyPGZhEVPHjif6BNJs4F
+         isHmg0oOzttdOsAf90YpIDZg05MgzXUz4xDFRNW1CLsg+CEf/BLraSvtqD79CW7p6nl/
+         Vuu4nq/v5yMfxokpO9uRpFMzhEE9hg+xHGKNXVdK7RQCGNCLVcNfhnRgPXj+6Q0y5I4u
+         n77A==;
+        dara=google.com
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@sodapoppiercing-com.20230601.gappssmtp.com header.s=20230601 header.b=xw606kvB;
+       arc=pass (i=2 spf=pass spfdomain=gmail.com dkim=pass dkdomain=gmail.com dmarc=pass fromdomain=gmail.com);
+       spf=permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbdq7zh7xuudbb2gu33dqmgqewz7vk2y@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) smtp.mailfrom=jewelryorders+bncBDQ7ZH7XUUDBB2GU33DQMGQEWZ7VK2Y@sodapoppiercing.com;
+       dmarc=fail (p=NONE sp=QUARANTINE dis=NONE arc=pass) header.from=gmail.com;
+       dara=neutral header.i=@sodapoppiercing.com
+Return-Path: <jewelryorders+bncBDQ7ZH7XUUDBB2GU33DQMGQEWZ7VK2Y@sodapoppiercing.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 00721157ae682-7846a6b0e60sor48325097b3.17.2025.10.21.08.44.41
+        for <matt@sodapoppiercing.com>
+        (Google Transport Security);
+        Tue, 21 Oct 2025 08:44:41 -0700 (PDT)
+Received-SPF: permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbdq7zh7xuudbb2gu33dqmgqewz7vk2y@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@sodapoppiercing-com.20230601.gappssmtp.com header.s=20230601 header.b=xw606kvB;
+       arc=pass (i=2 spf=pass spfdomain=gmail.com dkim=pass dkdomain=gmail.com dmarc=pass fromdomain=gmail.com);
+       spf=permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbdq7zh7xuudbb2gu33dqmgqewz7vk2y@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) smtp.mailfrom=jewelryorders+bncBDQ7ZH7XUUDBB2GU33DQMGQEWZ7VK2Y@sodapoppiercing.com;
+       dmarc=fail (p=NONE sp=QUARANTINE dis=NONE arc=pass) header.from=gmail.com;
+       dara=neutral header.i=@sodapoppiercing.com
+ARC-Seal: i=2; a=rsa-sha256; t=1761061481; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=jEGE4E8Hd+iqmeoUxV8elx6gP+XBN5tlqZbMRIzl156JanQPuHWVZTFYC0fmw2rzof
+         NDBxXgOOEyCN7MDztdJihhlPlSEPjRVV8tbR5jjfpc5fIh6+EgPxX+HCa5FRxyww9yrJ
+         BYEUVBUTC9j1jQpnulRZG1/kY54VqpUJpeo5y9SiTXyYgqgcyh1Z3WVw/cYnGZA4kN0L
+         WbzOlx6MkIfTB7uHKuMdziKOKkv+6mZlHRW4rbiejXVGMvguCOLn6kSE061oUu2qrnw0
+         TeJYM2w/jdjvx0o0Xj5pte7W2ibb1FSsDWkqyfy7TQB772jhHFWIGDPfEtJHuHY2SZkH
+         090A==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:to:subject:message-id:date:from
+         :mime-version:dkim-signature;
+        bh=U00KYNQ+DiVNVqmru+s8VbNX3s5MkzAqDYPzanEfH2s=;
+        fh=qV6Gp3S4RZzOPgXH9+wqTV3RVRaP8yYQ2x9nJvF6pY4=;
+        b=eVc4/Mu61KlNkgRC6vkhHeivnk20tSbEpOjLCZTH4/VyWC9ORbcCa/qqzcDT3JDMv8
+         H62G62Z0xVkPfHXkf4FhXaFHytdPnLbo7XKN/+VXjKDKXPTnBy/q3N2rNMi+fVXDXk5j
+         sE5qmVJWKlhzBIUzO6OZpi1zfwvnPPi3IzwLLlJ2WCNXWjyL3zSiE1lbNEfbmUwCke4Z
+         kAaADqF0fA20A1zlTuU8kI4OMZWv4vxwN9cBlOAtn8xjRbQepYTrUiayevgmiKCDGHQL
+         LHgIo4ExhArrxYCkdS4CpnjMSS5CNeFn8yrwN42EGEo4gzwCbrEMlhRgN+OY5VMVvNLD
+         OqfQ==;
+        darn=sodapoppiercing.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=OEnB6ZkH;
+       spf=pass (google.com: domain of glasswearoffice@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=glasswearoffice@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@sodapoppiercing.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sodapoppiercing-com.20230601.gappssmtp.com; s=20230601; t=1761061481; x=1761666281; darn=sodapoppiercing.com;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:x-original-authentication-results
+         :x-original-sender:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=U00KYNQ+DiVNVqmru+s8VbNX3s5MkzAqDYPzanEfH2s=;
+        b=xw606kvB+mXXzL0yE5u9XuEFs6NgItK44f83GDH7Yg39I8JDrs76q6+utdEE/Eia77
+         dgCHIC6z7+yjLSNXpx5AlMTfKZp5x0M1rk7vZJeKkVQdEZfn8UuUmBqH6TpRG8Xo6tAS
+         Uw+R68B3nGlvn4g/DVutovk+hWWTpsUvs1SnntXsj+mS/q5zbedwdO6rISYGv2afUBKC
+         UNS27d38Ipc6LIKUpRWvm22Q601FXcUNifxXOuf5SLf0EJWhLAw7ia+LLmm2kUqdLfUx
+         fuMzz5j4E+PILnolOutU8bKiZFXdaXG9SY/t0L5dKxAWSJ0hdXQIqn8Sop4R4ljtudTy
+         j86w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761061481; x=1761666281;
+        h=list-unsubscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-original-authentication-results:x-original-sender:to:subject
+         :message-id:date:from:mime-version:x-beenthere:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=U00KYNQ+DiVNVqmru+s8VbNX3s5MkzAqDYPzanEfH2s=;
+        b=U4Frc8DYKO/TVcIwow2TNZggi+j3fwF2oK5Tq7oyHyE/AskCwG+V73hZahBLMjXKOM
+         Ie9Zwbd0UWpfah1YjoFw+lwXYolxesGK8mmZeFh1p7mI4ejpGCVwjmTbPnkNBvXxba7Y
+         PRKiGevd7aXi8eXNTczjla//MtSL7MXs7pXUn7FVMNcx556yiKKgrxNq4qq/XEkwH/HF
+         3SylcV7UEzuBavI95d0KDhRuVOKP0PYuaZlTHwRwMggT/65zdlZU4q5Yug0AQR4skJIt
+         CWvGwxhzoebaVoQ3CqNmqNLLYzt9WB/Y6UkChvXeetJ8ndz5ZV5IF3Oge2spAVp4YqVt
+         P5Aw==
+X-Forwarded-Encrypted: i=2; AJvYcCWswbbQ5+OhYRh/CrepBBV2GPmbs+bPsUka4RG8vhULR8BWiRThsVgC6EDZcVU0brdUg+TR@sodapoppiercing.com
+X-Gm-Message-State: AOJu0Ywq6EmlU79Z5degA6RPkyyJ3eadGG3diTx1UHo/mHgF/G+j5Adb
+	ARwm+ukTV9puzhwnLjLyh5MHCZMhxk5VUll6Aygrs7ht2SbYRls69lYMXXogyPFYdyj3jQ==
+X-Google-Smtp-Source: AGHT+IGZICj6Zyd5sn6RN7H+cFzr50G0BdRykjc39JJJySmXAuxMkeg2QNTkUUjC88lkqeZPrxAsiw==
+X-Received: by 2002:a05:690e:4008:b0:63e:35a6:5aed with SMTP id 956f58d0204a3-63e35a65afemr6670118d50.49.1761061480969;
+        Tue, 21 Oct 2025 08:44:40 -0700 (PDT)
+X-BeenThere: jewelryorders@sodapoppiercing.com; h="ARHlJd6l/CWbzWVZa/xLM1NWUZrkPwXFhYZoyd7BQ2/Vw5+c4w=="
+Received: by 2002:a53:b101:0:b0:63c:df86:2aa7 with SMTP id 956f58d0204a3-63e0d726d4fls5362764d50.1.-pod-prod-09-us;
+ Tue, 21 Oct 2025 08:44:40 -0700 (PDT)
+X-Received: by 2002:a05:690e:1289:b0:63c:e90c:a6d3 with SMTP id 956f58d0204a3-63e160e8402mr12580575d50.4.1761061480191;
+        Tue, 21 Oct 2025 08:44:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761061480; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Z4oUCA0Lt/Z3KJwgRVVKitEwqJ/G/pB5Q+mazuOKC5hnTMCTz8yQbOmQokSbwO09Fi
+         /SjbR7/9XQUngQ5GSF66Hyb2bwZq+5SURkSf3S7FfNwA/5sQ1IQGeqJdKBM4QdQ58mBW
+         5aAc7m6BPfPHxvEjk/4SUjjv44tB2NdEN1AtKM5+2ngMj/5kqyvx8AghQ9F3HwkRhlyB
+         fq5u3AWaFs6dYvWDyWxbXUg07uWOQajN6iry5WzcFOr/KEy7/S3NYfpbQmYblO8RAZZP
+         BoTFA+0U2+/+7MZihl/eQ5dpy4apet0UHPZeFtIFT8iU+ZgTnXhaaYoLeZPiNoEDeael
+         i3RQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=U00KYNQ+DiVNVqmru+s8VbNX3s5MkzAqDYPzanEfH2s=;
+        fh=b46/NFn5bF9MYzoq0g4JWmajhnTmrcwb44ZgZEAaibo=;
+        b=RI23K0wE6YYz1iUIFdTgoFmDPWX67jCVFNQI4gfZh/N5E4kLe4iTGA7Uv7wNIvY0v9
+         yuET8DBMklwJb0tjsimqQyewuO2ys07x2GRJi9uiDHMSqkc9NwEhe7zfoohU7lHpJD4+
+         UWvCZltaPsvRHnY+SxQPtv0kvm6Oj5v7QJsiiHQQzRerVFTN7fz0bU5Ly1qItLjJy3hP
+         LdluP9CeQBamN/pZSwB+YEjycSdgQneFCpCotGpjh/cpHdRdhtITXGNhCt9RBoDT7o0V
+         o8xknKlleB1mtQXPBEMLoLm9TAzAYOjWG0GUxYCzAJpK1iwMJpIzTaSHW6LwT/qTVH0j
+         OG2Q==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=OEnB6ZkH;
+       spf=pass (google.com: domain of glasswearoffice@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=glasswearoffice@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@sodapoppiercing.com
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 956f58d0204a3-63e2665fcb4sor4453489d50.2.2025.10.21.08.44.40
+        for <jewelryorders@sodapoppiercing.com>
+        (Google Transport Security);
+        Tue, 21 Oct 2025 08:44:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of glasswearoffice@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+X-Gm-Gg: ASbGnctcAa6iUeFMFz5vH5CG8GkLGhf14eimAKaj8w2lx8MqPN/UawHczHpmFaNSpC4
+	InojImtRQnasOu/ppFPYVM55lnEUz+XesPJ1n6stdWxExxmzWqtaIgODAwHiLEYjnd6dcKA50l0
+	260E5frelezETmyY0HeXBcUv8jpL58O4jNDECg7mWv8LF3wxsZAnpGA8kSjopghdZRJ0Bx71z06
+	r9VfqOc4+i/eHuVxzrv0Ool7xbEEllouLhXI3ZCv64mI+3fy74zNv5SY8A=
+X-Received: by 2002:a05:690e:408d:b0:63e:30d0:61a0 with SMTP id
+ 956f58d0204a3-63e30d0632bmr7577847d50.26.1761061479255; Tue, 21 Oct 2025
+ 08:44:39 -0700 (PDT)
+MIME-Version: 1.0
+From: glasswear studios <glasswearoffice@gmail.com>
+Date: Tue, 21 Oct 2025 08:44:26 -0700
+X-Gm-Features: AS18NWAbhom3pawIwNiygPIhoohxjww7w9DamcEiq8wcPoKbcFWclJrVAbdNpKE
+Message-ID: <CAMBJ3JNy-ic1bTjA6j4bLgAeGneXwO=ghC=8xsQWPmqLtyOOEA@mail.gmail.com>
+Subject: Welcome to Your Wholesale Account with GWS!
+To: jewelryorders@sodapoppiercing.com
+Content-Type: multipart/alternative; boundary="000000000000e613690641ad13b6"
+X-Original-Sender: glasswearoffice@gmail.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20230601 header.b=OEnB6ZkH;       spf=pass
+ (google.com: domain of glasswearoffice@gmail.com designates 209.85.220.41 as
+ permitted sender) smtp.mailfrom=glasswearoffice@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;       dara=neutral header.i=@sodapoppiercing.com
+Precedence: list
+Mailing-list: list jewelryorders@sodapoppiercing.com; contact jewelryorders+owners@sodapoppiercing.com
+List-ID: <jewelryorders.sodapoppiercing.com>
+X-Spam-Checked-In-Group: jewelryorders@sodapoppiercing.com
+X-Google-Group-Id: 479861830095
+List-Post: <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/post>,
+ <mailto:jewelryorders@sodapoppiercing.com>
+List-Help: <https://support.google.com/a/sodapoppiercing.com/bin/topic.py?topic=25838>,
+ <mailto:jewelryorders+help@sodapoppiercing.com>
+List-Archive: <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/>
+List-Unsubscribe: <mailto:googlegroups-manage+479861830095+unsubscribe@googlegroups.com>,
+ <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/subscribe>
+
+--000000000000e613690641ad13b6
+Content-Type: text/plain; charset="UTF-8"
+
+ Your application looks great and was approved. The last step is to set up
+an account on the website. Once you do I will switch it over to wholesale
+for you. In the meantime I have below all the information you need about
+your new wholesale account plus a one time discount code to use on your
+first order. Just wait on using it until after your account is switched
+over. :)
+
+Thank you for registering on the new Glasswear Studios website. You are now
+registered as a Wholesale Client on our website. This new platform is
+powered by Volusion.com and provides many upgraded features and feel that
+are comparable with other popular eCommerce sites. Our new template is also
+mobile and tablet friendly.
+
+The new site features include One-Page Checkout, Product Reviews, Private
+wholesale only products (some designs will be wholesale only when first
+launched), Wishlist, New Pictures, Swatches, built-in email and Newsletter.
+All of your orders will be stored on the website, so you can now print or
+review past orders at any time. We will never share or sell your info to
+anyone for any reason. Newsletters will be sent out a few times a month and
+feature new products, discounts, coupons and important changes/info
+happening at GwS. If you are building a shopping cart over time. You must
+use the wishlist feature or else your cart will be cleared due to
+inactivity after 12 hours.
+
+Our wholesale volume discounts start at $250 for non-APP members, APP
+members get an extra 5% off all orders now.
+
+*Our Wholesale Volume Discounts are:*
+$250 - $499.99 = 5%
+$500 - $99.99 = 10%
+$1000 - $2499.99 = 15%
+$2500 - $4999.99 = 20%
+$5000+ = 25%
+*Discounts do not include O-rings, Displays, or Receiving Tubes
+
+Discounts are automatically factored in at checkout.
+
+If you're an APP Member, Loyalty Customer, or if your company qualifies for
+one of our Premium discount tiers (by spending $3k, $6k or $12k per year),
+this discount is factored into your account already, but  If you think you
+may qualify, or qualify in the near future, please email us so we can
+determine your eligibility.
+
+One major difference from our old website is that each product now has it's
+own page. On this website you will see our retail price and your wholesale
+price below it in red. You can now use drop down menus to choose your size,
+colors and flare. The size options and a few other choices may change the
+listed price, so make sure you click the update button to see your new
+price after options are applied. Any order quantity discounts will be
+automatically applied in the shopping cart.
+
+As before, our jewelry is sold per piece. However, some items are now only
+sold in pairs, as they can only be matched when made together. They will
+say "Minimum Order 2" under the update button. If you really want one plug
+for a single piercing, you can contact us for a special order.
+
+Check out the FAQ/help page for tons more info to help you navigate. Like
+any website, we will be adding features and products as we go, especially
+to the overstock section. Please feel free to email us if you have any
+questions, concerns, or website issues.
+
+Once you receive this letter, you will have access to wholesale pricing on
+our site. The retail price on our new site is set at 2.5x mark-up from our
+wholesale price across the board. The display price will be 60% off the
+originally listed retail price, and you can now shop private items like
+NRTs, wood displays, and new jewelry styles that aren't available to retail
+yet. Look for the green "Wholesale Only" tag to view those items.
+
+As a new customer you can use this ONE TIME coupon for 15% off your first
+order on the new site. Note that this coupon may not be combined with any
+other discounts/offers.
+
+
+*newmember2025* (expires 12.31.2025)
+
+
+Glasswear Studios, inc
+1.866.GLASSWE
+011-541-488-5706
+Find us on Instagram @glasswear_studios
+www.facebook.com/glasswearstudios
+www.glasswearstudios.com
+office@glasswearstudios.com
+
+
+<https://www.avast.com/sig-email?utm_medium=email&utm_source=link&utm_campaign=sig-email&utm_content=webmail>
+Virus-free.www.avast.com
+<https://www.avast.com/sig-email?utm_medium=email&utm_source=link&utm_campaign=sig-email&utm_content=webmail>
+<#DAB4FAD8-2DD7-40BB-A1B8-4E2AA1F9FDF2>
+
+--000000000000e613690641ad13b6
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div>
+<div>Your application looks great and was=20
+approved. The last step is to set up an account on the website. Once you
+ do I will switch it over to wholesale for you. In the meantime=C2=A0I have=
+=20
+below all the information you need about your new wholesale account plus
+ a one time discount code to use on your first order. Just wait on using
+ it until after your account is switched over. :)</div><div><br></div><div>
+<div><div>Thank you for registering on the=20
+new=20
+Glasswear Studios website. You are now registered as a Wholesale Client=20
+on our website.  This new platform is powered by Volusion.com and=20
+provides many upgraded features and feel that are comparable with other=20
+popular eCommerce sites.   Our new template is also mobile and=20
+tablet friendly.
+</div><div><div dir=3D"ltr"><div dir=3D"ltr"><div><div dir=3D"ltr"><div><di=
+v dir=3D"ltr"><div><div dir=3D"ltr"><div><div><div><br>The new site feature=
+s include One-Page Checkout, Product=20
+Reviews, Private wholesale only products (some designs will be wholesale
+ only when first launched), Wishlist, New
+ Pictures, Swatches, built-in email and Newsletter.  All of your orders=20
+will be stored on the website, so you can now print or review past=20
+orders at any time. We=20
+will never share or sell your info to anyone for any reason. Newsletters
+ will be sent out a few times a month and feature new products,=20
+discounts, coupons and=20
+important changes/info happening at GwS.  If you are building a shopping
+ cart over time.  You must use the wishlist feature or else your cart=20
+will be cleared due to inactivity after 12 hours.<br><br>Our wholesale volu=
+me discounts start at $250 for non-APP members,   APP members get an extra =
+5% off all orders now.<br><br><b><span style=3D"font-size:14px"><span style=
+=3D"font-size:16px">Our Wholesale Volume Discounts are:</span></span></b><s=
+pan style=3D"font-size:14px"><span style=3D"font-size:16px"><br>$250 - $499=
+.99 =3D  5%<br>$500 - $99.99  =3D 10%<br>$1000 - $2499.99 =3D 15%<br>$2500 =
+- $4999.99 =3D 20%<br>$5000+  =3D 25%</span></span><br><span style=3D"font-=
+size:14px"><span style=3D"font-size:12px">*Discounts do not include O-rings=
+, Displays, or Receiving Tubes<br></span></span><br>Discounts are automatic=
+ally factored in at checkout.<br><br>
+  If you&#39;re an APP Member, Loyalty Customer, or if your company=20
+qualifies for one of our Premium discount tiers (by spending $3k,=20
+$6k or $12k per year), this discount is factored into your account=20
+already, but=C2=A0 If you think you may qualify, or qualify in the near=20
+future,=20
+please email us so we can determine your eligibility. <br><br>One major dif=
+ference from our old website is that=20
+each product now has it&#39;s own page. On this website you will see our re=
+tail price and your wholesale price below it in
+ red.  You can now use drop down menus to choose=20
+your size, colors and flare.  The size options and a few other choices may=
+=20
+change the listed price, so make sure you click the update button to see yo=
+ur=20
+new price after options are applied.=20
+ Any order quantity discounts will be automatically applied in=20
+the shopping cart.<br><br>As before, our jewelry is sold per piece.  Howeve=
+r, some items are now only sold in pairs, as they
+ can only be matched when made together. They will say &quot;Minimum Order =
+2&quot;
+ under the update button.  If you really want one plug for a single piercin=
+g,
+ you can contact us for a special order.
+<br><br>Check out the FAQ/help=20
+page for tons more info to help you navigate.  Like any website, we will
+ be adding features and products as we go, especially to the overstock=20
+section.  Please feel free to email us if you have any questions,=20
+concerns, or website issues. <br><br>Once you receive this letter, you=20
+will have access to wholesale pricing on our site. The retail price on=20
+our new site is set at 2.5x mark-up from our wholesale price across the=20
+board.  The display price will be 60% off the originally listed retail=20
+price, and you can now shop private items like NRTs, wood displays, and=20
+new jewelry styles that aren&#39;t available to retail yet.  Look for the=
+=20
+green &quot;Wholesale Only&quot; tag to view those items.<br><br>As a new c=
+ustomer
+ you can use this ONE TIME coupon for 15% off your first order on the=20
+new site. Note that this coupon may not be combined with any other=20
+discounts/offers. <br><br><b><span style=3D"font-size:20px">newmember2025<b=
+r></span></b><b><span style=3D"font-size:12px"> </span></b><span style=3D"f=
+ont-size:12px">(expires 12.31.2025)</span></div></div></div></div></div></d=
+iv></div></div></div></div></div></div>
+
+</div></div>
+
+
+
+<br clear=3D"all"></div><div><div dir=3D"ltr" class=3D"gmail_signature" dat=
+a-smartmail=3D"gmail_signature"><div dir=3D"ltr"><div><div dir=3D"ltr"><div=
+><div dir=3D"ltr"><div><div dir=3D"ltr"><div><div><div><br></div>Glasswear =
+Studios, inc <br></div>1.866.GLASSWE</div><div>011-541-488-5706<br></div></=
+div><div dir=3D"ltr">Find us on Instagram @glasswear_studios <br></div><div=
+><a href=3D"http://www.facebook.com/glasswearstudios" target=3D"_blank">www=
+.facebook.com/glasswearstudios</a><br></div><div><a href=3D"http://www.glas=
+swearstudios.com" target=3D"_blank">www.glasswearstudios.com</a><br></div><=
+div dir=3D"ltr"><div><a href=3D"mailto:office@glasswearstudios.com" target=
+=3D"_blank">office@glasswearstudios.com</a><br><br></div></div></div></div>=
+</div></div></div></div></div></div></div><div id=3D"DAB4FAD8-2DD7-40BB-A1B=
+8-4E2AA1F9FDF2"><br><table style=3D"border-top:1px solid #d3d4de"><tr><td s=
+tyle=3D"width:55px;padding-top:13px"><a href=3D"https://www.avast.com/sig-e=
+mail?utm_medium=3Demail&amp;utm_source=3Dlink&amp;utm_campaign=3Dsig-email&=
+amp;utm_content=3Dwebmail" target=3D"_blank"><img src=3D"https://s-install.=
+avcdn.net/ipm/preview/icons/icon-envelope-tick-round-orange-animated-no-rep=
+eat-v1.gif" alt=3D"" width=3D"46" height=3D"29" style=3D"width: 46px; heigh=
+t: 29px;"></a></td><td style=3D"width:470px;padding-top:12px;color:#41424e;=
+font-size:13px;font-family:Arial,Helvetica,sans-serif;line-height:18px">Vir=
+us-free.<a href=3D"https://www.avast.com/sig-email?utm_medium=3Demail&amp;u=
+tm_source=3Dlink&amp;utm_campaign=3Dsig-email&amp;utm_content=3Dwebmail" ta=
+rget=3D"_blank" style=3D"color:#4453ea">www.avast.com</a></td></tr></table>=
+<a href=3D"#DAB4FAD8-2DD7-40BB-A1B8-4E2AA1F9FDF2" width=3D"1" height=3D"1">=
+</a></div>
+
+--000000000000e613690641ad13b6--

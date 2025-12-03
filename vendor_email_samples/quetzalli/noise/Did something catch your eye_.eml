@@ -1,0 +1,1746 @@
+Delivered-To: matt@sodapoppiercing.com
+Received: by 2002:a05:7010:4811:b0:4ec:9866:c91e with SMTP id m17csp537093mdi;
+        Wed, 19 Nov 2025 15:26:47 -0800 (PST)
+X-Forwarded-Encrypted: i=4; AJvYcCX1wgXiNTucAikbmQphPspjLn1uaXTX6ygCD6WqDHKzx9//EwGke+pDRQWr08qOih7AVPZL@sodapoppiercing.com
+X-Received: by 2002:a05:6214:f06:b0:880:580e:b3e5 with SMTP id 6a1803df08f44-8846e10cfa0mr18571816d6.36.1763594807613;
+        Wed, 19 Nov 2025 15:26:47 -0800 (PST)
+ARC-Seal: i=3; a=rsa-sha256; t=1763594807; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=lQsg2uzMB5jYUvBJwG9WcJ8NM8Z66FqwfRFmxWJDupQoaTXxU7Mmcki33gTrwkmkqk
+         CCQe1mKVaM6Kpli1nrzK9Iec8Y/9UR15SjVPWJvwAuug+EcpUxt7iNTubC/t9oQlZEZb
+         H/bY8G9WvGR+/udQ3AfW2DUIRRrY08sx5073zbsIdBhTeCUAQChHPiWYFWaqvAJ4KFgW
+         5ebgrYku+npvXuz+cMyy+Hfr5IO3mfMauwUZN9c4gOaPEzqDeLwEHa1eDk/U6eJU2Zg6
+         PCw6GOAd73JKxsTJoTojaDHt4cCWAsOW/WpqvT8b/i7w2IWkQa0rItAKn5T48lIhTrVf
+         L/5Q==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-archive:list-help:list-post:list-id:mailing-list:to:precedence
+         :list-unsubscribe-post:list-unsubscribe:feedback-id:subject
+         :message-id:mime-version:from:date:content-transfer-encoding
+         :dkim-signature;
+        bh=hidETmKCkBNaK6E3R8F14q+QtzsH9cx9l6nyn1YTy3Q=;
+        fh=ap2dsbrMQELrqLfCHjeHxscc3B/V5By5lYLWFZVjNY0=;
+        b=SqtVBJOL5ytsWd2hdNxom7Xqr/r0tIuPnyug9MXH9eBLkcXBXZG8WkKgh3gq+yQJwh
+         4jWFXrevCqyIraoY+RNzXEmR8peOdGducndgwxBh07TcuCwg1Gfu2Y3iJUfQvpG/8LJx
+         YmfNlIweBDAaZo6o6BMzV+Wu4PQJWt0IFPt3MOk/sPtKTOjSxddV6tIgzlcscf3g8rIO
+         sSy2npGyu/1M793lujMsyKl6T+sICAA7IDJaupoy6wuNw2d1YyZap0SZ89H9MxzhvgS1
+         7u0OghIFLA0JuPTwUzWCYYRRQayxYlheGMntqJpz33T5JXXjBBCcZa6+/b7cX5lUZch7
+         pFwg==;
+        dara=google.com
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@sodapoppiercing-com.20230601.gappssmtp.com header.s=20230601 header.b=h5qcNvUK;
+       arc=pass (i=2 spf=pass spfdomain=mailerjsv.quetzallijewelry.com dkim=pass dkdomain=quetzallijewelry.com dmarc=pass fromdomain=quetzallijewelry.com);
+       spf=permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbcf3vsvjrycrbn5e7heamgqe6fifgjy@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) smtp.mailfrom=jewelryorders+bncBCF3VSVJRYCRBN5E7HEAMGQE6FIFGJY@sodapoppiercing.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE arc=pass) header.from=quetzallijewelry.com;
+       dara=neutral header.i=@sodapoppiercing.com
+Return-Path: <jewelryorders+bncBCF3VSVJRYCRBN5E7HEAMGQE6FIFGJY@sodapoppiercing.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 6a1803df08f44-8846e546df5sor5601196d6.8.2025.11.19.15.26.47
+        for <matt@sodapoppiercing.com>
+        (Google Transport Security);
+        Wed, 19 Nov 2025 15:26:47 -0800 (PST)
+Received-SPF: permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbcf3vsvjrycrbn5e7heamgqe6fifgjy@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@sodapoppiercing-com.20230601.gappssmtp.com header.s=20230601 header.b=h5qcNvUK;
+       arc=pass (i=2 spf=pass spfdomain=mailerjsv.quetzallijewelry.com dkim=pass dkdomain=quetzallijewelry.com dmarc=pass fromdomain=quetzallijewelry.com);
+       spf=permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbcf3vsvjrycrbn5e7heamgqe6fifgjy@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) smtp.mailfrom=jewelryorders+bncBCF3VSVJRYCRBN5E7HEAMGQE6FIFGJY@sodapoppiercing.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE arc=pass) header.from=quetzallijewelry.com;
+       dara=neutral header.i=@sodapoppiercing.com
+ARC-Seal: i=2; a=rsa-sha256; t=1763594807; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=gvoge6XbkoTQ3AcAsurFATgjVQMmW8h+328xfQ2HIhF3S8IO6jW5QX+3bdDtOPdZ/d
+         hXWuhhFEvNJTdE1oSze0vivaZ1oEN2UWnoQo2ey32goTBTixVIsVevp89hbaRwB+Ee3j
+         /myuD2QbqzzIVGQo5I7ZLoiRmHBEYVGV7mKfZuuT9kyTsoNfK2kadihpXEZC4DfKdz5s
+         H2QZS7ZL5Eky7FRkTwYRbUW7I4ouPBQd9UVpK1EvUevxkpWkdf5rlxmcE+vZmi9xCodd
+         EwhHeSJL0sKIie6Hs+tCnhuBo2OUDT4HoJYj9IIeO6zbgimlocAHkLOU9iR8TWMZURei
+         IFig==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-archive:list-help:list-post:list-id:mailing-list:to:precedence
+         :list-unsubscribe-post:list-unsubscribe:feedback-id:subject
+         :message-id:mime-version:from:date:content-transfer-encoding
+         :dkim-signature;
+        bh=hidETmKCkBNaK6E3R8F14q+QtzsH9cx9l6nyn1YTy3Q=;
+        fh=ap2dsbrMQELrqLfCHjeHxscc3B/V5By5lYLWFZVjNY0=;
+        b=dXS2ROzSy8xTWOb4G9p5VGokvq/GENKwYm95swZu+N0i3hEGLukdpClChrRHx2kVNZ
+         h2qVau7DvvKyOYAB2dLY2pE662e63z7BMB/1tBW9ZTg5y3nxu572vWe/la5nCBgxTqBx
+         yiur/0wg6DufzFymYd/tGVthSz16Zy5mVR4pS62PZ1i0pGXqYzosGIXfgcM4Fjw95Dzx
+         PJ5wD83kR52ejTLmi0jrflbp8foQng0gak+BYRRXEUXD+IHM+7s9EDGKx28VOJIyXYSO
+         oqGYCxnZl1T36XeWPLSSY9v3rN4PYQEJVv65/PIrEu5TfNBL7XpirpisW/NZAbhSOoiX
+         2hPQ==;
+        darn=sodapoppiercing.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@quetzallijewelry.com header.s=jsv header.b=ICtvSHU7;
+       spf=pass (google.com: domain of bounces+39494568-e345-jewelryorders=sodapoppiercing.com@mailerjsv.quetzallijewelry.com designates 159.183.145.168 as permitted sender) smtp.mailfrom="bounces+39494568-e345-jewelryorders=sodapoppiercing.com@mailerjsv.quetzallijewelry.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=quetzallijewelry.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sodapoppiercing-com.20230601.gappssmtp.com; s=20230601; t=1763594807; x=1764199607; darn=sodapoppiercing.com;
+        h=list-archive:list-help:list-post:list-id:mailing-list
+         :x-original-authentication-results:x-original-sender:to:precedence
+         :list-unsubscribe-post:list-unsubscribe:feedback-id:subject
+         :message-id:mime-version:from:date:content-transfer-encoding:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=hidETmKCkBNaK6E3R8F14q+QtzsH9cx9l6nyn1YTy3Q=;
+        b=h5qcNvUKluy7tjdRhirVBbaggOA1jG+MmPid7GLn1ZLPBjUimNHTtoTCV8PaY6h6s8
+         OedolBZUyckOUGpgiiRC+/+NiIhAXQEpA1QxOQVSGcaAcZxIlOmS4bEUK2CzLLVhajfl
+         qMq0TYYUIzphQ01+xv46zZAt8cXganVyZ1n4Re0LvY+txwPNvC9aLB5J6UfdplISuyWP
+         nTPih7tuiAhBKnwLfcB5Y887eiIcmKlJdc6wOeSKFjpX4srMWfFhljYtZxNggmaiocT7
+         AoutKf9xBXpq2DLxrEZTj6jRnRrMGgWFks8IWpjuo4LCa9w82cWwHIiXHSu88uxXRrnB
+         MHoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763594807; x=1764199607;
+        h=list-archive:list-help:list-post:x-spam-checked-in-group:list-id
+         :mailing-list:x-original-authentication-results:x-original-sender:to
+         :precedence:list-unsubscribe-post:list-unsubscribe:feedback-id
+         :subject:message-id:mime-version:from:date:content-transfer-encoding
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hidETmKCkBNaK6E3R8F14q+QtzsH9cx9l6nyn1YTy3Q=;
+        b=aXYGWsDMJnRjHYttLfQMD+1WZRXnRBo9yPlBgSPajSbpd1gCz0I6jE5yM0U+RttlNt
+         JNiN3hGJHdk4N/5I3ZFRS3umV0AmspgetEFnTwlknW2aC3oVlg1WXG0Fd7fwb/7iyw/z
+         zkHtr825VrlK/0l4Ik86vC+21LIKBKXVFQPx7jm4x3YrYOW6Ys+p+Zp5fXFskO0uBZMQ
+         FgDR4DWkOvvPj76ULe30BM2/EzaLtRHZwhP4t1IILqcgG1hDIPEMPup+m7au2101bpof
+         p/jVKfZzQkijQq+mDIcbx476v5Ba9wAaGuHhslMdauRLmN0bYQIe3dEcCBRvF5wrmDYj
+         cA+Q==
+X-Forwarded-Encrypted: i=2; AJvYcCVdpdhsIxKTSusnRbPszDOGffJaA9nzztHc8LQJjG7IEDcCSXkZYdb/uylePvOH8zhKfUze@sodapoppiercing.com
+X-Gm-Message-State: AOJu0YwklNzU9f5jD/MRQg1JbtKMDknu3KA4FsZ8faxDwTKsq9EAXLPE
+	6O/WuUfOFIVEutPFAqtPwZgvCA/Ev/nUmIAag8DHn26JyATdYliPhN3akH3H8ilCju0tIA==
+X-Google-Smtp-Source: AGHT+IG5OxXQTcEHoA6TJZ/syKHNM4DGQ5kEI4gMgYly1om3mGq/F4RrsQiLQ0VAHVFe7hSyn1ajfg==
+X-Received: by 2002:a05:6214:daa:b0:880:4585:ffa1 with SMTP id 6a1803df08f44-8846dfae9e4mr16886046d6.6.1763594807099;
+        Wed, 19 Nov 2025 15:26:47 -0800 (PST)
+X-BeenThere: jewelryorders@sodapoppiercing.com; h="Ae8XA+Yo7DuYfr0YRpUjHFUyj3FMDPyZvEJE73rLPxGNThEkoA=="
+Received: by 2002:a05:6214:8008:b0:880:803b:bd47 with SMTP id
+ 6a1803df08f44-8846da603d6ls4586196d6.1.-pod-prod-05-us; Wed, 19 Nov 2025
+ 15:26:46 -0800 (PST)
+X-Received: by 2002:a0c:f207:0:b0:87d:fc3e:6d9b with SMTP id 6a1803df08f44-8846e10cf70mr18344326d6.42.1763594806341;
+        Wed, 19 Nov 2025 15:26:46 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1763594806; cv=none;
+        d=google.com; s=arc-20240605;
+        b=FTefBGl6Xt+/iN7CYjPdlcPC/wKE22pT4TqEr++/YGYW9fGBk9+V3lJmOhedPg3rfY
+         2tLdtrlLtsBFbSPlYj9QAbLBIHKvr/2FLbGxWuyHeyAxTjng99oYcRxK81md2Ke/1GHb
+         p8Hcr+lL53TXF/Nv3gyNoYRiDMPU76VGEeS6xSUsLZVjYv0FadiqDVnFkDRkNWop9S2Q
+         ba6gFcXUGfGXfaUDzmzv+0QeVwi52RgS22A4JKhpHZ9amuiy7D8GTlAza5JgalxRIwwl
+         V6uNEIzgW3m6wz3cWmGz0vzkK9weYhJTthKalgvfb//0VSH5EkEEp7xIFdECy5Q2ob8b
+         w7Pg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:precedence:list-unsubscribe-post:list-unsubscribe:feedback-id
+         :subject:message-id:mime-version:from:date:content-transfer-encoding
+         :dkim-signature;
+        bh=hidETmKCkBNaK6E3R8F14q+QtzsH9cx9l6nyn1YTy3Q=;
+        fh=b46/NFn5bF9MYzoq0g4JWmajhnTmrcwb44ZgZEAaibo=;
+        b=H16rKzNAAwarwYpsIfrVUs0Fe4/glGNgNTgKpaKPglwN4aI3ruWqkoU0gzivRDl2AC
+         OzgjBERFcPnhLVqwgfGfCBZZRCb2SoOwDiUgRYUlgXMVSI+vHLzCBW84gNz8vMqZM/8m
+         pqyi2N0IVFIug1gG0WIDEcRVMYI2zqSNeYZHe0tfLcJpD537kdQGBoetWCS3eYK6ZnZG
+         OVUXrIokSZ3XDSkH1hQqSYrcuS+HybGjcXw4CI233UgLULpW78Dw958H6Heh2s2JusYF
+         D2pSPHote0c8qitapFzEkZIgQtOkPlHYNAt4ORgNqn4PVr4eyn9doAOjn+H1FECHkCrJ
+         m3+Q==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@quetzallijewelry.com header.s=jsv header.b=ICtvSHU7;
+       spf=pass (google.com: domain of bounces+39494568-e345-jewelryorders=sodapoppiercing.com@mailerjsv.quetzallijewelry.com designates 159.183.145.168 as permitted sender) smtp.mailfrom="bounces+39494568-e345-jewelryorders=sodapoppiercing.com@mailerjsv.quetzallijewelry.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=quetzallijewelry.com
+Received: from o42.mailer.shopify.com (o42.mailer.shopify.com. [159.183.145.168])
+        by mx.google.com with ESMTPS id 6a1803df08f44-8846e62f593si2633856d6.901.2025.11.19.15.26.46
+        for <jewelryorders@sodapoppiercing.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 19 Nov 2025 15:26:46 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+39494568-e345-jewelryorders=sodapoppiercing.com@mailerjsv.quetzallijewelry.com designates 159.183.145.168 as permitted sender) client-ip=159.183.145.168;
+Received: by recvd-canary-76f7bbb4cd-bfcbx with SMTP id recvd-canary-76f7bbb4cd-bfcbx-1-691E5235-10
+	2025-11-19 23:26:45.700504637 +0000 UTC m=+6756350.601075482
+Received: from Mzk0OTQ1Njg (unknown)
+	by geopod-ismtpd-3 (SG) with HTTP
+	id EmwgFBcLSnOoM6vuBE4ypA
+	Wed, 19 Nov 2025 23:26:45.630 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Date: Wed, 19 Nov 2025 23:26:45 +0000 (UTC)
+From: Quetzalli Jewelry <contact@quetzallijewelry.com>
+Mime-Version: 1.0
+Message-ID: <E1020005-18798C21A4D68375-24CC5769@shopify.com>
+Subject: Did something catch your eye?
+Feedback-Id: s_57529630899:shopify
+List-Unsubscribe: <mailto:googlegroups-manage+479861830095+unsubscribe@googlegroups.com>,
+ <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/subscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Precedence: list
+X-SG-EID: =?us-ascii?Q?u001=2Edw4D3rUxvHnLGEPEKIS71bfmit0qFNHI5vnHZnB=2FkJb7X9IONYNxChIOs?=
+ =?us-ascii?Q?B74iKUokVkobeJm=2FsBYckXHDT8iOzP7cYPALh0Q?=
+ =?us-ascii?Q?J=2F992MlM2d+T5RfeaNfAdhu0rY9bSoQc0aOW9M=2F?=
+ =?us-ascii?Q?ws0JvVdDYVJAMimyqE5NnD7npLSMcJvUeOT751r?=
+ =?us-ascii?Q?Vgbk0iA0iyCPBT2476Z0+s90L5TT1=2FogzK7kdVb?=
+ =?us-ascii?Q?OKh8TAjkE9+dO57+1EYKOcswLOpx7TpwlM0qkej?=
+ =?us-ascii?Q?huksZHqOediTEcBHvTVJ84yXtkrmJlwd9Cema1p?=
+ =?us-ascii?Q?9tn1RkFU=3D?=
+X-SG-ID: =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprDITwp3LLcgXu9gv?=
+ =?us-ascii?Q?F1Oq5oTf1VY9MM=2F=2FZCviT=2FP37sq33JUrJxnBRFl?=
+ =?us-ascii?Q?d5=2FmIbRJuck45NSHVj7t7gFR2w7FCMkiXc17SDP?=
+ =?us-ascii?Q?cA4vKVtjmQWfHwa5g+cmDJmjgif3Pv9Xg9=2FD8R1?=
+ =?us-ascii?Q?0oQwhl4eLb3Zqq0Av8++UCloh32jHkxR1gmWZFH?=
+ =?us-ascii?Q?Pxk9SDWx6KsTMtY1OzNaBI6LrVOXuIXPUP1bhTt?=
+ =?us-ascii?Q?t1WqCE0KmXccwS4zZO25wukBs5OAjuZ7WQ++x5F?=
+ =?us-ascii?Q?ytuzosA0vb=2FwBEKKJky=2FX9UEcGi+sViLpzObUyB?=
+ =?us-ascii?Q?waS43H59LELjVHwfxVdigbnL8fKC9OnY5yo3MK7?=
+ =?us-ascii?Q?yfyeV2b=2FZmv4AY2KdGK+oeLRNXnnHtE=2FQNVfeL4?=
+ =?us-ascii?Q?JQfmGNKyROK4wWKW=2FAMU5mqkctkLbs2VwBlWe4Z?=
+ =?us-ascii?Q?Td+tPvSXbagyPKQjWs=2F7xJaBDBeDI0dQULzAH1j?=
+ =?us-ascii?Q?KMDrP1pyvRzBdcd5Z81vQbdfdK8NQ2WfivYatRS?=
+ =?us-ascii?Q?NPBh+sOe82JgUoQ+p9=2F1+fUado=2F4OnzBMs2X1iD?=
+ =?us-ascii?Q?PaO7ASP9TSr4Cj=2FhZBgVvZxPZDCIx6X1Rivo6wo?=
+ =?us-ascii?Q?UsU1XK+S6IgkPSLUX3Prbf6ltKIAtneel+aPOVK?=
+ =?us-ascii?Q?5r14hN2Pthcu+B2wZnu+MTNKbXKZjKXmUKjWe59?=
+ =?us-ascii?Q?2wC5GCg1vk0N3SWI6RH5yV4S=2F=2FrpzYBAwr5tMjS?=
+ =?us-ascii?Q?ooC+QXQGMaQO4xsmMGqNoYbJy2hvGlxY888MOcR?=
+ =?us-ascii?Q?bvl5Gkz5=2FG3DeN3fA6G23BlDoy3fveYaM5kTupe?=
+ =?us-ascii?Q?+L9Ux78crig2Y+PrNyuVfJjUU52Ed9jqgEgMM4B?=
+ =?us-ascii?Q?pUGXffwM+Hq=2FrYNZEdrV3JARaa4Dejb8yjqkGZB?=
+ =?us-ascii?Q?e5hF91fTMh4qi0hzoiBH3oXJdVCwA+1ao3Qzcje?=
+ =?us-ascii?Q?U3S2QaLSwOxXXrUqaVc8rRHRyVWaZ8X27knLxiV?=
+ =?us-ascii?Q?l+z7lFWIyLFYSb3Vp1LX69G8n=2FlknS9O7rzMg=2FC?=
+ =?us-ascii?Q?NTJsJ=2FVXUXgx2dvtaLpB3p7VgP5dE7LnMIVD3Yf?=
+ =?us-ascii?Q?4zkjqbEH+SxvDWpEwAFwYyrBr1heUYw3ReTDaB2?=
+ =?us-ascii?Q?K6rbPPwrzOsyb6Pk1hugx7bhXH8vXt409CC2z6Z?=
+ =?us-ascii?Q?GF0mYP3SDh97pDCzwyH71i6+ZcfOsKBR6TukRTm?=
+ =?us-ascii?Q?SKkSziRdKloOTw4E5MeOTJm5k4z+Kavu5asz8YU?=
+ =?us-ascii?Q?nxLEqlKD7qInuEkz0WlCMzJYfIN50soB8SQRTHY?=
+ =?us-ascii?Q?JILkfQzf2i+=2Fw3LI2fD2c0MG4IpbUZcJcddZ6Vv?=
+ =?us-ascii?Q?SO2xfdn6YlgZKuVwYfF3YdVx3DjFCqOPx1L7Pxi?=
+ =?us-ascii?Q?fwm3ctdGPL70p9qfknNqPQWLAPjn9ACnDlVokhD?=
+ =?us-ascii?Q?FQEih60e0FCdI+GaSLOh8AT4uw27b4mjbkqRuwu?=
+ =?us-ascii?Q?qI=2FYF0e7IoKRdmg39cpRIScI1r47rg0xMIw8TgO?=
+ =?us-ascii?Q?eCCNMuaVDc61=2FSJS7R9FulDNlE9MFNBsevaSaLJ?=
+ =?us-ascii?Q?A+GBsVdHKTOlPGwsYwGr=2FnltZys1AW3ZExQ4vK4?=
+ =?us-ascii?Q?=2F1q0Hhug1JbVsRU=3D?=
+To: jewelryorders@sodapoppiercing.com
+X-Entity-ID: u001.Cxdok1lWR43wB22ZEHKWSA==
+X-Original-Sender: contact@quetzallijewelry.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@quetzallijewelry.com header.s=jsv header.b=ICtvSHU7;       spf=pass
+ (google.com: domain of bounces+39494568-e345-jewelryorders=sodapoppiercing.com@mailerjsv.quetzallijewelry.com
+ designates 159.183.145.168 as permitted sender) smtp.mailfrom="bounces+39494568-e345-jewelryorders=sodapoppiercing.com@mailerjsv.quetzallijewelry.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=quetzallijewelry.com
+Mailing-list: list jewelryorders@sodapoppiercing.com; contact jewelryorders+owners@sodapoppiercing.com
+List-ID: <jewelryorders.sodapoppiercing.com>
+X-Spam-Checked-In-Group: jewelryorders@sodapoppiercing.com
+X-Google-Group-Id: 479861830095
+List-Post: <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/post>,
+ <mailto:jewelryorders@sodapoppiercing.com>
+List-Help: <https://support.google.com/a/sodapoppiercing.com/bin/topic.py?topic=25838>,
+ <mailto:jewelryorders+help@sodapoppiercing.com>
+List-Archive: <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/>
+
+<!DOCTYPE html><html style=3D"height: 100% !important; width: 100% !importa=
+nt; font-family: &#39;Helvetica Neue&#39;, Helvetica, system-ui, -apple-sys=
+tem, Arial, sans-serif; font-weight: 400; font-style: normal; line-height: =
+1.5; font-size: 16px; overflow-wrap: break-word; word-wrap: break-word; wor=
+d-spacing: normal; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 10=
+0%; margin: 0 auto; padding: 0;"><head>
+    <meta http-equiv=3D"content-type" content=3D"text/html; charset=3Dutf-8=
+"/>
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0"/>
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge"/>
+    <meta name=3D"format-detection" content=3D"telephone=3Dno, date=3Dno, a=
+ddress=3Dno, email=3Dno, url=3Dno"/>
+    <!-- fixes email not full width ios gmail -->
+    <meta name=3D"x-apple-disable-message-reformatting"/>
+    <title></title>
+
+    <!-- Theme-Name: shopify --><!-- Theme-Version: 1.20 -->
+
+    <!-- Outlook font fallback -->
+    <!--[if mso]>
+      <style>
+        * {
+            font-family:sans-serif !important;
+        }
+      </style>
+    <![endif]-->
+
+    <style type=3D"text/css" data-shopify-email=3D"" data-premailer=3D"igno=
+re"> /* Desktop column classes need to be on top of the one in the media qu=
+ery for mobile. */ .one-col .column { max-width: 100% !important; } .two-co=
+l .column { max-width: 50% !important; } .three-col .column { max-width: 33=
+.3% !important; } .desktop-and-mobile-grid-padding { padding-top: 20px; } .=
+desktop-and-mobile-grid-loose-padding { padding-top: 25px; } .single-column=
+-grid-padding { padding-top: 20px; } .image--circle { border-radius: 600px;=
+ } .image--arch { border-top-left-radius: 300px; border-top-right-radius: 3=
+00px; } .image--round { border-radius: 16px; } .desktop-hide { display: non=
+e !important; } .button-narrow { width: 260px; max-width:100%; } .button-wi=
+de { width: 338px; max-width:100%; } .button-fixed { width: 100% !important=
+; max-width: 100% !important; } @media screen and (max-width:480px) { u~div=
+ .full-wrap { min-width:100vw; } div>u~div .full-wrap { min-width:100%; } .=
+email-container { width:100% !important; margin:auto !important; } .column-=
+container-left { padding-left:15px !important; } .column-container-right { =
+padding-right:15px !important; } .mobile-image-buffer { padding: 0px 8px !i=
+mportant; } .stack-column { display:block !important; width:100% !important=
+; max-width:100% !important; text-align:left !important; } .button-full-wid=
+th { width:100% !important; text-align:center !important; margin-left:auto =
+!important; margin-right:auto !important; float:none !important; } .button-=
+narrow, .button-wide { width: auto !important; max-width: 100% !important; =
+} .button-mobile-column { padding: 0 !important; } .mobile-hide { display:n=
+one !important; } .desktop-hide { display: block !important; } .image { wid=
+th:100% !important; height:auto !important; } .mobile-column-padding { padd=
+ing: 0 !important; } .mobile-text-column-override { padding: 0 15px !import=
+ant; } .one-col .column { max-width: 100% !important; } .two-col .column { =
+max-width: 50% !important; } .two-col.wrap-mobile .column { max-width: 100%=
+ !important; } .mobile-column-padding-top { padding-top: 30px !important; }=
+ .three-col .column { max-width: 50% !important; } .mobile-grid-padding { p=
+adding-top: 20px; } .mobile-grid-loose-padding, .desktop-and-mobile-grid-lo=
+ose-padding { padding-top: 30px; } .mobile-text-column-padding { padding: 1=
+5px 15px 0px 15px !important; } } /* Work-around for email clients meddling=
+ in triggered links. */ a[x-apple-data-detectors], .unstyle-auto-detected-l=
+inks a, .aBn { border-bottom: 0 !important; cursor: default !important; col=
+or: inherit !important; text-decoration: none !important; font-size: inheri=
+t !important; font-family: inherit !important; font-weight: inherit !import=
+ant; line-height: inherit !important; } /* Prevents Gmail from changing the=
+ text color in conversation threads. */ .im { color: inherit !important; } =
+/* Prevents Gmail from displaying a download button on large, non-linked im=
+ages. */ .a6S { display: none !important; opacity: 0.01 !important; } /* Pr=
+events GMail from overriding the color of links */ .ii a[href] { color: inh=
+erit; } .inheritLinkStyle a { color:inherit !important; text-decoration: no=
+ne !important; } /* Center on Android 4.4 */ div[style*=3D'margin:16px 0'] =
+{ margin: 0 !important; } .nav-menu-with-hover:hover { text-decoration: und=
+erline; } </style>
+
+   =20
+
+   =20
+  <style type=3D"text/css" data-shopify-email=3D"" data-premailer=3D"ignore=
+"> .rte-link-color-overwrite a { color: #ffffff !important; text-decoration=
+: none !important; } </style>
+<style>body {
+margin: 0 auto !important; padding: 0 !important; height: 100% !important; =
+width: 100% !important; font-family: 'Helvetica Neue', Helvetica, system-ui=
+, -apple-system, Arial, sans-serif; font-weight: 400; font-style: normal; l=
+ine-height: 1.5; font-size: 16px; overflow-wrap: break-word; word-wrap: bre=
+ak-word; word-spacing: normal;
+}
+img {
+-ms-interpolation-mode: bicubic;
+}
+img {
+border: 0; height: auto; outline: none; text-decoration: none;
+}
+</style>
+</head>
+
+  <body width=3D"100%" style=3D"background-color: #fafafa; height: 100% !im=
+portant; width: 100% !important; font-family: &#39;Helvetica Neue&#39;, Hel=
+vetica, system-ui, -apple-system, Arial, sans-serif; font-weight: 400; font=
+-style: normal; line-height: 1.5; font-size: 16px; overflow-wrap: break-wor=
+d; word-wrap: break-word; word-spacing: normal; -ms-text-size-adjust: 100%;=
+ -webkit-text-size-adjust: 100%; margin: 0 auto; padding: 0;" class=3D"full=
+-wrap">
+   =20
+
+    <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center=
+" width=3D"100%" style=3D"background-color: #fafafa; -ms-text-size-adjust: =
+100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso=
+-table-rspace: 0pt !important; border-spacing: 0 !important; border-collaps=
+e: collapse !important; table-layout: fixed !important; margin: auto;" clas=
+s=3D"full-wrap">
+      <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adj=
+ust: 100%;">
+        <td style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: =
+100%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; v=
+ertical-align: top;">
+         =20
+
+
+
+
+
+
+
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center" wi=
+dth=3D"600" style=3D"background-color: #ffffff; -ms-text-size-adjust: 100%;=
+ -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-tabl=
+e-rspace: 0pt !important; border-spacing: 0 !important; border-collapse: co=
+llapse !important; table-layout: fixed !important; margin: auto;" class=3D"=
+email-container">
+  <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust:=
+ 100%;">
+    <td style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%=
+; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; verti=
+cal-align: top;">
+      <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"cent=
+er" width=3D"600" style=3D"background-color: #ffffff; color: #000000; -ms-t=
+ext-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0p=
+t !important; mso-table-rspace: 0pt !important; border-spacing: 0 !importan=
+t; border-collapse: collapse !important; table-layout: fixed !important; ma=
+rgin: auto;" class=3D"email-container">
+        <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-a=
+djust: 100%;">
+          <td style=3D"font-size: 25px; line-height: 1.32; font-family: &#3=
+9;Helvetica Neue&#39;, Helvetica, Arial, sans-serif; font-weight: 400; font=
+-style: normal; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;=
+ mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; vertic=
+al-align: top; padding: 25px 60px;" align=3D"center" class=3D"column-contai=
+ner-left column-container-right">
+            <a href=3D"https://www.quetzallijewelry.com/_t/c/v3/AABcAf3C6eP=
+kd4cJ5nfyO4pCFHpIATKPtjKwGX_Tu52kRPPru0B4C8asx_d__UKXHe74IU8zzRwnxVGbapjQZh=
+eoBX7wJdmZpCoZdcM8gENqSNoBbPrRyF47PtIuv0YoB0uzwVG4LmlHy--s-bs3WYSx7rXrDqZKo=
+jdivH6klq9DbO5cpAFOXuUmVoxIoC9lGZTvtBaaln2Oq5daqclctaKpHMQZ9MjqGUWRsshyoX8C=
+5x58hXsEVN3l2XpL_CnyAIdX6poubynRTAN0oLDjuOXMr9tXwrCgAvaJQWDQK6DIqEvYF8dfOKm=
+-PUM1CkeZlSYzEDznlGSH6d9q4DNEbBAETeUyw7AFTW2mq-NZHITmCeLF0BJKdOf47QbA3OgdFJ=
+EGrqQzgj5AerAIPbyNtUEsFqrvVBTvtk24t6YTJUcnDr4s4ADa-Ps3A9Nv4ahuEJk2sWze0qwR_=
+IUwdFfzHpiRGJsluTO3ukL7s-E_0LFH5Q=3D=3D" style=3D"color: #000000; text-deco=
+ration: none; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" =
+target=3D"_blank">
+             =20
+               =20
+                 =20
+                  <img src=3D"https://cdn.shopify.com/shopify-email/0kslto6=
+ree1uqx6nbqssvgcwxpfc.jpg?width=3D960&amp;height=3D960" alt=3D"Quetzalli Je=
+welry" border=3D"0" width=3D"451" height=3D"auto" style=3D"width: 451px; he=
+ight: autopx; max-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-siz=
+e-adjust: 100%; -ms-interpolation-mode: bicubic; outline: none; text-decora=
+tion: none; border-width: 0;"/>
+               =20
+             =20
+            </a>
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+         =20
+           =20
+
+
+
+
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center" wi=
+dth=3D"600" style=3D"background-color: #ffffff; -ms-text-size-adjust: 100%;=
+ -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-tabl=
+e-rspace: 0pt !important; border-spacing: 0 !important; border-collapse: co=
+llapse !important; table-layout: fixed !important; margin: auto;" class=3D"=
+email-container">
+  <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust:=
+ 100%;">
+    <td style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%=
+; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; verti=
+cal-align: top;">
+      <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"cent=
+er" width=3D"600" style=3D"background-color: #ffffff; -ms-text-size-adjust:=
+ 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; ms=
+o-table-rspace: 0pt !important; border-spacing: 0 !important; border-collap=
+se: collapse !important; table-layout: fixed !important; margin: auto;" cla=
+ss=3D"email-container">
+        <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-a=
+djust: 100%;">
+          <td style=3D"color: #000000; font-family: &#39;Helvetica Neue&#39=
+;, Helvetica, Arial, sans-serif; font-weight: 400; font-style: normal; -ms-=
+text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0=
+pt !important; mso-table-rspace: 0pt !important; vertical-align: top; paddi=
+ng: 40px 60px 10px;" align=3D"center" class=3D"column-container-left column=
+-container-right">
+            <p style=3D"color: #807870; font-size: 33px; line-height: 1.242=
+; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; margin: 0; pa=
+dding: 0;"><strong style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-a=
+djust: 100%;">See something you liked?</strong></p>
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+
+
+
+
+
+
+
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center" wi=
+dth=3D"600" style=3D"background-color: #ffffff; -ms-text-size-adjust: 100%;=
+ -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-tabl=
+e-rspace: 0pt !important; border-spacing: 0 !important; border-collapse: co=
+llapse !important; table-layout: fixed !important; margin: auto;" class=3D"=
+email-container">
+  <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust:=
+ 100%;">
+    <td style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%=
+; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; verti=
+cal-align: top;">
+      <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"cent=
+er" width=3D"600" style=3D"background-color: #ffffff; -ms-text-size-adjust:=
+ 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; ms=
+o-table-rspace: 0pt !important; border-spacing: 0 !important; border-collap=
+se: collapse !important; table-layout: fixed !important; margin: auto;" cla=
+ss=3D"email-container">
+        <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-a=
+djust: 100%;">
+          <td align=3D"left" valign=3D"top" width=3D"100%" height=3D"0px" s=
+tyle=3D"border-collapse: collapse; mso-table-lspace: 0pt !important; mso-ta=
+ble-rspace: 0pt !important; mso-line-height-rule: exactly; line-height: 20p=
+x; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-ali=
+gn: top;">
+            <!--[if gte mso 15]> =C2=A0 <![endif]-->
+          </td>
+        </tr>
+        <tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: =
+100%;">
+          <td style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust=
+: 100%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;=
+ vertical-align: top;">
+            <div class=3D"one-col " style=3D"font-size: 0; text-align: cent=
+er; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; padding: 0 =
+0px;">
+              <!--[if mso]>
+                <table role=3D"presentation" width=3D"100%" style=3D"text-a=
+lign: center">
+                <tr>
+              <![endif]-->
+             =20
+               =20
+
+               =20
+
+               =20
+
+                <!--[if mso]> <td> <![endif]-->
+                <div class=3D"column " style=3D"width: 100%; vertical-align=
+: top; font-size: 0px; display: inline-block; max-width: 100%; -ms-text-siz=
+e-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                 =20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center" =
+width=3D"600" class=3D"email-container" style=3D"-ms-text-size-adjust: 100%=
+; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-tab=
+le-rspace: 0pt !important; border-spacing: 0 !important; border-collapse: c=
+ollapse !important; table-layout: fixed !important;">
+   =20
+     =20
+     =20
+     =20
+
+     =20
+     =20
+        <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-a=
+djust: 100%;">
+          <td width=3D"600" border=3D"0" align=3D"center" class=3D"" style=
+=3D"width: 100%; max-width: 600px; -ms-text-size-adjust: 100%; -webkit-text=
+-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt=
+ !important; vertical-align: top; padding: 0px;">
+            <a href=3D"https://www.quetzallijewelry.com/_t/c/v3/AAA9_amB4-X=
+UavXFfz_sFuRdlIYevZNMZJE2b50EvugpvjU_VW06eIAmLqeDzVHzdicWAL1t0nbiFBeKmU12Qo=
+OhFkg5pN35NvkVavgSekjUxgxxcDgkUy6DnyCwxLH0qnDTMyVPFGGGwcpexBcRdsXtteucUtum1=
+y5od0lz2PwANdrDhKfGeqfkNCFhmXpkhEHnqN2v-xDA44wDuOk1wLosN677bYo-jjMBes8wXGU2=
+ofs0QXpdAcdOIsMQn9TCWlhtvmEmz8zQ8uW56CYArhWp4xpKV6T5RLo-OG9BiuJa-UnOSc3NExE=
+P1G0MNddqXGYH2pSg-loocWM1xCzRzIHaTT2unxzuRk17oWshId6QtAMq6jVOt7nBHzwJeArzaC=
+5gKNTdYcmFFQTbpRC847NIGsyLWpoORbqMkuoon899yeJQEaXkJk5eaxj1ExwCnEYQmhXLMWiaV=
+lRn7Ol8leFmdUA4EFjelNtWKLLvN-t-E5k-KXlWsLO4peth5PuUU0HkhcPiTSzBhLM=3D" targ=
+et=3D"_blank" style=3D"display: block; -ms-text-size-adjust: 100%; -webkit-=
+text-size-adjust: 100%; text-decoration: underline;">
+             =20
+               =20
+               =20
+               =20
+
+               =20
+
+               =20
+
+               =20
+
+               =20
+
+               =20
+
+                <img src=3D"https://cdn.shopify.com/s/files/1/0575/2963/089=
+9/files/TripleMarquise-1.jpg?v=3D1703736024&amp;width=3D1200&amp;height=3D1=
+200&amp;crop=3Dcenter_legacy" class=3D"image" align=3D"center" alt=3D"Tripl=
+e Marquise" border=3D"0" width=3D"600" style=3D"width: 600px; max-width: 60=
+0px; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; -ms-interp=
+olation-mode: bicubic; height: auto; outline: none; text-decoration: none; =
+border-width: 0;"/>
+             =20
+            </a>
+          </td>
+        </tr>
+     =20
+
+     =20
+       =20
+          <tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust=
+: 100%;">
+           =20
+            <td height=3D"30" style=3D"border-collapse: collapse; mso-table=
+-lspace: 0pt !important; mso-table-rspace: 0pt !important; mso-line-height-=
+rule: exactly; line-height: 30px; -ms-text-size-adjust: 100%; -webkit-text-=
+size-adjust: 100%; vertical-align: top;">
+              <!--[if gte mso 15]> =C2=A0 <![endif]-->
+            </td>
+          </tr>
+       =20
+     =20
+   =20
+
+   =20
+      <tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 10=
+0%;">
+        <td align=3D"center" style=3D"-ms-text-size-adjust: 100%; -webkit-t=
+ext-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-table-rspace: =
+0pt !important; vertical-align: top; padding: 0px 2px;">
+         =20
+            <h2 style=3D"font-size: 20px; line-height: 1.2; color: #000000;=
+ font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif; font-=
+weight: 400; font-style: normal; -ms-text-size-adjust: 100%; -webkit-text-s=
+ize-adjust: 100%; display: block; margin: 0; padding: 0;">
+             =20
+                Triple Marquise
+             =20
+            </h2>
+         =20
+
+         =20
+        </td>
+      </tr>
+   =20
+
+   =20
+     =20
+       =20
+        <tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: =
+100%;">
+          <td height=3D"20" style=3D"border-collapse: collapse; mso-table-l=
+space: 0pt !important; mso-table-rspace: 0pt !important; mso-line-height-ru=
+le: exactly; line-height: 20px; -ms-text-size-adjust: 100%; -webkit-text-si=
+ze-adjust: 100%; vertical-align: top;">
+            <!--[if gte mso 15]> =C2=A0 <![endif]-->
+          </td>
+        </tr>
+     =20
+
+      <tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 10=
+0%;">
+        <td align=3D"center" style=3D"-ms-text-size-adjust: 100%; -webkit-t=
+ext-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-table-rspace: =
+0pt !important; vertical-align: top; padding: 0px 2px;">
+          <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"=
+button-full-width" style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-a=
+djust: 100%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !impor=
+tant; border-spacing: 0 !important; border-collapse: collapse !important; t=
+able-layout: fixed !important;">
+            <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-si=
+ze-adjust: 100%;">
+              <td align=3D"center" style=3D"border-radius: 12px; background=
+-color: #c2b7ac; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%=
+; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; verti=
+cal-align: top;">
+                <a class=3D"button-with-rich-text button-auto" href=3D"http=
+s://www.quetzallijewelry.com/_t/c/v3/AADTbnlqBPY2rdsM7BAK9zmJa1rw5UcfBWygh0=
+zAWeM4aphYO96xnIuBBPTnWo7P1C3Y5RKlPBFd3ULsf6MqZbEqU087yi7kuFYLxx7LVvidt5loy=
+CD3uaZToV0N45gVbhr7_TmcqisLG2e0nXHT49E_rEA_4UbTEWwwatx_TG-jJViAo0BnxtILbfDs=
+VpPd5Bt17W1WbOqSOd9g-roL2-Ik9tfKVTPlLGHhQclUTFhvvKB99GJDTRySD37QZ83ZW7sNLL0=
+GOIv2N_JD_vSJ7yeH4gtu7nYlvUUMi2AEHak8KvHNnF1vnwhYWyzWqCw1OZ4DR3A50h1zIMTql0=
+P_sNROvpc5wwVCohBaX2sO4LMETKJdDg464woUzYVKjcfwWewQVVWSVeHDc-BTLlrI1yI6RyEJi=
+TxOX1bg6Y5Fha7F9udBtu-bkqqsFYzLB7GYD2j9iGk0Le6_v1-9qVWX9t2teHxiFoih9CWo7CaH=
+MWNf7mfECMQyMQfBHjreiJN9rHqu8XCHqo8WwTs=3D" target=3D"_blank" style=3D"font=
+-size: 16px; color: #ffffff; text-decoration: none; border-radius: 12px; ba=
+ckground-color: #c2b7ac; display: block; min-width: 80px; font-family: &#39=
+;Helvetica Neue&#39;, Helvetica, Arial, sans-serif; font-weight: 400; font-=
+style: normal; word-break: break-word; -ms-text-size-adjust: 100%; -webkit-=
+text-size-adjust: 100%; padding: 14px 28px; border: 3px solid #c2b7ac;">
+                  View product
+                </a>
+              </td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
+   =20
+
+   =20
+     =20
+      <tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 10=
+0%;">
+        <td height=3D"0" style=3D"border-collapse: collapse; mso-table-lspa=
+ce: 0pt !important; mso-table-rspace: 0pt !important; mso-line-height-rule:=
+ exactly; line-height: 0px; -ms-text-size-adjust: 100%; -webkit-text-size-a=
+djust: 100%; vertical-align: top;">
+          <!--[if gte mso 15]> =C2=A0 <![endif]-->
+        </td>
+      </tr>
+   =20
+  </tbody></table>
+
+
+                </div>
+                <!--[if mso]> </td> <![endif]-->
+
+               =20
+             =20
+
+              <!--[if mso]>
+                </tr>
+                </table>
+              <![endif]-->
+            </div>
+          </td>
+        </tr>
+        <tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: =
+100%;">
+          <td align=3D"left" valign=3D"top" width=3D"100%" height=3D"30px" =
+style=3D"border-collapse: collapse; mso-table-lspace: 0pt !important; mso-t=
+able-rspace: 0pt !important; mso-line-height-rule: exactly; line-height: 20=
+px; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-al=
+ign: top;">
+            <!--[if gte mso 15]> =C2=A0 <![endif]-->
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+
+
+
+
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center" wi=
+dth=3D"600" style=3D"background-color: #ffffff; -ms-text-size-adjust: 100%;=
+ -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-tabl=
+e-rspace: 0pt !important; border-spacing: 0 !important; border-collapse: co=
+llapse !important; table-layout: fixed !important; margin: auto;" class=3D"=
+email-container">
+  <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust:=
+ 100%;">
+    <td style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%=
+; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; verti=
+cal-align: top;">
+      <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"cent=
+er" width=3D"600" style=3D"background-color: #ffffff; -ms-text-size-adjust:=
+ 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; ms=
+o-table-rspace: 0pt !important; border-spacing: 0 !important; border-collap=
+se: collapse !important; table-layout: fixed !important; margin: auto;" cla=
+ss=3D"email-container">
+        <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-a=
+djust: 100%;">
+          <td style=3D"color: #000000; font-family: &#39;Helvetica Neue&#39=
+;, Helvetica, Arial, sans-serif; font-weight: 400; font-style: normal; -ms-=
+text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0=
+pt !important; mso-table-rspace: 0pt !important; vertical-align: top; paddi=
+ng: 10px 60px;" align=3D"center" class=3D"column-container-left column-cont=
+ainer-right">
+            <p style=3D"color: #807870; font-size: 24px; line-height: 1.333=
+; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; margin: 0; pa=
+dding: 0;"><strong style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-a=
+djust: 100%;">Check out more Quetzalli pieces</strong></p>
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center" wi=
+dth=3D"600" style=3D"background-color: #ffffff; -ms-text-size-adjust: 100%;=
+ -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-tabl=
+e-rspace: 0pt !important; border-spacing: 0 !important; border-collapse: co=
+llapse !important; table-layout: fixed !important; margin: auto;" class=3D"=
+email-container">
+  <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust:=
+ 100%;">
+    <td style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%=
+; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; verti=
+cal-align: top;">
+      <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"cent=
+er" width=3D"600" style=3D"background-color: #ffffff; -ms-text-size-adjust:=
+ 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; ms=
+o-table-rspace: 0pt !important; border-spacing: 0 !important; border-collap=
+se: collapse !important; table-layout: fixed !important; margin: auto;" cla=
+ss=3D"email-container">
+        <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-a=
+djust: 100%;">
+          <td align=3D"left" valign=3D"top" width=3D"100%" height=3D"30px" =
+style=3D"border-collapse: collapse; mso-table-lspace: 0pt !important; mso-t=
+able-rspace: 0pt !important; mso-line-height-rule: exactly; line-height: 20=
+px; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-al=
+ign: top;">
+            <!--[if gte mso 15]> =C2=A0 <![endif]-->
+          </td>
+        </tr>
+        <tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: =
+100%;">
+          <td style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust=
+: 100%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;=
+ vertical-align: top;">
+            <div class=3D"three-col column-container-left column-container-=
+right" style=3D"font-size: 0; text-align: center; -ms-text-size-adjust: 100=
+%; -webkit-text-size-adjust: 100%; padding: 0 50px;">
+              <!--[if mso]>
+                <table role=3D"presentation" width=3D"100%" style=3D"text-a=
+lign: center;">
+                <tr>
+              <![endif]-->
+
+             =20
+               =20
+
+               =20
+
+               =20
+               =20
+
+                <!--[if mso]> <td style=3D"vertical-align: top;"> <![endif]=
+-->
+                <div class=3D"column " style=3D"width: 100%; vertical-align=
+: top; font-size: 0px; display: inline-block; max-width: 33.3%; -ms-text-si=
+ze-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                 =20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center" =
+width=3D"166" class=3D"email-container" style=3D"-ms-text-size-adjust: 100%=
+; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-tab=
+le-rspace: 0pt !important; border-spacing: 0 !important; border-collapse: c=
+ollapse !important; table-layout: fixed !important;">
+   =20
+     =20
+     =20
+     =20
+     =20
+
+     =20
+
+     =20
+     =20
+     =20
+
+     =20
+        <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-a=
+djust: 100%;">
+          <td width=3D"166" border=3D"0" align=3D"center" class=3D"mobile-i=
+mage-buffer" style=3D"width: 100%; max-width: 166px; -ms-text-size-adjust: =
+100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso=
+-table-rspace: 0pt !important; vertical-align: top; padding: 0 10px;">
+            <a href=3D"https://www.quetzallijewelry.com/_t/c/v3/AACnOsni0Tc=
+1I4t3Q0lOjOOIPq0GTIwXERb5_b6fVY0E1zttswrifpv2oEjI9XKkYdCMlM1rWN-CN5JeqVIjz5=
+I8tcFu-Zq7fr2wagLnWdrta0zZZKyyjheH1L3yOSPZQByJPFnpeJvgB6JbxdD512tXh56IjmuDC=
+V1B5rQH4HjPmsmMOi9GMS-5sRvQ4KuG1T4QKDus0syK0VygTdvL0G40XX1AdSyQFdAcWfUsAYXC=
+zhDFZ6Eu2c6Q1LTrpux3sflawZSrf576qYkVwbAzeh1DovQAMmwGhgrioIkn8ueitWPf5tsZBZO=
+G15Rb7LMS9AE0c1C7eUXxsnXoR8EB41Af6R9AFZjOyiTlpqp8oSuj2FkV77vyzrZqNMy_K7_Vgw=
+znm-BhZDctf5VJjn8ZjZwgCootdtuWcs0xbHpLz6Ds7G398gOED7wXPFMEr7rb1VFUjZ8cQ6agy=
+3XmpSxvrPnF0FaVbTeo0ovm9nbuKnG3eSIUF3VSPjtgHmfhgHCqsg=3D=3D" target=3D"_bla=
+nk" style=3D"display: block; -ms-text-size-adjust: 100%; -webkit-text-size-=
+adjust: 100%; text-decoration: underline;">
+             =20
+               =20
+               =20
+               =20
+
+               =20
+
+               =20
+
+               =20
+
+               =20
+
+               =20
+
+               =20
+                <img src=3D"https://cdn.shopify.com/shopify-email/ouiaibwtr=
+d1eh0p3b813jffouqxp.jpg?width=3D292&amp;height=3D292&amp;crop=3Dcenter_lega=
+cy" class=3D"image" align=3D"center" alt=3D"Sonet" border=3D"0" width=3D"14=
+6" height=3D"146" style=3D"width: 146px; height: 146px; max-width: 600px; -=
+ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; -ms-interpolatio=
+n-mode: bicubic; outline: none; text-decoration: none; border-width: 0;"/>
+             =20
+            </a>
+          </td>
+        </tr>
+     =20
+
+     =20
+        <tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: =
+100%;">
+         =20
+         =20
+          <td height=3D"16" style=3D"border-collapse: collapse; mso-table-l=
+space: 0pt !important; mso-table-rspace: 0pt !important; mso-line-height-ru=
+le: exactly; line-height: 16px; -ms-text-size-adjust: 100%; -webkit-text-si=
+ze-adjust: 100%; vertical-align: top;">
+            <!--[if gte mso 15]> =C2=A0 <![endif]-->
+          </td>
+        </tr>
+     =20
+   =20
+
+   =20
+      <tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 10=
+0%;">
+       =20
+        <td style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: =
+100%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; v=
+ertical-align: top; padding: 0px 15px;" align=3D"center">
+         =20
+            <h2 style=3D"font-size: 16px; line-height: 1.2; color: #000000;=
+ font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif; font-=
+weight: 400; font-style: normal; -ms-text-size-adjust: 100%; -webkit-text-s=
+ize-adjust: 100%; display: block; margin: 0; padding: 0;">
+             =20
+                <a href=3D"https://www.quetzallijewelry.com/_t/c/v3/AADiXyL=
+h28TymdfKZ-tuCTL8-b_OnZlcbKPgKOghqcLQAoW7iEkXsorDUJcHvmrwYape2VtISeerbesIlZ=
+JjKf0Z0CXyasZNpZRZ2wL2eAiNXAl0-uOwg6xOMQ6FTSyLNPcAdbo-kqll1yBp14Vg0I0wANvxR=
+OaTBZ7HDm9rhWQfzpiWS8zYIf6HEtnUixftui_6St_iL8tHza2ssxwD2tqz7q637UN6oYO5im0R=
+b6NMjH4ag7lIRaM4PBzlDVz7jF-gMSdQuD6TsUunFsGXk6QIj4pcxqT2cjDnizS41KG0tsKiiaq=
+blPlJFLnoLq_R-xMlPDLWrQLukJX6xkKUGkEliTHr4mtZNyP7AZ-pbh-18NP5URKqw4yE36yivm=
+hQMQgq82WG2jmIldR_1yeEUi5l6vTlNQOmpR4nChHZDX-3Jt2iO96DbZuScNyY3Z2uQrDns90ZX=
+JRH-zV3NjiWo-XPlRApkce0Z1yUvdERtlNxYJ50_B9AQYiTE-UjrOWeIw=3D=3D" style=3D"t=
+ext-decoration: none; font-size: 16px; line-height: 1.2; color: #000000; fo=
+nt-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif; font-wei=
+ght: 400; font-style: normal; -ms-text-size-adjust: 100%; -webkit-text-size=
+-adjust: 100%;" target=3D"_blank">
+                 =20
+                 =20
+                    Sonet
+                 =20
+                </a>
+             =20
+            </h2>
+         =20
+
+         =20
+
+         =20
+        </td>
+      </tr>
+   =20
+
+   =20
+  </tbody></table>
+
+
+                </div>
+                <!--[if mso]> </td> <![endif]-->
+
+               =20
+             =20
+               =20
+
+               =20
+
+               =20
+               =20
+
+                <!--[if mso]> <td style=3D"vertical-align: top;"> <![endif]=
+-->
+                <div class=3D"column " style=3D"width: 100%; vertical-align=
+: top; font-size: 0px; display: inline-block; max-width: 33.3%; -ms-text-si=
+ze-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                 =20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center" =
+width=3D"166" class=3D"email-container" style=3D"-ms-text-size-adjust: 100%=
+; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-tab=
+le-rspace: 0pt !important; border-spacing: 0 !important; border-collapse: c=
+ollapse !important; table-layout: fixed !important;">
+   =20
+     =20
+     =20
+     =20
+     =20
+
+     =20
+
+     =20
+     =20
+     =20
+
+     =20
+        <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-a=
+djust: 100%;">
+          <td width=3D"166" border=3D"0" align=3D"center" class=3D"mobile-i=
+mage-buffer" style=3D"width: 100%; max-width: 166px; -ms-text-size-adjust: =
+100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso=
+-table-rspace: 0pt !important; vertical-align: top; padding: 0 10px;">
+            <a href=3D"https://www.quetzallijewelry.com/_t/c/v3/AABbr66rQVJ=
+Xg7VrzH6T1Hahso4czl9VF7AYtUjcGuOpibXps6puepyHJQH6GHffclW4sRuaLNbc9LHv9E12rZ=
+LoMAOC-pck3AOKH-E17i3C_cvlzmy0ghclXMW5tZfMFZg0xDGkJoRILOoC4APEoiyivn1iBospB=
+bGDI7yjG_ktKWaRk3KJp3mX6HY-4KfCO7zbTBsNqeHY78YKTEu-eOFKHNEw0Yzvi23Hn-ITcSBr=
+PIa9ebp5HJ8zvMNjkhH7zDdAczUkHzfPwl5hY-jfGnrLAI9AFCeouHPCNj8m-AGv0IaAlhNEWI0=
+Q3ox74l7PJc3LUSpjgOJ6ENxmZ8dnenU2DhL41FBq2_dIypJQq81Xxs85s91tOkK6iTOZZH_ccc=
+8Wg5mOZOdNxJB0VVH5YXUcYKDSeFNZjyMDgNWlY04Fcd3uUXcRAxPqu7QIdGoOgOXCRD0W7Ql8a=
+LD_qu622L6IYh6ckExo4pBYfSc6uFWhzfSjhUTX9_edApngTf6tbaRBSlM=3D" target=3D"_b=
+lank" style=3D"display: block; -ms-text-size-adjust: 100%; -webkit-text-siz=
+e-adjust: 100%; text-decoration: underline;">
+             =20
+               =20
+               =20
+               =20
+
+               =20
+
+               =20
+
+               =20
+
+               =20
+
+               =20
+
+               =20
+                <img src=3D"https://cdn.shopify.com/shopify-email/cvw52mqyf=
+encyjaenvoopfxq344d.jpg?width=3D292&amp;height=3D292&amp;crop=3Dcenter_lega=
+cy" class=3D"image" align=3D"center" alt=3D"I&#39;m Square" border=3D"0" wi=
+dth=3D"146" height=3D"146" style=3D"width: 146px; height: 146px; max-width:=
+ 600px; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; -ms-int=
+erpolation-mode: bicubic; outline: none; text-decoration: none; border-widt=
+h: 0;"/>
+             =20
+            </a>
+          </td>
+        </tr>
+     =20
+
+     =20
+        <tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: =
+100%;">
+         =20
+         =20
+          <td height=3D"16" style=3D"border-collapse: collapse; mso-table-l=
+space: 0pt !important; mso-table-rspace: 0pt !important; mso-line-height-ru=
+le: exactly; line-height: 16px; -ms-text-size-adjust: 100%; -webkit-text-si=
+ze-adjust: 100%; vertical-align: top;">
+            <!--[if gte mso 15]> =C2=A0 <![endif]-->
+          </td>
+        </tr>
+     =20
+   =20
+
+   =20
+      <tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 10=
+0%;">
+       =20
+        <td style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: =
+100%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; v=
+ertical-align: top; padding: 0px 15px;" align=3D"center">
+         =20
+            <h2 style=3D"font-size: 16px; line-height: 1.2; color: #000000;=
+ font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif; font-=
+weight: 400; font-style: normal; -ms-text-size-adjust: 100%; -webkit-text-s=
+ize-adjust: 100%; display: block; margin: 0; padding: 0;">
+             =20
+                <a href=3D"https://www.quetzallijewelry.com/_t/c/v3/AAADVAd=
+OgniqQ-Eug76NQGpFnP4PQhC_O33mLL8IN8XaSfOAesG2TOE2g8cCQK7mGops-gbMCQPVRDuP-I=
+vkbr_3fMa_S6X6DAUKh6hq4T_JoKt-u--pwfJj62oXvTWnfEb3WwM1Y-aT1vNEfURELRuwqkoyy=
+FlQNd86LUkPmp93I14Sfkp2NGvDsSlQqc36b5E6sMlZ2A65p5su5hEetpDiQh2kkgtvGhmEUFlz=
+BL5qMWKbPJSnq6CbV1XbQD50fhmFhoxajSNUP8aS0AyY8Gja_jS-KpibPHopO_pd2dSLQzRUg7W=
+mNrJTwmABiRrbKJH8ck7mwxpyGKhPuDsxwlk6xdOOvFhvMvr5IWZYqxLKD-Z7U2Y2qLoXYlsC4B=
+PcxiDWKxUWQ2kfZVCDpNjGZcatd_ivVv-oVZHh_mvatt6XSOcnFp9t1MFJBeX6higD2eeGnCH-i=
+lGM0l2Ov6SlT_d9VqxQG-Y51bjHKn5fMxtvlVxYg24LVeWZKfqufmovLxRKXIc=3D" style=3D=
+"text-decoration: none; font-size: 16px; line-height: 1.2; color: #000000; =
+font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif; font-w=
+eight: 400; font-style: normal; -ms-text-size-adjust: 100%; -webkit-text-si=
+ze-adjust: 100%;" target=3D"_blank">
+                 =20
+                 =20
+                    I&#39;m Square
+                 =20
+                </a>
+             =20
+            </h2>
+         =20
+
+         =20
+
+         =20
+        </td>
+      </tr>
+   =20
+
+   =20
+  </tbody></table>
+
+
+                </div>
+                <!--[if mso]> </td> <![endif]-->
+
+               =20
+             =20
+               =20
+
+               =20
+
+               =20
+               =20
+
+                <!--[if mso]> <td style=3D"vertical-align: top;"> <![endif]=
+-->
+                <div class=3D"column mobile-grid-padding" style=3D"width: 1=
+00%; vertical-align: top; font-size: 0px; display: inline-block; max-width:=
+ 33.3%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                 =20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center" =
+width=3D"166" class=3D"email-container" style=3D"-ms-text-size-adjust: 100%=
+; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-tab=
+le-rspace: 0pt !important; border-spacing: 0 !important; border-collapse: c=
+ollapse !important; table-layout: fixed !important;">
+   =20
+     =20
+     =20
+     =20
+     =20
+
+     =20
+
+     =20
+     =20
+     =20
+
+     =20
+        <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-a=
+djust: 100%;">
+          <td width=3D"166" border=3D"0" align=3D"center" class=3D"mobile-i=
+mage-buffer" style=3D"width: 100%; max-width: 166px; -ms-text-size-adjust: =
+100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso=
+-table-rspace: 0pt !important; vertical-align: top; padding: 0 10px;">
+            <a href=3D"https://www.quetzallijewelry.com/_t/c/v3/AABDvEdasp5=
+1yejXO2fx6uHstLi-rW7NB06zlHMI3HEz_SB_5Yazuf9NlZrUt6s3nr5HDKOd9mFIxYUDUdGBt8=
+RnjF_w5yPjCyV-5FL--pL2c589qOzv5ZGX_NbAJhyu-iRxM-qLT1BRg2AxJXzn-9D79VbuhuMCo=
+gQZzDF-jNjzJ1qcSE0ApYxt_XlXua1GiVe8aQ9zIS0Dn_5ebuXLWA40AugN-rXbsb1BH0ig2-b8=
+R93Ad3hFh-9uHWJ3GAaKpHg7HPlDIULz6DDWznkwe0SS065TuCZNHrX3MRiLIt6Qu-iIWuOflYg=
+D62Ms2AlbO_pzZ7RH4vh6CoRGXq-dvDbw0bMMgJ7cXwTkNJ2a_e6lc83zaf7fwibxUt1GCZhiY8=
+o8cxmX0-i3LhQ0evB7S5WOHv9xFKllHOTyOkNJkraA2A4Ic4b-WRIR73WBa2I9lA7_4bnxGObhX=
+cbeXkeGGWW-M_jMOgptTmOwpsV_wYgsGKmLblPhMvhCik0n-bdn" target=3D"_blank" styl=
+e=3D"display: block; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: =
+100%; text-decoration: underline;">
+             =20
+               =20
+               =20
+               =20
+
+               =20
+
+               =20
+
+               =20
+
+               =20
+
+               =20
+
+               =20
+                <img src=3D"https://cdn.shopify.com/shopify-email/xbfblwfo5=
+duwqtq1cm8xheovo168.jpg?width=3D292&amp;height=3D292&amp;crop=3Dcenter_lega=
+cy" class=3D"image" align=3D"center" alt=3D"Drop" border=3D"0" width=3D"146=
+" height=3D"146" style=3D"width: 146px; height: 146px; max-width: 600px; -m=
+s-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; -ms-interpolation=
+-mode: bicubic; outline: none; text-decoration: none; border-width: 0;"/>
+             =20
+            </a>
+          </td>
+        </tr>
+     =20
+
+     =20
+        <tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: =
+100%;">
+         =20
+         =20
+          <td height=3D"16" style=3D"border-collapse: collapse; mso-table-l=
+space: 0pt !important; mso-table-rspace: 0pt !important; mso-line-height-ru=
+le: exactly; line-height: 16px; -ms-text-size-adjust: 100%; -webkit-text-si=
+ze-adjust: 100%; vertical-align: top;">
+            <!--[if gte mso 15]> =C2=A0 <![endif]-->
+          </td>
+        </tr>
+     =20
+   =20
+
+   =20
+      <tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 10=
+0%;">
+       =20
+        <td style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: =
+100%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; v=
+ertical-align: top; padding: 0px 15px;" align=3D"center">
+         =20
+            <h2 style=3D"font-size: 16px; line-height: 1.2; color: #000000;=
+ font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif; font-=
+weight: 400; font-style: normal; -ms-text-size-adjust: 100%; -webkit-text-s=
+ize-adjust: 100%; display: block; margin: 0; padding: 0;">
+             =20
+                <a href=3D"https://www.quetzallijewelry.com/_t/c/v3/AABFmBm=
+6keQ7Zxaur3KVLdTM3AS2hzFN690vz6JVU3l6i_B7uDtzcNFucr4R7MdUmycNgBY9_crxMfT8oB=
+actCz5BCXcS1y4bgh3Z7yncciDIEfJZaRZ6h8EInYkEPCQdKUnPN8YEYE38GeYh56Gor5H-GwfQ=
+2voH96sxIwHcKspTDp5HVXFwOX1CkReCz-rOqL8tFQvssF_tHfox_s2Yx63qL7qVdraOoklYSye=
+wWvzzkAJ07-i6-pXvk0ihl_ZQBDb6Q1HxUyHXG0fTBGMHmpf_62Yesad3pGzauXTNnL0uyqXQzz=
+t7easS2BK4Vl9BHC7CpF2ym2Esfg7J4dV5g9L3fXweZso1CSnmAAExXwH024Eh5axSYZbmw7sGp=
+0ZvPe3oxqG8dceg_KTKzsn6paeOXqe42-KuLD3mGtAGnX8jE3UaNK0rHDQP_Y3mRdOFq7vPkXeC=
+5dApdusl7nbV5sKGpAGr71Dbjqs1hiWjT31A-zzHy9tzsPdYhrdWuxD" style=3D"text-deco=
+ration: none; font-size: 16px; line-height: 1.2; color: #000000; font-famil=
+y: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif; font-weight: 400=
+; font-style: normal; -ms-text-size-adjust: 100%; -webkit-text-size-adjust:=
+ 100%;" target=3D"_blank">
+                 =20
+                 =20
+                    Drop
+                 =20
+                </a>
+             =20
+            </h2>
+         =20
+
+         =20
+
+         =20
+        </td>
+      </tr>
+   =20
+
+   =20
+  </tbody></table>
+
+
+                </div>
+                <!--[if mso]> </td> <![endif]-->
+
+               =20
+             =20
+              <!--[if mso]>
+                </tr>
+                </table>
+              <![endif]-->
+            </div>
+          </td>
+        </tr>
+        <tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: =
+100%;">
+          <td align=3D"left" valign=3D"top" width=3D"100%" height=3D"30px" =
+style=3D"border-collapse: collapse; mso-table-lspace: 0pt !important; mso-t=
+able-rspace: 0pt !important; mso-line-height-rule: exactly; line-height: 20=
+px; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; vertical-al=
+ign: top;">
+            <!--[if gte mso 15]> =C2=A0 <![endif]-->
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center" wi=
+dth=3D"600" style=3D"background-color: #ffffff; -ms-text-size-adjust: 100%;=
+ -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-tabl=
+e-rspace: 0pt !important; border-spacing: 0 !important; border-collapse: co=
+llapse !important; table-layout: fixed !important; margin: auto;" class=3D"=
+email-container">
+  <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust:=
+ 100%;">
+    <td style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%=
+; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; verti=
+cal-align: top;">
+      <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"cent=
+er" width=3D"600" style=3D"background-color: #ffffff; -ms-text-size-adjust:=
+ 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; ms=
+o-table-rspace: 0pt !important; border-spacing: 0 !important; border-collap=
+se: collapse !important; table-layout: fixed !important; margin: auto;" cla=
+ss=3D"email-container">
+        <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-a=
+djust: 100%;">
+          <td style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust=
+: 100%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;=
+ vertical-align: top; padding: 40px 60px;" align=3D"center" class=3D"column=
+-container-left column-container-right">
+            <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=
+=3D"button-full-width" style=3D"-ms-text-size-adjust: 100%; -webkit-text-si=
+ze-adjust: 100%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !i=
+mportant; border-spacing: 0 !important; border-collapse: collapse !importan=
+t; table-layout: fixed !important;">
+              <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-=
+size-adjust: 100%;">
+                <td align=3D"center" style=3D"border-radius: 12px; backgrou=
+nd-color: #c2b7ac; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 10=
+0%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; ver=
+tical-align: top;">
+                  <a class=3D"button-with-rich-text " href=3D"https://www.q=
+uetzallijewelry.com/_t/c/v3/AADKa7IY5sj7SFPEVTCCkyiYfXpu4vZeGlXDz3Obi8Xg4vv=
+Xw5-ZQ3f_JCi72bvc4d-zrAbZO4MmgDeYq0sGXcjtKVkZgGHmPgPa401EzqD0gqm4UTkI2F9Q5O=
+U4rUbc3zJk5-E0rw-VyZjQvIlSlOpH085ne8VcA_WQ4dqcTI84nOgFDBHjl7RT9W64oz4OACosn=
+zygmxc3FfrBoh1iQQiCfuUWRkrlSWox7JzyK6Bjc_SgU6zqb9u7xqCaynYtDDTFdPhlrl66qJhv=
+BiUuBI4c3kSegVqjB3AUP-3Nwe83UoT8L9-8t713l6lQ9PAujAF4IdiOjxdosAirSXCT_CRFdJr=
+cYXtbXCWKv_H_lyWBf3GyOZcq_4B93_saKx4ollrEr9BZ9ocMkyP903z7C-7odsz4WDlCy4RWUk=
+YOInHI6MZvf4c2LVkbwvuee5XkZM3qWtlotgqjCRrjhT8Qy6JYf_ByX9UReASJJs07" target=
+=3D"_blank" style=3D"text-decoration: none; border-radius: 12px; background=
+-color: #c2b7ac; display: block; min-width: 80px; color: #ffffff; font-size=
+: 16px; font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif=
+; font-weight: 400; font-style: normal; word-break: break-word; -ms-text-si=
+ze-adjust: 100%; -webkit-text-size-adjust: 100%; padding: 14px 28px; border=
+: 3px solid #c2b7ac;">
+                    Continue shopping
+                  </a>
+                </td>
+              </tr>
+            </tbody></table>
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+         =20
+         =20
+
+
+
+
+
+
+
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center" wi=
+dth=3D"600" style=3D"background-color: #000000; -ms-text-size-adjust: 100%;=
+ -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-tabl=
+e-rspace: 0pt !important; border-spacing: 0 !important; border-collapse: co=
+llapse !important; table-layout: fixed !important; margin: auto; padding: 2=
+4px 0;" class=3D"email-container">
+  <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust:=
+ 100%;">
+    <td style=3D"background-color: #000000; -ms-text-size-adjust: 100%; -we=
+bkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-table-rs=
+pace: 0pt !important; vertical-align: top; padding: 24px 0;">
+      <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"cent=
+er" width=3D"600" style=3D"background-color: #000000; -ms-text-size-adjust:=
+ 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; ms=
+o-table-rspace: 0pt !important; border-spacing: 0 !important; border-collap=
+se: collapse !important; table-layout: fixed !important; margin: auto;" cla=
+ss=3D"email-container">
+        <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-a=
+djust: 100%;">
+          <td style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust=
+: 100%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;=
+ vertical-align: top; padding: 0 60px;" align=3D"left" class=3D"column-cont=
+ainer-left column-container-right">
+           =20
+           =20
+              <table role=3D"presentation" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" style=3D"-ms-text-size-adjust: 100%; -webki=
+t-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-table-rspac=
+e: 0pt !important; border-spacing: 0 !important; border-collapse: collapse =
+!important; table-layout: fixed !important;">
+                <tbody><tr align=3D"left" style=3D"-ms-text-size-adjust: 10=
+0%; -webkit-text-size-adjust: 100%;">
+                  <td valign=3D"top" style=3D"width: 100%; -ms-text-size-ad=
+just: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !importan=
+t; mso-table-rspace: 0pt !important; vertical-align: top;">
+                   =20
+
+
+
+
+<!--[if mso]>
+  <table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"center" width=3D"100%">
+  <tr>
+<![endif]-->
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+   =20
+   =20
+
+    <!--[if mso]>
+      <td align=3D"center" valign=3D"top" style=3D"min-width: 32px; width: =
+32px;">
+    <![endif]-->
+    <div style=3D"margin-bottom: 16px; display: inline-block; min-width: 32=
+px; width: 32px; vertical-align: top; -ms-text-size-adjust: 100%; -webkit-t=
+ext-size-adjust: 100%;">
+      <table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" bord=
+er=3D"0" style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100=
+%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; bord=
+er-spacing: 0 !important; border-collapse: collapse !important; table-layou=
+t: fixed !important;">
+        <tbody><tr style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-a=
+djust: 100%;">
+          <td valign=3D"top" align=3D"left" style=3D"width: px; height: px;=
+ min-width: px; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;=
+ mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; vertic=
+al-align: top;">
+            <a href=3D"https://www.quetzallijewelry.com/_t/c/v3/AABuTAkUF9J=
+2pWOzPrfjW88CQiLTDY6_OkbGRQAG67mNjZ52GaaGhhq1x5hhpjUA9RNkYVa6GN4BFxPW25gC1r=
+qGF_tYqf-woUxK7sa00_gY9XTsCBVBmUTl7yf_3VptGxtw4phMWbfph_zN8saHHBAA6kPFK2LlD=
+MwKEVavHyOOtiwmLbmKWnNxiMWEbyJv5YMQcOmNsluvl8gMn9wqw5f2UixmBg3MG00qDqY2PwmX=
+EYRjmA6muQtFGWSufFjJrEHAovTxcAQEGyST0lPMbAcPcmE-otujpzLQEk5OYx4gF8gwyKA2Bp2=
+SrE_tOw=3D=3D" target=3D"_blank" style=3D"text-decoration: none; -ms-text-s=
+ize-adjust: 100%; -webkit-text-size-adjust: 100%;">
+              <img alt=3D"instagram" width=3D"20" height=3D"20" src=3D"http=
+s://cdn.shopify.com/shopify-email/v36ptd62x37dmtlv8sdvafha79sm.svg?width=3D=
+60&amp;height=3D60&amp;format=3Dpng" style=3D"-ms-text-size-adjust: 100%; -=
+webkit-text-size-adjust: 100%; -ms-interpolation-mode: bicubic; height: aut=
+o; outline: none; text-decoration: none; border-width: 0;"/>
+            </a>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+    <!--[if mso]> </td> <![endif]-->
+ =20
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+
+ =20
+ =20
+
+ =20
+
+
+<!--[if mso]>
+  </tr>
+  </table>
+<![endif]-->
+
+                  </td>
+                </tr>
+              </tbody></table>
+           =20
+
+           =20
+           =20
+
+           =20
+           =20
+
+           =20
+            <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=
+=3D"100%" style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 10=
+0%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; bor=
+der-spacing: 0 !important; border-collapse: collapse !important; table-layo=
+ut: fixed !important;">
+              <tbody><tr align=3D"left" style=3D"-ms-text-size-adjust: 100%=
+; -webkit-text-size-adjust: 100%;">
+                <td valign=3D"top" style=3D"width: 100%; color: #ffffff; fo=
+nt-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif; font-wei=
+ght: 400; font-style: normal; font-size: 14px; mso-height-rule: exactly; li=
+ne-height: 1.5; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;=
+ mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; vertic=
+al-align: top;">
+                 =20
+
+
+
+
+
+
+
+
+
+  <div style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;=
+">
+   =20
+
+   =20
+     =20
+  <a style=3D"color: #ffffff; -ms-text-size-adjust: 100%; -webkit-text-size=
+-adjust: 100%; text-decoration: underline;" target=3D"_blank" href=3D"https=
+://www.quetzallijewelry.com/account/unsubscribe?token=3DWSiDO9RhEjkxZqGZUwp=
+8YcuwtXfCFtg3JlGB8ZSc8xLC6JE4RhU69WNpPfIM4Qau73GlZrle6hbihDD9mI3H8y_CUjPLog=
+aNKy-Z2fYq4fbDThJ6UnuyZfYLjm3xYJuZ&amp;se_activity_id=3D154436567219&amp;ut=
+m_source=3Dshopify_email&amp;utm_medium=3Demail&amp;utm_campaign=3DDid+some=
+thing+catch+your+eye%3F_154436567219">
+    Unsubscribe
+  </a>
+
+   =20
+
+   =20
+      <div style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 1=
+00%;">
+       =20
+    <span style=3D"display: inline-block; -ms-text-size-adjust: 100%; -webk=
+it-text-size-adjust: 100%;">=C2=A9 2025</span>
+    <span style=3D"display: inline-block; -ms-text-size-adjust: 100%; -webk=
+it-text-size-adjust: 100%;">Quetzalli Jewelry</span>
+
+      </div>
+   =20
+  </div>
+
+
+                </td>
+              </tr>
+            </tbody></table>
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+        </td>
+      </tr>
+
+      <!-- SHOPIFY // ANDROID 6.0 Force Desktop -->
+      <tr style=3D"line-height: 1px; mso-line-height-rule: exactly; -ms-tex=
+t-size-adjust: 100%; -webkit-text-size-adjust: 100%;" class=3D"mobile-hide"=
+>
+        <td align=3D"center" style=3D"min-width: 600px; font-size: 1px; lin=
+e-height: 1px; mso-line-height-rule: exactly; -ms-text-size-adjust: 100%; -=
+webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-table-=
+rspace: 0pt !important; vertical-align: top;">
+          <img src=3D"https://cdn.shopify.com/shopify-email/86rpof87eu76tbo=
+lw18xn73b60o2.png" alt=3D"" width=3D"600" height=3D"1" style=3D"display: bl=
+ock; width: 600px; height: 1px; -ms-text-size-adjust: 100%; -webkit-text-si=
+ze-adjust: 100%; -ms-interpolation-mode: bicubic; outline: none; text-decor=
+ation: none; border-width: 0;" border=3D"0"/>
+        </td>
+      </tr>
+    </tbody></table>
+
+    <!--Made with =F0=9F=92=8C by Shopify-->
+ =20
+
+<img src=3D"https://www.quetzallijewelry.com/_t/open/A1020005-18798C21A4D69=
+19E-8421D662?en=3DAACM8l0%2FilCF57RNvHHOPvhH%2FI56SY8pQdTGgiSoY5%2FSv09%2Fk=
+MJU7JPwMoie57WhYS6XsrpvW5x1P6%2BP%2Fw0WMnU8w6Fw4c0kI3gpeUXcsmk7MBV%2BsMFpgo=
+8TPfn8CQr06dD2Xa71Gg0s3ZDMTEN%2BggVVms0bjeZhLyIyABRQHwtyT%2BvoYPFxds1ghlY7Q=
+m7SveTujiLSRsi9KcMDbX%2F33ILnGQ90UQYD913UxzsQ609p1rxXQijfACOohMJVxEuKzmqRqm=
+Nu3dTBxNb0jofsnXQNds2k%2BAQ8suq1h56MqYqVZKZjo5NONJPMTQAOYnnRjigQt5laFzytu6H=
+rEBGKRa9ioR%2B%2FL2gV0q6sopg07EADmj5O0zqnZ%2F4Ks%2FIVcR%2FEhUkoBhDeLcfHZhLl=
+iyNJhAzidZBndWzESjG%2B80RdIHgF301UFdbr5poPd3geeoh36%2F6dPZMFm5wjxOKzKlmGzph=
+xUp0NzyRtq3aat1%2BOoNbOCOfJMn1V9xomclrlooQ3RKyn8McyEfB3XWOhvTKH4M%2BjWzmu2q=
+HTVuC3%2F7qCxiSjFk5rHv%2BKpxc3PSoPGCeajGLlOcS%2Be4FX%2FHSVJxPY2wc7gULXechxB=
+Q%3D%3D" style=3D"display:none"/></body></html>

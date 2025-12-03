@@ -1,0 +1,1785 @@
+Delivered-To: matt@sodapoppiercing.com
+Received: by 2002:a05:7010:da02:b0:4ec:9866:c91e with SMTP id oq2csp2104035mdb;
+        Mon, 24 Nov 2025 09:05:43 -0800 (PST)
+X-Forwarded-Encrypted: i=4; AJvYcCWRy5cEToc7N71ArHWoaRAJEGaqc/7v/73m4xC3tA2dn7BtwfAHyVAwJeM7g/BM+UM8zhj6@sodapoppiercing.com
+X-Received: by 2002:a05:6214:c4b:b0:7f5:eda2:a54b with SMTP id 6a1803df08f44-8847c57c18fmr199316136d6.62.1764003942920;
+        Mon, 24 Nov 2025 09:05:42 -0800 (PST)
+ARC-Seal: i=3; a=rsa-sha256; t=1764003942; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=ZGVX33b1g5eqRhoJDbEm7mFsTabNG+pwSXt9l2k1gmpDKzvem7CKZZtzglOf4ZKktW
+         gRo8MZytRXX0TCuZhC6O0wcFcC4n9XIcjoGISDAtqicWHL1iRBZgdm8p2fV72vDgVEE/
+         6B0q+k+UrUygQ3+CsRPdaUH65l9eZX3q4G66waAyBXs7BSaOc05CbQzAF4rrGma6Z4vL
+         ooejOky0IMKpuJm9dTLGb4kXajWr6shiqNCxWkLvcJPybwJ6F8CxujieFEj9H+dd5KoH
+         uEeQD1IH+rBpSx1U8bveva2qVkBYxG1BgvJOU3Tq1iC5tVWNk9CpB7S7WFv2ed3KNxPL
+         rHTA==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-archive:list-help:list-post:list-id:mailing-list:precedence:to
+         :list-unsubscribe-post:list-unsubscribe:subject:message-id
+         :mime-version:from:date:dkim-signature;
+        bh=5Fce+zQFYZWCmRsPWGPn4H8svcdMWDfgL8lro9dgqD8=;
+        fh=rEyb5NuvUrfhFFOlkniz+pTly8q9F9SwBCsB9yHW6cI=;
+        b=Ybco+q+/hOOB12XD1aB7kP4egcUUwXGr7KpqLVKHpY8Oy8LDq4Qqmgs0LFnmJJDUg7
+         AziUMGqiRPOE1AZvQmT7e8sGal9GPlUxdioQtA/rJjkE4A9R24XzEsup+o0OrdtpMwc9
+         Bsy1CrhAW1w+5seC3BkPdqLSJD2d+ry1EBQtZp1Z9wjg4nDDltUMd3hHXzn8VnkvgN8T
+         o4V6XseG/BdvGVOqrnAsTHa2HElm0SatlgmHpzeylBPrq+IGtqVDFI/eTcG8dthOpyKy
+         G6av+4hY2QQ5nrOs2uXtkL68vrA5YuOCU1DW2FoMlnzu90gX2ktiN5YembA8j40WKhDv
+         y9Tg==;
+        dara=google.com
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@sodapoppiercing-com.20230601.gappssmtp.com header.s=20230601 header.b=N64Dq6Mj;
+       arc=pass (i=2 spf=pass spfdomain=send.neometal.com dkim=pass dkdomain=neometal.com dmarc=pass fromdomain=neometal.com);
+       spf=permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbc6jprfe5eibbznasleqmgqejhavwlq@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) smtp.mailfrom=jewelryorders+bncBC6JPRFE5EIBBZNASLEQMGQEJHAVWLQ@sodapoppiercing.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE arc=pass) header.from=neometal.com;
+       dara=neutral header.i=@sodapoppiercing.com
+Return-Path: <jewelryorders+bncBC6JPRFE5EIBBZNASLEQMGQEJHAVWLQ@sodapoppiercing.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 6a1803df08f44-8846f86e221sor39406926d6.0.2025.11.24.09.05.42
+        for <matt@sodapoppiercing.com>
+        (Google Transport Security);
+        Mon, 24 Nov 2025 09:05:42 -0800 (PST)
+Received-SPF: permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbc6jprfe5eibbznasleqmgqejhavwlq@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@sodapoppiercing-com.20230601.gappssmtp.com header.s=20230601 header.b=N64Dq6Mj;
+       arc=pass (i=2 spf=pass spfdomain=send.neometal.com dkim=pass dkdomain=neometal.com dmarc=pass fromdomain=neometal.com);
+       spf=permerror (google.com: permanent error in processing during lookup of jewelryorders+bncbc6jprfe5eibbznasleqmgqejhavwlq@sodapoppiercing.com: dc-aa8e722993._spfm.sodapoppiercing.com not found) smtp.mailfrom=jewelryorders+bncBC6JPRFE5EIBBZNASLEQMGQEJHAVWLQ@sodapoppiercing.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE arc=pass) header.from=neometal.com;
+       dara=neutral header.i=@sodapoppiercing.com
+ARC-Seal: i=2; a=rsa-sha256; t=1764003942; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=g8b20QLcGhGtraK7MLGE798kInMTjz/t1wS/44AsMzHLa3ek6PyGjw3RLpldpaIAEa
+         AX0n3NUTmgpK/S77PAM/cd6lH2i44eyzTzrKfchIiba7gCEMXtYBRMwsP+LC89JxZLeF
+         uMPdrG6XeSCSIxrAm8+eFnl4eTSIk66ZRkQizaxvKC4Z/D4F1SeJSR1austX8qbIvc7F
+         s+OkdyUbqQ3KoosyTqpb7raVTA5acl5x+1Nk2F0Z9jh9SOeOvmR0XPGIlz6gVr7f3HNC
+         qIdKPOzqQyyZtEE9WG0cuXIckM7qRBA03JMB0sA4Oz3GYn/HigOUrtf70nzqY8z6/KW3
+         6EFA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-archive:list-help:list-post:list-id:mailing-list:precedence:to
+         :list-unsubscribe-post:list-unsubscribe:subject:message-id
+         :mime-version:from:date:dkim-signature;
+        bh=5Fce+zQFYZWCmRsPWGPn4H8svcdMWDfgL8lro9dgqD8=;
+        fh=rEyb5NuvUrfhFFOlkniz+pTly8q9F9SwBCsB9yHW6cI=;
+        b=Em5Rg6TiTPVYlVcKFu2w3mOBTEfw0Mrkl7N8+/s7H7+6vsXJFIQnbQ5W85eE72bqN4
+         pIffPGKsrdUiNUCSiWDesMH9qJuQ39y/miN8ohFJHtrZ6XnJv+l8PTNbO4Vjcsmnuh6l
+         1ix3RPFq/5aD5ZcAZmFv3/hL58z4o9BwaEGT9a2VsrGRU9J/akknPYwZ5LEopvEPD7Mh
+         MrGE0REeZw7MHzvXX0IqJI07+0y5bI0eornY3CTylajUzz2F69fexZ91a4ju6QCE+M+A
+         14HH8j7jCZzyEiqzhQfRc0aeItDjkMRSyQy3KmDVL/FRKS5AC0DfV7Gqd5cYRNS+iSBS
+         bzcA==;
+        darn=sodapoppiercing.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@neometal.com header.s=kl header.b=rH4RMWrM;
+       spf=pass (google.com: domain of bounces+21727690-6b0f-jewelryorders=sodapoppiercing.com@send.neometal.com designates 167.89.100.92 as permitted sender) smtp.mailfrom="bounces+21727690-6b0f-jewelryorders=sodapoppiercing.com@send.neometal.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=neometal.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sodapoppiercing-com.20230601.gappssmtp.com; s=20230601; t=1764003942; x=1764608742; darn=sodapoppiercing.com;
+        h=list-archive:list-help:list-post:list-id:mailing-list:precedence
+         :x-original-authentication-results:x-original-sender:to
+         :list-unsubscribe-post:list-unsubscribe:subject:message-id
+         :mime-version:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=5Fce+zQFYZWCmRsPWGPn4H8svcdMWDfgL8lro9dgqD8=;
+        b=N64Dq6MjHi6m9OiBYoWA+DOuN5w0/ajBGxG4sLP8hmUXKhInBwtfnaVbl/21zJnDbT
+         KaIYoBHhxxkNuBXNBsEgZyrtH7hbKW8YI0yazmzUUWOMfFVc6a+k7mjyMULx2Y0AyDg+
+         aJS1JDEJOhkMkhVfaX4yFsXhr3jqfTvR2BDgsagzMtY28SkIq4WJnU7MVR0w4Evcb0FD
+         UEycV4E4KM2IhjwXRNRR86I0kBGFfcBGqQLRUOMiB/xIlnW8n4thCJ5Un0BicME2pxrF
+         57FN8UG4mRvgnbQtfFwS/Ee3PqYvwr/uZgkWk2X2I+GdZZhUBd0jzeEVpwYODs/ywYjW
+         HLjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764003942; x=1764608742;
+        h=list-archive:list-help:list-post:x-spam-checked-in-group:list-id
+         :mailing-list:precedence:x-original-authentication-results
+         :x-original-sender:to:list-unsubscribe-post:list-unsubscribe:subject
+         :message-id:mime-version:from:date:x-beenthere:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=5Fce+zQFYZWCmRsPWGPn4H8svcdMWDfgL8lro9dgqD8=;
+        b=TEHpqnZP67Z4yOfXzSTkJC+rn9VZHpbs30L9j6AektPgldFM+thugTxLq1oMhvKBNR
+         WURaLVOos2ZvykTK7zwtvy4xySDXJw223/VzyTpsRXD+GJBFsNEcPl1b+OFmWClnHXfo
+         TRMmApVQBgU1/afmmbNJ6TNHAiJG9jqFWg+bXY/3murZuUYDYb9f3U58hfJzTNcD40ph
+         ingFKM97JC07SRbQrFnbCjLpdMsdku7t+NtKcPR7uVQQP576MGr0p2n34wzt3eT7Dc+k
+         rTy0wXTiTbjkoMEWhCohfLSFkMt3xog+6fsTrkb24Oz+nFoUBvzBtqyyMzxXzLg7IkIL
+         hFRg==
+X-Forwarded-Encrypted: i=2; AJvYcCUDHKuV75RvpPn5TPMvw75+YzmzcxK/66m47NHRFkML++APMoJy09fjO3nysJRL4FOAONFO@sodapoppiercing.com
+X-Gm-Message-State: AOJu0YweFGvdGWpli+Nz/kmzAYqzY8nCC1CIEs7mUfmDLTc2Jh0DAh0M
+	FKGn69bcIWQ4dcp2ZKtZKgtrop+SogIItAGbWi1J0srCyvzM2RSR/2WS4l+YRZkTwmXZPw==
+X-Google-Smtp-Source: AGHT+IHyEfOPPni4LxpwRT5UP6wzHr5AaamFm09EyhPaiSZPZENq+pSePZEbAI82yMKr/U6snKp/EQ==
+X-Received: by 2002:a05:622a:50b:b0:4e8:8dde:9d7e with SMTP id d75a77b69052e-4ee58925e6fmr170923181cf.60.1764003941998;
+        Mon, 24 Nov 2025 09:05:41 -0800 (PST)
+X-BeenThere: jewelryorders@sodapoppiercing.com; h="Ae8XA+adZ2ktE9xXxvS0V5L9H7SFRJERbapHHJrNuVKPdZVGpw=="
+Received: by 2002:ac8:7fcb:0:b0:4eb:7676:b2f with SMTP id d75a77b69052e-4ee49161650ls91065431cf.2.-pod-prod-08-us;
+ Mon, 24 Nov 2025 09:05:41 -0800 (PST)
+X-Received: by 2002:ac8:5908:0:b0:4ee:4a1a:8242 with SMTP id d75a77b69052e-4ee5893cf54mr176578851cf.73.1764003940537;
+        Mon, 24 Nov 2025 09:05:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1764003940; cv=none;
+        d=google.com; s=arc-20240605;
+        b=fUnNafkW/Fsj0vZlbK4tmmiRjPtdtPZ/vpMrvhe+sjAksQiEgSLdbrotJvzrw1cHnr
+         zjICp/1Zk8z6HYCM2bTgQfIqWx9iOWK1yBaGNztUJ9XqphiQqxTLbgdU6IUr3kWVdQYl
+         lKCz9EGzIFVE/Xx2OsJ27EvgFIGnt/NXR3+F5dBF0kLETrS2WNmb+rHLf5uK+kRwE17U
+         /axtfGAKDSD4yfGIwEwxBwG+SXhm/Jyt7t76+PFBiLcc0dbf2A3oEMWW9MX9H3FapWwa
+         zTSLDnIlzUyPrwG6gVcBd1nNFdbX62MXvSG5k3MbliGAYxkX5l5l/y6CtMUbP4M/PAIJ
+         Hh1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:list-unsubscribe-post:list-unsubscribe:subject:message-id
+         :mime-version:from:date:dkim-signature;
+        bh=5Fce+zQFYZWCmRsPWGPn4H8svcdMWDfgL8lro9dgqD8=;
+        fh=26fftPCw+TGIhEPIsfBe3SKGWZ65Jfjko4UDq1vvYeU=;
+        b=TqUu6weGO+QchWaA98BWjoZk9KhbOVzew8xnd3ZibsLuoYUyhfMg0dc/96URAwV/uc
+         CIhM4cFooUixJOxQDhrr5oWlCUodSQJKw7dT56T2f1lH01quRzGCKwWHytIL4D/g9Q2n
+         uXN+n8rvce/GNcdKCsaA6N/LLzAaItzxO6PdXhrHqs13l7uK3c54V6Gd/sgSoxAK23hj
+         mMEwsgnKQr8nGOL0QeqpklITefGaD7lPBA9xVrjV6rutLB508EY1RgKeN1ORhqWNKefQ
+         ewiZEx5BYzQ/uc2vYJ23rKZ7P010pDEmj+uPNiWvGy2JAyRe3P9/ipL8PhDTK6WLmVV8
+         Osdw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@neometal.com header.s=kl header.b=rH4RMWrM;
+       spf=pass (google.com: domain of bounces+21727690-6b0f-jewelryorders=sodapoppiercing.com@send.neometal.com designates 167.89.100.92 as permitted sender) smtp.mailfrom="bounces+21727690-6b0f-jewelryorders=sodapoppiercing.com@send.neometal.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=neometal.com
+Received: from o1308.shared.klaviyomail.com (o1308.shared.klaviyomail.com. [167.89.100.92])
+        by mx.google.com with ESMTPS id d75a77b69052e-4ee48e9712asi44143511cf.917.2025.11.24.09.05.39
+        for <jewelryorders@sodapoppiercing.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 24 Nov 2025 09:05:40 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+21727690-6b0f-jewelryorders=sodapoppiercing.com@send.neometal.com designates 167.89.100.92 as permitted sender) client-ip=167.89.100.92;
+Received: by recvd-65696df74f-7r8xm with SMTP id recvd-65696df74f-7r8xm-1-69249062-A0
+	2025-11-24 17:05:38.699560008 +0000 UTC m=+14948496.473509499
+Received: from MjE3Mjc2OTA (unknown)
+	by geopod-ismtpd-33 (SG) with HTTP
+	id MWrYqUw5RSCa-cosC93p9Q
+	Mon, 24 Nov 2025 17:05:38.687 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=a54e152994f313209811b2a09dccf0f327d411edc238e0b6d60de34adfb2
+Date: Mon, 24 Nov 2025 17:05:38 +0000 (UTC)
+From: NeoMetal <info@neometal.com>
+Mime-Version: 1.0
+Message-ID: <MWrYqUw5RSCa-cosC93p9Q@geopod-ismtpd-33>
+Subject: Still Time to Save =?UTF-8?B?4oCU?= 25% Off Titanium Ends
+ =?UTF-8?B?8J+WpOKAiw==?=
+List-Unsubscribe: <mailto:googlegroups-manage+479861830095+unsubscribe@googlegroups.com>,
+ <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/subscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Kmail-Account: YkpV23
+X-Kmail-Message: 01KAHVGCZ0P87M6AP7PRRD10YJ
+X-Kmail-Ops: 01HF2V1Z5VEYZ5RC1WBM1GP26E
+X-Report-Abuse: Please report any spam or abuse to: abuse@klaviyo.com
+X-SG-EID: =?us-ascii?Q?u001=2E8ViQplGf6kxVStElBXI1IPFAD6Ylo5FIT00VNnBY1GIqW8DLu23ZTsWji?=
+ =?us-ascii?Q?WfDQ43yoiYuft9uIVBxBWogYhEN3fzsgNHhFPjx?=
+ =?us-ascii?Q?zQ9oANHpfSGbUr2=2Fhjw7R0jP+ZHOCV5cSlUZWz3?=
+ =?us-ascii?Q?cC4h=2F4EWLBVAHPnjzvuAwASj3VvPDOEPQ8BHe+p?=
+ =?us-ascii?Q?h1YZ=2FbD6l8mckZsQpdxtbjI2cJ8zxEMR3LSulId?=
+ =?us-ascii?Q?ymW7=2FWzBi1m0hg1nc=2FaxWEV7LXXtNXgO4xN6n89?=
+ =?us-ascii?Q?t+Mz?=
+X-SG-ID: =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BiU3Zi1S53GtqGa3TWBmqe75yn5aYrkvkfG+Z?=
+ =?us-ascii?Q?GKrHRvq3G4P91ipEt4X4Y+Rusj0KB176DwhDTbu?=
+ =?us-ascii?Q?mz4c8O3xONJj3bTRiFteM3pifVjWszUQUn5c8Uf?=
+ =?us-ascii?Q?qJpC91P1XbPxEUnk8=2Ff7icvgmp8QJ8tD9GaBmdY?=
+ =?us-ascii?Q?GZZRDiuaeSwlvpr=2FbmAKjyK796yw4fvSCgHTiif?=
+ =?us-ascii?Q?gWzlANxpjG=2FzI5NnS6yD+idzJUbW88nZlLn9ddN?=
+ =?us-ascii?Q?5ilVedDBopofW2zJDTfAR6=2FQIlrWKB3VgmTSMLO?=
+ =?us-ascii?Q?et+DbdPgrKAJUV1k47jckxfqqH8Dwa2eVKBDcpe?=
+ =?us-ascii?Q?8T+nQjcTImqaCqGkvNM6zgOHueRPNGHAbvh4QyZ?=
+ =?us-ascii?Q?fF3XKa0oYQeXmgo?=
+To: William Wood <jewelryorders@sodapoppiercing.com>
+X-Entity-ID: u001.Yn9Oel/WQMPiZlzXEUmj6w==
+X-Original-Sender: info@neometal.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@neometal.com header.s=kl header.b=rH4RMWrM;       spf=pass
+ (google.com: domain of bounces+21727690-6b0f-jewelryorders=sodapoppiercing.com@send.neometal.com
+ designates 167.89.100.92 as permitted sender) smtp.mailfrom="bounces+21727690-6b0f-jewelryorders=sodapoppiercing.com@send.neometal.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=neometal.com
+Precedence: list
+Mailing-list: list jewelryorders@sodapoppiercing.com; contact jewelryorders+owners@sodapoppiercing.com
+List-ID: <jewelryorders.sodapoppiercing.com>
+X-Spam-Checked-In-Group: jewelryorders@sodapoppiercing.com
+X-Google-Group-Id: 479861830095
+List-Post: <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/post>,
+ <mailto:jewelryorders@sodapoppiercing.com>
+List-Help: <https://support.google.com/a/sodapoppiercing.com/bin/topic.py?topic=25838>,
+ <mailto:jewelryorders+help@sodapoppiercing.com>
+List-Archive: <https://groups.google.com/a/sodapoppiercing.com/group/jewelryorders/>
+
+--a54e152994f313209811b2a09dccf0f327d411edc238e0b6d60de34adfb2
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Mime-Version: 1.0
+
+https://www.neometal.com
+
+[STILL TIME TO SHINE 25% OFF ALL TITANIUM ENDS WITH CODE SHINE](https://www=
+.neometal.com/collections/titanium-ends)
+
+There's still time to save 25% on titanium.=A0Stock up on your studio essen=
+tials before these Black Friday savings disappear.
+
+[SHOP NOW](https://www.neometal.com/collections/titanium-ends)
+
+Explore Titanium Best Sellers
+
+[Image of Titanium Bezel Set Cabochon](https://www.neometal.com/collections=
+/titanium-ends/products/titanium-bezel-set-cabochon)
+
+[Titanium Bezel Set Cabochon](https://www.neometal.com/collections/titanium=
+-ends/products/titanium-bezel-set-cabochon)
+
+[Image of Titanium Bezel Set Two Gem Cabochon Cluster=A0](https://neometal-=
+prod.myshopify.com/products/titanium-bezel-set-2-gem-cluster-cabochon)
+
+[Titanium Bezel Set Two Gem Cabochon Cluster](https://neometal-prod.myshopi=
+fy.com/products/titanium-bezel-set-2-gem-cluster-cabochon)
+
+[Image of Titanium Bezel Set Cabochon Cluster - Curved](https://neometal-pr=
+od.myshopify.com/products/titanium-bezel-set-cabochon-3-piece-curved-bridge=
+-cluster)
+
+[Titanium Bezel Set Cabochon Cluster - Curved](https://neometal-prod.myshop=
+ify.com/products/titanium-bezel-set-cabochon-3-piece-curved-bridge-cluster)
+
+[Image of Bezel Set Petite Gem Cluster](https://neometal-prod.myshopify.com=
+/products/bezel-set-petite-gem-cluster)
+
+[Bezel Set Petite Gem Cluster](https://neometal-prod.myshopify.com/products=
+/bezel-set-petite-gem-cluster)
+
+[Image of Titanium Dome Ends](https://neometal-prod.myshopify.com/products/=
+titanium-dome-ends)
+
+[Titanium Dome Ends](https://neometal-prod.myshopify.com/products/titanium-=
+dome-ends)
+
+[Image of Titanium Trillion Cut Prong Set Gem](https://neometal-prod.myshop=
+ify.com/products/titanium-trillion-cut-prong-set-gem)
+
+[Titanium Trillion Cut Prong Set Gem](https://neometal-prod.myshopify.com/p=
+roducts/titanium-trillion-cut-prong-set-gem)
+
+[SHOP THE SALE](https://www.neometal.com/collections/titanium-ends)
+
+https://www.neometal.com
+
+https://www.neometal.com
+
+NEED HELP? CONTACT US!
+(360) 692-0696
+9am - 4pm PT Mon - Fri
+=A0
+Can't see the images? [View in Your Browser](https://manage.kmail-lists.com=
+/subscriptions/web-view?a=3DYkpV23&c=3D01HF2V1Z5VEYZ5RC1WBM1GP26E&k=3De8fe0=
+83f86bbe9b3e34baa647e79d197&m=3D01KAHVGCZ0P87M6AP7PRRD10YJ&r=3D01KAVC1YF8A3=
+QDQN07KYTNAZBR)
+=A0
+[Terms of Use](https://www.neometal.com/pages/terms-and-conditions-of-use) =
+=A0 | =A0 [Privacy Policy](https://www.neometal.com/pages/privacy-policy) =
+=A0| =A0 [Unsubscribe](https://manage.kmail-lists.com/subscriptions/unsubsc=
+ribe?a=3DYkpV23&c=3D01HF2V1Z5VEYZ5RC1WBM1GP26E&k=3De8fe083f86bbe9b3e34baa64=
+7e79d197&m=3D01KAHVGCZ0P87M6AP7PRRD10YJ&r=3D01KAVC1YF8A3QDQN07KYTNAZBR)=A0
+www.neometal.com
+
+Copyright =A92024 NeoMetal, Inc. All rights reserved.
+1816 Ackley Cir Oakdale, California 95361
+
+[Instagram](http://www.instagram.com/neometaljewelry)
+[Facebook](http://www.facebook.com/neometaljewelry)
+[YouTube](https://www.youtube.com/channel/UCKuRHJmkleh_8slCE5qHGuA)
+[Tiktok](https://www.tiktok.com/@neometaljewelry)
+--a54e152994f313209811b2a09dccf0f327d411edc238e0b6d60de34adfb2
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:o=3D"urn:=
+schemas-microsoft-com:office:office" xmlns:v=3D"urn:schemas-microsoft-com:v=
+ml"><head>
+<title>
+</title>
+<!--[if !mso]><!-->
+<meta content=3D"IE=3Dedge" http-equiv=3D"X-UA-Compatible">
+<!--<![endif]-->
+<meta content=3D"text/html; charset=3Dutf-8" http-equiv=3D"Content-Type">
+<meta content=3D"width=3Ddevice-width, initial-scale=3D1" name=3D"viewport"=
+>
+<!--[if mso]>
+        <noscript>
+        <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        </noscript>
+        <![endif]-->
+<!--[if lte mso 11]>
+        <style type=3D"text/css" data-inliner=3D"ignore">
+          .mj-outlook-group-fix { width:100% !important; }
+        </style>
+        <![endif]-->
+<!--[if !mso]><!--><!--<![endif]-->
+<style>a:not([name]) {color:#394352;text-decoration:none underline}
+a:link {color:#394352;text-decoration:none underline}
+a:visited {color:#394352;text-decoration:none underline}
+a:active {color:#394352;text-decoration:none underline}
+a:hover {color:#394352;text-decoration:none underline}</style><style>@impor=
+t url(https://static-forms.klaviyo.com/fonts/api/v1/YkpV23/custom_fonts.css=
+);
+#outlook a {
+    padding: 0
+    }
+body {
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%
+    }
+table, td {
+    border-collapse: collapse;
+    mso-table-lspace: 0;
+    mso-table-rspace: 0
+    }
+img {
+    border: 0;
+    line-height: 100%;
+    outline: none;
+    text-decoration: none;
+    -ms-interpolation-mode: bicubic
+    }
+p {
+    display: block;
+    margin: 13px 0
+    }
+@media only screen and (min-width: 480px) {
+    .mj-column-per-100 {
+        width: 100% !important;
+        max-width: 100%
+        }
+    }
+.moz-text-html .mj-column-per-100 {
+    width: 100% !important;
+    max-width: 100%
+    }
+@media only screen and (max-width: 480px) {
+    div.kl-row.colstack div.kl-column {
+        display: block !important;
+        width: 100% !important
+        }
+    }
+.hlb-subblk td {
+    word-break: normal
+    }
+@media only screen and (max-width: 480px) {
+    .hlb-wrapper .hlb-block-settings-content {
+        padding: 9px !important
+        }
+    .hlb-logo {
+        padding-bottom: 9px !important
+        }
+    .r2-tbl {
+        width: 100%
+        }
+    .r2-tbl .lnk {
+        width: 100%
+        }
+    .r2-tbl .hlb-subblk > table {
+        border-spacing: 5px !important;
+        border-collapse: separate !important
+        }
+    .kl-hlb-stack {
+        display: block !important;
+        width: 100% !important;
+        padding-right: 0 !important
+        }
+    .kl-hlb-stack.vspc {
+        margin-bottom: 9px
+        }
+    .kl-hlb-wrap {
+        display: inline-block !important;
+        width: auto !important
+        }
+    .kl-hlb-no-wrap {
+        display: table-cell !important
+        }
+    .kl-hlb-wrap.nospc.nospc {
+        padding-right: 0 !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    .component-wrapper .mob-no-spc {
+        padding-left: 0 !important;
+        padding-right: 0 !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    td.kl-img-base-auto-width {
+        width: 100% !important
+        }
+    }
+.kl-button a {
+    display: block !important
+    }
+@media only screen and (max-width: 480px) {
+    .kl-product-cell-stack {
+        display: block !important;
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important
+        }
+    }
+@media screen and (max-width: 480px) {
+    .kl-sl-stk {
+        display: block !important;
+        width: 100% !important;
+        padding: 0 0 9px !important;
+        text-align: center !important
+        }
+    .kl-sl-stk.lbls {
+        padding: 0 !important
+        }
+    .kl-sl-stk.spcblk {
+        display: none !important
+        }
+    }
+img {
+    border: 0;
+    height: auto;
+    line-height: 100%;
+    outline: none;
+    text-decoration: none;
+    max-width: 100%
+    }
+.root-container {
+    background-repeat: repeat !important;
+    background-size: auto !important;
+    background-position: left top !important
+    }
+.root-container-spacing {
+    padding-top: 50px !important;
+    padding-bottom: 20px !important;
+    font-size: 0 !important
+    }
+.content-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important
+    }
+.content-padding.first {
+    padding-top: 0 !important
+    }
+.content-padding.last {
+    padding-bottom: 0 !important
+    }
+@media only screen and (max-width: 480px) {
+    td.mobile-only {
+        display: table-cell !important
+        }
+    div.mobile-only {
+        display: block !important
+        }
+    table.mobile-only {
+        display: table !important
+        }
+    .desktop-only {
+        display: none !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    .table-mobile-only {
+        display: table-cell !important;
+        max-height: none !important
+        }
+    .table-mobile-only.block {
+        display: block !important
+        }
+    .table-mobile-only.inline-block {
+        display: inline-block !important
+        }
+    .table-desktop-only {
+        max-height: 0 !important;
+        display: none !important;
+        mso-hide: all !important;
+        overflow: hidden !important
+        }
+    }
+p {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 1em
+    }
+@media only screen and (max-width: 480px) {
+    body.mce-content-body, /* NOTE: needed for internal tinymce styles */.k=
+l-text > div, .kl-table-subblock > div, .kl-split-subblock > div {
+        font-size: 14px !important;
+        line-height: 1.3 !important
+        }
+    }
+h1 {
+    color: #394352;
+    font-family: "Lexend Exa", Helvetica, Arial, sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0;
+    margin: 0;
+    margin-bottom: 16px;
+    text-align: center
+    }
+@media only screen and (max-width: 480px) {
+    h1 {
+        font-size: 40px !important;
+        line-height: 1.1 !important
+        }
+    }
+h2 {
+    color: #394352;
+    font-family: "Lexend Exa", Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0;
+    margin: 0;
+    margin-bottom: 16px;
+    text-align: left
+    }
+@media only screen and (max-width: 480px) {
+    h2 {
+        font-size: 32px !important;
+        line-height: 1.1 !important
+        }
+    }
+h3 {
+    color: #394352;
+    font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-se=
+rif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0;
+    margin: 0;
+    margin-bottom: 12px;
+    text-align: left
+    }
+@media only screen and (max-width: 480px) {
+    h3 {
+        font-size: 24px !important;
+        line-height: 1.1 !important
+        }
+    }
+h4 {
+    color: #394352;
+    font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-se=
+rif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: 0;
+    margin: 0;
+    margin-bottom: 9px;
+    text-align: left
+    }
+@media only screen and (max-width: 480px) {
+    h4 {
+        font-size: 18px !important;
+        line-height: 1.1 !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    .root-container {
+        width: 100% !important
+        }
+    .root-container-spacing {
+        padding: 10px !important
+        }
+    .content-padding {
+        padding-left: 0 !important;
+        padding-right: 0 !important
+        }
+    .content-padding.first {
+        padding-top: 0 !important
+        }
+    .content-padding.last {
+        padding-bottom: 0 !important
+        }
+    .kl-column > .component-wrapper {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: unset !important
+        }
+    .kl-text {
+        padding-right: 18px !important;
+        padding-left: 18px !important
+        }
+    }</style></head>
+<body style=3D"word-spacing:normal;background-color:#F9F1E4;">
+<div style=3D"display:none;font-size:1px;color:#ffffff;line-height:1px;max-=
+height:0px;max-width:0px;opacity:0;overflow:hidden;">
+      Don=E2=80=99t miss your Black Friday savings=E2=80=8B!=E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD
+    </div>
+<!-- TRACKING_PIXEL_TOP -->
+<div class=3D"root-container" id=3D"bodyTable" style=3D"background-color:#F=
+9F1E4;">
+<div class=3D"root-container-spacing">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"kl-section" role=3D"presentation" style=3D"width:100%;">
+<tbody>
+<tr>
+<td>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" class=3D"kl-section-outlook" style=3D"width:600px;" width=
+=3D"600" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-ru=
+le:exactly;"><![endif]-->
+<div style=3D"margin:0px auto;max-width:600px;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"width:100%;">
+<tbody>
+<tr>
+<td style=3D"direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><table align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" class=3D"" style=3D"width:600px;" width=3D"600" bgcolor=
+=3D"#FCF8F2" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-heigh=
+t-rule:exactly;"><![endif]-->
+<div style=3D"background:#FCF8F2;background-color:#FCF8F2;margin:0px auto;b=
+order-radius:0px 0px 0px 0px;max-width:600px;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"background:#FCF8F2;background-color:#FCF8F2;wi=
+dth:100%;border-radius:0px 0px 0px 0px;">
+<tbody>
+<tr>
+<td style=3D"direction:ltr;font-size:0px;padding:20px 0;padding-bottom:0px;=
+padding-left:0px;padding-right:0px;padding-top:0px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><![endif]-->
+<div class=3D"content-padding first">
+<!--[if true]><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"600" style=3D"width:600px;direction:ltr"><tr><![endif]-->
+<div class=3D"kl-row colstack" style=3D"display:table;table-layout:fixed;wi=
+dth:100%;">
+<!--[if true]><td style=3D"vertical-align:top;width:600px;"><![endif]-->
+<div class=3D"kl-column" style=3D"display:table-cell;vertical-align:top;wid=
+th:100%;">
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper hlb-=
+wrapper" style=3D"font-size:0px;text-align:left;direction:ltr;vertical-alig=
+n:top;width:100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"hlb-block-settings-content" style=3D"background-color:#394352;=
+vertical-align:top;padding-top:18px;padding-right:18px;padding-bottom:18px;=
+padding-left:18px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"top" class=3D"kl-header-link-bar" style=3D"font-size:0px;paddi=
+ng:0px 0px 0px 0px;word-break:break-word;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"color:#000=
+000;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-he=
+ight:22px;table-layout:auto;width:100%;border:0;" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" class=3D"hlb-logo" style=3D"display:table-cell;width:1=
+00%;padding-bottom:0px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-col=
+lapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<!--[if true]><td style=3D"width:125px;" bgcolor=3D"transparent"><![endif]-=
+->
+<!--[if !true]><!--><td style=3D"width:125px;"><!--<![endif]-->
+<a style=3D"color:#394352; text-decoration:none underline" target=3D"_blank=
+" href=3D"https://ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2PMHBSPC_0">
+<img alt=3D"" src=3D"https://d3k81ch9hvuctc.cloudfront.net/company/YkpV23/i=
+mages/6ea61f8d-bb7f-4a65-8418-b9b6c8af2bc1.png" style=3D"display:block;outl=
+ine:none;text-decoration:none;height:auto;width:100%;background-color:trans=
+parent;" width=3D"125">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!--[if true]></td><![endif]-->
+</div>
+<!--[if true]></tr></table><![endif]-->
+</div>
+<!--[if mso | IE]></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"kl-section" role=3D"presentation" style=3D"width:100%;">
+<tbody>
+<tr>
+<td>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" class=3D"kl-section-outlook" style=3D"width:600px;" width=
+=3D"600" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-ru=
+le:exactly;"><![endif]-->
+<div style=3D"margin:0px auto;max-width:600px;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"width:100%;">
+<tbody>
+<tr>
+<td style=3D"direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><table align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" class=3D"" style=3D"width:600px;" width=3D"600" bgcolor=
+=3D"#19171D" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-heigh=
+t-rule:exactly;"><![endif]-->
+<div style=3D"background:#19171D;background-color:#19171D;margin:0px auto;b=
+order-radius:0px 0px 0px 0px;max-width:600px;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"background:#19171D;background-color:#19171D;wi=
+dth:100%;border-radius:0px 0px 0px 0px;">
+<tbody>
+<tr>
+<td style=3D"direction:ltr;font-size:0px;padding:20px 0;padding-bottom:0px;=
+padding-left:0px;padding-right:0px;padding-top:0px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><![endif]-->
+<div class=3D"content-padding">
+<!--[if true]><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"600" style=3D"width:600px;direction:ltr"><tr><![endif]-->
+<div class=3D"kl-row colstack" style=3D"display:table;table-layout:fixed;wi=
+dth:100%;">
+<!--[if true]><td style=3D"vertical-align:top;width:600px;"><![endif]-->
+<div class=3D"kl-column" style=3D"display:table-cell;vertical-align:top;wid=
+th:100%;">
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"vertical-align:top;padding-top:0px;padding-right:0p=
+x;padding-bottom:0px;padding-left:0px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" class=3D"kl-image" style=3D"font-size:0px;word-break:b=
+reak-word;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-col=
+lapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td class=3D"" style=3D"border:0;padding:0px 0px 0px 0px;width:600px;" vali=
+gn=3D"top">
+<a class=3D"kl-img-link" style=3D"color:#394352; text-decoration:none under=
+line; display:block" href=3D"https://ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2=
+PMHBSPC_1">
+<img alt=3D"STILL TIME TO SHINE 25% OFF ALL TITANIUM ENDS WITH CODE SHINE" =
+src=3D"https://d3k81ch9hvuctc.cloudfront.net/company/YkpV23/images/c920bba1=
+-c2c1-48c4-988a-5ade7c54aa55.png" style=3D"display:block;outline:none;text-=
+decoration:none;height:auto;font-size:13px;width:100%;" title=3D"STILL TIME=
+ TO SHINE 25% OFF ALL TITANIUM ENDS WITH CODE SHINE" width=3D"600">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"mob-no-spc" style=3D"background-color:#19171D;vertical-align:t=
+op;padding-top:9px;padding-right:50px;padding-bottom:0px;padding-left:50px;=
+">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-text" style=3D"font-size:0px;padding:0px;pad=
+ding-top:0px;padding-right:18px;padding-bottom:0px;padding-left:18px;word-b=
+reak:break-word;">
+<div style=3D"font-family:'Nunito Sans', 'Helvetica Neue', Helvetica, Arial=
+, sans-serif;font-size:16px;font-style:normal;font-weight:400;letter-spacin=
+g:0px;line-height:1.5;text-align:left;color:#394352;"><h2 style=3D"letter-s=
+pacing: 1px;"><span style=3D"font-family: Figtree, Verdana, Geneva, sans-se=
+rif; font-weight: 400; font-style: normal; font-size: 18px; color: rgb(249,=
+ 241, 228);"><!--StartFragment--></span></h2>
+<h4 style=3D"text-align: center; letter-spacing: 1px;"><span style=3D"font-=
+family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font=
+-style: normal; font-size: 18px; color: rgb(249, 241, 228);">There's still =
+time to save <span style=3D"color: rgb(228, 188, 127);">25% on titanium</sp=
+an>.&nbsp;Stock up on your studio essentials before these Black Friday savi=
+ngs disappear.</span></h4>
+<h2 style=3D"letter-spacing: 1px;"><span style=3D"font-family: Figtree, Ver=
+dana, Geneva, sans-serif; font-weight: 400; font-style: normal; font-size: =
+18px; color: rgb(249, 241, 228);"><!--EndFragment--></span></h2></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!--[if true]></td><![endif]-->
+</div>
+<!--[if true]></tr></table><![endif]-->
+</div>
+<!--[if mso | IE]></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"kl-section" role=3D"presentation" style=3D"width:100%;">
+<tbody>
+<tr>
+<td>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" class=3D"kl-section-outlook" style=3D"width:600px;" width=
+=3D"600" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-ru=
+le:exactly;"><![endif]-->
+<div style=3D"margin:0px auto;max-width:600px;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"width:100%;">
+<tbody>
+<tr>
+<td style=3D"direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><table align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" class=3D"" style=3D"width:600px;" width=3D"600" bgcolor=
+=3D"#FCF8F2" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-heigh=
+t-rule:exactly;"><![endif]-->
+<div style=3D"background:#FCF8F2;background-color:#FCF8F2;margin:0px auto;b=
+order-radius:0px 0px 0px 0px;max-width:600px;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"background:#FCF8F2;background-color:#FCF8F2;wi=
+dth:100%;border-radius:0px 0px 0px 0px;">
+<tbody>
+<tr>
+<td style=3D"direction:ltr;font-size:0px;padding:20px 0;padding-bottom:0px;=
+padding-left:0px;padding-right:0px;padding-top:0px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><![endif]-->
+<div class=3D"content-padding">
+<!--[if true]><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"600" style=3D"width:600px;direction:ltr"><tr><![endif]-->
+<div class=3D"kl-row colstack" style=3D"display:table;table-layout:fixed;wi=
+dth:100%;">
+<!--[if true]><td style=3D"vertical-align:top;width:600px;"><![endif]-->
+<div class=3D"kl-column" style=3D"display:table-cell;vertical-align:top;wid=
+th:100%;">
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"background-color:#19171D;vertical-align:top;padding=
+-top:0px;padding-right:18px;padding-bottom:27px;padding-left:18px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" class=3D"kl-button" style=3D"font-size:0px;padding:0px=
+;word-break:break-word;" vertical-align=3D"middle">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-col=
+lapse:separate;line-height:100%;">
+<tbody><tr>
+<td align=3D"center" bgcolor=3D"#19171D" role=3D"presentation" style=3D"bor=
+der:none;border-bottom:solid 1px #19171D;border-left:solid 1px #19171D;bord=
+er-radius:1px;border-right:solid 1px #19171D;border-top:solid 1px #19171D;c=
+ursor:auto;font-style:normal;mso-padding-alt:9px 15px 9px 15px;background:#=
+19171D;" valign=3D"middle">
+<a style=3D"color:#E4BC7F; text-decoration:underline; display:inline-block;=
+ background:#19171D; font-family:&quot;Nunito Sans&quot;, &quot;Helvetica N=
+eue&quot;, Helvetica, Arial, sans-serif; font-size:16px; font-style:normal;=
+ font-weight:600; line-height:100%; letter-spacing:1px; margin:0; text-tran=
+sform:none; padding:9px 15px 9px 15px; mso-padding-alt:0; border-radius:1px=
+" target=3D"_blank" href=3D"https://ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2P=
+MHBSPC_2">
+              SHOP NOW
+            </a>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"mob-no-spc" style=3D"background-color:#FFFFFF;vertical-align:t=
+op;padding-top:18px;padding-right:50px;padding-bottom:0px;padding-left:50px=
+;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-text" style=3D"font-size:0px;padding:0px;pad=
+ding-top:0px;padding-right:18px;padding-bottom:0px;padding-left:18px;word-b=
+reak:break-word;">
+<div style=3D"font-family:'Nunito Sans', 'Helvetica Neue', Helvetica, Arial=
+, sans-serif;font-size:16px;font-style:normal;font-weight:400;letter-spacin=
+g:0px;line-height:1.5;text-align:left;color:#394352;"><h2><span style=3D"fo=
+nt-family: Figtree, Verdana, Geneva, sans-serif; font-weight: 400; font-sty=
+le: normal; font-size: 18px; color: rgb(249, 241, 228);"><!--StartFragment-=
+-></span></h2>
+<h4 style=3D"text-align: center;"><span style=3D"font-family: 'Nunito Sans'=
+, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-style: normal; font-=
+size: 18px; color: rgb(57, 67, 82);">Explore Titanium Best Sellers</span></=
+h4>
+<h2><span style=3D"font-family: Figtree, Verdana, Geneva, sans-serif; font-=
+weight: 400; font-style: normal; font-size: 18px; color: rgb(249, 241, 228)=
+;"><!--EndFragment--></span></h2></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"background-color:#FFFFFF;vertical-align:top;padding=
+-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" style=3D"font-size:0px;padding:0px;word-break:break-word=
+;">
+<div style=3D"font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13=
+px;line-height:1;text-align:left;color:#000000;"><!--[if true]><table class=
+=3D"kl-product" role=3D"presentation" width=3D"100%" style=3D"all:unset;opa=
+city:0;"><tr><![endif]-->
+<!--[if false]></td></tr></table><![endif]-->
+<div class=3D"kl-product" style=3D"display:table;width:100%;height:100%">
+<!--[if true]><td width=3D"33.333333333333336%" style=3D"vertical-align:top=
+;""><![endif]-->
+<!--[if !true]><!--><div class=3D"" style=3D"display:table-cell;vertical-al=
+ign:top;font-size:0;width:33.333333333333336%;"><!--<![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" role=3D"presenta=
+tion" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td style=3D"font-size:0px;padding:10px 10px 10px 10px;word-break:break-wor=
+d;vertical-align:top;">
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" clas=
+s=3D"kl-product-subblock" style=3D"table-layout:fixed;height:100%;" width=
+=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center">
+<a style=3D"color:#394352; text-decoration:none underline" href=3D"https://=
+ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2PMHBSPC_3">
+<img alt=3D"Image of Titanium Bezel Set Cabochon" src=3D"https://cdn.shopif=
+y.com/s/files/1/0556/0768/9398/products/xcab18_1491a220-01f7-4dbd-afd2-4817=
+48b404aa.jpg?v=3D1617687172" style=3D"display:block;max-width:100%;width:au=
+to;max-height:200px;" width=3D"176">
+</a>
+</td>
+</tr>
+<tr><td align=3D"center"><table align=3D"center"><tbody><tr><td align=3D"ce=
+nter" style=3D"color:#394352;font-family:'Nunito Sans', 'Helvetica Neue', H=
+elvetica, Arial, sans-serif;font-size:14px;font-weight:600;font-style:norma=
+l;text-align:center;text-decoration:underline;letter-spacing:0px;padding-to=
+p:5px;padding-bottom:0px;line-height:1.5;"><a style=3D"color:#394352; text-=
+decoration:underline; font-family:&quot;Nunito Sans&quot;, &quot;Helvetica =
+Neue&quot;, Helvetica, Arial, sans-serif; font-size:14px; font-weight:600; =
+font-style:normal; text-align:center; letter-spacing:0; padding-top:5px; pa=
+dding-bottom:0; line-height:1.5" href=3D"https://ctrk.klclick.com/l/01KAVC2=
+K6HE7RE1D8Q2PMHBSPC_4">Titanium Bezel Set Cabochon</a></td></tr></tbody></t=
+able></td></tr>
+<tr><td style=3D"height:100%;"></td></tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if !true]><!--></div><!--<![endif]-->
+<!--[if true]></td><![endif]-->
+<!--[if true]><td width=3D"33.333333333333336%" style=3D"vertical-align:top=
+;""><![endif]-->
+<!--[if !true]><!--><div class=3D"" style=3D"display:table-cell;vertical-al=
+ign:top;font-size:0;width:33.333333333333336%;"><!--<![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" role=3D"presenta=
+tion" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td style=3D"font-size:0px;padding:10px 10px 10px 10px;word-break:break-wor=
+d;vertical-align:top;">
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" clas=
+s=3D"kl-product-subblock" style=3D"table-layout:fixed;height:100%;" width=
+=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center">
+<a style=3D"color:#394352; text-decoration:none underline" href=3D"https://=
+ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2PMHBSPC_5">
+<img alt=3D"Image of Titanium Bezel Set Two Gem Cabochon Cluster&nbsp;" src=
+=3D"https://cdn.shopify.com/s/files/1/0556/0768/9398/files/Clusters_2gem_Ca=
+bs_1000x1000_a2d324b6-0634-4443-8151-e031bde60837.jpg?v=3D1704404128" style=
+=3D"display:block;max-width:100%;width:auto;max-height:200px;" width=3D"176=
+">
+</a>
+</td>
+</tr>
+<tr><td align=3D"center"><table align=3D"center"><tbody><tr><td align=3D"ce=
+nter" style=3D"color:#394352;font-family:'Nunito Sans', 'Helvetica Neue', H=
+elvetica, Arial, sans-serif;font-size:14px;font-weight:600;font-style:norma=
+l;text-align:center;text-decoration:underline;letter-spacing:0px;padding-to=
+p:5px;padding-bottom:0px;line-height:1.5;"><a style=3D"color:#394352; text-=
+decoration:underline; font-family:&quot;Nunito Sans&quot;, &quot;Helvetica =
+Neue&quot;, Helvetica, Arial, sans-serif; font-size:14px; font-weight:600; =
+font-style:normal; text-align:center; letter-spacing:0; padding-top:5px; pa=
+dding-bottom:0; line-height:1.5" href=3D"https://ctrk.klclick.com/l/01KAVC2=
+K6HE7RE1D8Q2PMHBSPC_6">Titanium Bezel Set Two Gem Cabochon Cluster&nbsp;</a=
+></td></tr></tbody></table></td></tr>
+<tr><td style=3D"height:100%;"></td></tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if !true]><!--></div><!--<![endif]-->
+<!--[if true]></td><![endif]-->
+<!--[if true]><td width=3D"33.333333333333336%" style=3D"vertical-align:top=
+;""><![endif]-->
+<!--[if !true]><!--><div class=3D"" style=3D"display:table-cell;vertical-al=
+ign:top;font-size:0;width:33.333333333333336%;"><!--<![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" role=3D"presenta=
+tion" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td style=3D"font-size:0px;padding:10px 10px 10px 10px;word-break:break-wor=
+d;vertical-align:top;">
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" clas=
+s=3D"kl-product-subblock" style=3D"table-layout:fixed;height:100%;" width=
+=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center">
+<a style=3D"color:#394352; text-decoration:none underline" href=3D"https://=
+ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2PMHBSPC_7">
+<img alt=3D"Image of Titanium Bezel Set Cabochon Cluster - Curved" src=3D"h=
+ttps://cdn.shopify.com/s/files/1/0556/0768/9398/files/Cabochon3-GemCurvedCl=
+usters.png?v=3D1683219632" style=3D"display:block;max-width:100%;width:auto=
+;max-height:200px;" width=3D"176">
+</a>
+</td>
+</tr>
+<tr><td align=3D"center"><table align=3D"center"><tbody><tr><td align=3D"ce=
+nter" style=3D"color:#394352;font-family:'Nunito Sans', 'Helvetica Neue', H=
+elvetica, Arial, sans-serif;font-size:14px;font-weight:600;font-style:norma=
+l;text-align:center;text-decoration:underline;letter-spacing:0px;padding-to=
+p:5px;padding-bottom:0px;line-height:1.5;"><a style=3D"color:#394352; text-=
+decoration:underline; font-family:&quot;Nunito Sans&quot;, &quot;Helvetica =
+Neue&quot;, Helvetica, Arial, sans-serif; font-size:14px; font-weight:600; =
+font-style:normal; text-align:center; letter-spacing:0; padding-top:5px; pa=
+dding-bottom:0; line-height:1.5" href=3D"https://ctrk.klclick.com/l/01KAVC2=
+K6HE7RE1D8Q2PMHBSPC_8">Titanium Bezel Set Cabochon Cluster - Curved</a></td=
+></tr></tbody></table></td></tr>
+<tr><td style=3D"height:100%;"></td></tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if !true]><!--></div><!--<![endif]-->
+<!--[if true]></td><![endif]-->
+</div>
+<!--[if true]></tr></table><![endif]-->
+<!--[if true]><table class=3D"kl-product" role=3D"presentation" width=3D"10=
+0%" style=3D"all:unset;opacity:0;"><tr><![endif]-->
+<!--[if false]></td></tr></table><![endif]-->
+<div class=3D"kl-product" style=3D"display:table;width:100%;height:100%">
+<!--[if true]><td width=3D"33.333333333333336%" style=3D"vertical-align:top=
+;""><![endif]-->
+<!--[if !true]><!--><div class=3D"" style=3D"display:table-cell;vertical-al=
+ign:top;font-size:0;width:33.333333333333336%;"><!--<![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" role=3D"presenta=
+tion" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td style=3D"font-size:0px;padding:10px 10px 10px 10px;word-break:break-wor=
+d;vertical-align:top;">
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" clas=
+s=3D"kl-product-subblock" style=3D"table-layout:fixed;height:100%;" width=
+=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center">
+<a style=3D"color:#394352; text-decoration:none underline" href=3D"https://=
+ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2PMHBSPC_9">
+<img alt=3D"Image of Bezel Set Petite Gem Cluster" src=3D"https://cdn.shopi=
+fy.com/s/files/1/0556/0768/9398/files/Petite-Clusters-FPO-PDP-1000x1000.png=
+?v=3D1692843339" style=3D"display:block;max-width:100%;width:auto;max-heigh=
+t:200px;" width=3D"176">
+</a>
+</td>
+</tr>
+<tr><td align=3D"center"><table align=3D"center"><tbody><tr><td align=3D"ce=
+nter" style=3D"color:#394352;font-family:'Nunito Sans', 'Helvetica Neue', H=
+elvetica, Arial, sans-serif;font-size:14px;font-weight:600;font-style:norma=
+l;text-align:center;text-decoration:underline;letter-spacing:0px;padding-to=
+p:5px;padding-bottom:0px;line-height:1.5;"><a style=3D"color:#394352; text-=
+decoration:underline; font-family:&quot;Nunito Sans&quot;, &quot;Helvetica =
+Neue&quot;, Helvetica, Arial, sans-serif; font-size:14px; font-weight:600; =
+font-style:normal; text-align:center; letter-spacing:0; padding-top:5px; pa=
+dding-bottom:0; line-height:1.5" href=3D"https://ctrk.klclick.com/l/01KAVC2=
+K6HE7RE1D8Q2PMHBSPC_10">Bezel Set Petite Gem Cluster</a></td></tr></tbody><=
+/table></td></tr>
+<tr><td style=3D"height:100%;"></td></tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if !true]><!--></div><!--<![endif]-->
+<!--[if true]></td><![endif]-->
+<!--[if true]><td width=3D"33.333333333333336%" style=3D"vertical-align:top=
+;""><![endif]-->
+<!--[if !true]><!--><div class=3D"" style=3D"display:table-cell;vertical-al=
+ign:top;font-size:0;width:33.333333333333336%;"><!--<![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" role=3D"presenta=
+tion" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td style=3D"font-size:0px;padding:10px 10px 10px 10px;word-break:break-wor=
+d;vertical-align:top;">
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" clas=
+s=3D"kl-product-subblock" style=3D"table-layout:fixed;height:100%;" width=
+=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center">
+<a style=3D"color:#394352; text-decoration:none underline" href=3D"https://=
+ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2PMHBSPC_11">
+<img alt=3D"Image of Titanium Dome Ends" src=3D"https://cdn.shopify.com/s/f=
+iles/1/0556/0768/9398/files/XDOME18-4_3_2.5_2-PDP-1000x1000.png?v=3D1760553=
+047" style=3D"display:block;max-width:100%;width:auto;max-height:200px;" wi=
+dth=3D"176">
+</a>
+</td>
+</tr>
+<tr><td align=3D"center"><table align=3D"center"><tbody><tr><td align=3D"ce=
+nter" style=3D"color:#394352;font-family:'Nunito Sans', 'Helvetica Neue', H=
+elvetica, Arial, sans-serif;font-size:14px;font-weight:600;font-style:norma=
+l;text-align:center;text-decoration:underline;letter-spacing:0px;padding-to=
+p:5px;padding-bottom:0px;line-height:1.5;"><a style=3D"color:#394352; text-=
+decoration:underline; font-family:&quot;Nunito Sans&quot;, &quot;Helvetica =
+Neue&quot;, Helvetica, Arial, sans-serif; font-size:14px; font-weight:600; =
+font-style:normal; text-align:center; letter-spacing:0; padding-top:5px; pa=
+dding-bottom:0; line-height:1.5" href=3D"https://ctrk.klclick.com/l/01KAVC2=
+K6HE7RE1D8Q2PMHBSPC_12">Titanium Dome Ends</a></td></tr></tbody></table></t=
+d></tr>
+<tr><td style=3D"height:100%;"></td></tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if !true]><!--></div><!--<![endif]-->
+<!--[if true]></td><![endif]-->
+<!--[if true]><td width=3D"33.333333333333336%" style=3D"vertical-align:top=
+;""><![endif]-->
+<!--[if !true]><!--><div class=3D"" style=3D"display:table-cell;vertical-al=
+ign:top;font-size:0;width:33.333333333333336%;"><!--<![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" role=3D"presenta=
+tion" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td style=3D"font-size:0px;padding:10px 10px 10px 10px;word-break:break-wor=
+d;vertical-align:top;">
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" clas=
+s=3D"kl-product-subblock" style=3D"table-layout:fixed;height:100%;" width=
+=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center">
+<a style=3D"color:#394352; text-decoration:none underline" href=3D"https://=
+ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2PMHBSPC_13">
+<img alt=3D"Image of Titanium Trillion Cut Prong Set Gem" src=3D"https://cd=
+n.shopify.com/s/files/1/0556/0768/9398/files/XTRIL18-3-4-5_angled.png?v=3D1=
+694125026" style=3D"display:block;max-width:100%;width:auto;max-height:200p=
+x;" width=3D"176">
+</a>
+</td>
+</tr>
+<tr><td align=3D"center"><table align=3D"center"><tbody><tr><td align=3D"ce=
+nter" style=3D"color:#394352;font-family:'Nunito Sans', 'Helvetica Neue', H=
+elvetica, Arial, sans-serif;font-size:14px;font-weight:600;font-style:norma=
+l;text-align:center;text-decoration:underline;letter-spacing:0px;padding-to=
+p:5px;padding-bottom:0px;line-height:1.5;"><a style=3D"color:#394352; text-=
+decoration:underline; font-family:&quot;Nunito Sans&quot;, &quot;Helvetica =
+Neue&quot;, Helvetica, Arial, sans-serif; font-size:14px; font-weight:600; =
+font-style:normal; text-align:center; letter-spacing:0; padding-top:5px; pa=
+dding-bottom:0; line-height:1.5" href=3D"https://ctrk.klclick.com/l/01KAVC2=
+K6HE7RE1D8Q2PMHBSPC_14">Titanium Trillion Cut Prong Set Gem</a></td></tr></=
+tbody></table></td></tr>
+<tr><td style=3D"height:100%;"></td></tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if !true]><!--></div><!--<![endif]-->
+<!--[if true]></td><![endif]-->
+</div>
+<!--[if true]></tr></table><![endif]--></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!--[if true]></td><![endif]-->
+</div>
+<!--[if true]></tr></table><![endif]-->
+</div>
+<!--[if mso | IE]></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"kl-section" role=3D"presentation" style=3D"width:100%;">
+<tbody>
+<tr>
+<td>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" class=3D"kl-section-outlook" style=3D"width:600px;" width=
+=3D"600" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-ru=
+le:exactly;"><![endif]-->
+<div style=3D"margin:0px auto;max-width:600px;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"width:100%;">
+<tbody>
+<tr>
+<td style=3D"direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><table align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" class=3D"" style=3D"width:600px;" width=3D"600" bgcolor=
+=3D"#F4F0EC" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-heigh=
+t-rule:exactly;"><![endif]-->
+<div style=3D"background:#F4F0EC;background-color:#F4F0EC;margin:0px auto;b=
+order-radius:0px 0px 0px 0px;max-width:600px;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"background:#F4F0EC;background-color:#F4F0EC;wi=
+dth:100%;border-radius:0px 0px 0px 0px;">
+<tbody>
+<tr>
+<td style=3D"direction:ltr;font-size:0px;padding:20px 0;padding-bottom:0px;=
+padding-left:0px;padding-right:0px;padding-top:0px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><![endif]-->
+<div class=3D"content-padding">
+<!--[if true]><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"600" style=3D"width:600px;direction:ltr"><tr><![endif]-->
+<div class=3D"kl-row" style=3D"display:table;table-layout:fixed;width:100%;=
+">
+<!--[if true]><td style=3D"vertical-align:top;width:600px;"><![endif]-->
+<div class=3D"kl-column" style=3D"display:table-cell;vertical-align:top;wid=
+th:100%;">
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"background-color:#FFFFFF;vertical-align:top;padding=
+-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" class=3D"kl-button" style=3D"font-size:0px;padding:0px=
+;word-break:break-word;" vertical-align=3D"middle">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-col=
+lapse:separate;line-height:100%;">
+<tbody><tr>
+<td align=3D"center" bgcolor=3D"#394352" role=3D"presentation" style=3D"bor=
+der:none;border-bottom:solid 1px #202931;border-left:solid 1px #202931;bord=
+er-radius:1px;border-right:solid 1px #202931;border-top:solid 1px #202931;c=
+ursor:auto;font-style:normal;mso-padding-alt:9px 15px 9px 15px;background:#=
+394352;" valign=3D"middle">
+<a style=3D"color:#F9F1E4; text-decoration:none; display:inline-block; back=
+ground:#394352; font-family:&quot;Nunito Sans&quot;, &quot;Helvetica Neue&q=
+uot;, Helvetica, Arial, sans-serif; font-size:16px; font-style:normal; font=
+-weight:600; line-height:100%; letter-spacing:2px; margin:0; text-transform=
+:none; padding:9px 15px 9px 15px; mso-padding-alt:0; border-radius:1px" tar=
+get=3D"_blank" href=3D"https://ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2PMHBSP=
+C_15">
+              SHOP THE SALE
+            </a>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"background-color:#FFFFFF;vertical-align:top;padding=
+-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" class=3D"kl-image" style=3D"font-size:0px;word-break:b=
+reak-word;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-col=
+lapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td class=3D"kl-img-base-auto-width" style=3D"border:0;padding:27px 27px 27=
+px 27px;width:546px;" valign=3D"top">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-col=
+lapse:collapse;border-spacing:0px;"><tbody><tr>
+<td valign=3D"top">
+<a class=3D"kl-img-link" style=3D"color:#394352; text-decoration:none under=
+line; display:block" href=3D"https://ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2=
+PMHBSPC_16">
+<img src=3D"https://d3k81ch9hvuctc.cloudfront.net/company/YkpV23/images/14b=
+a095c-d9c2-4c73-ae78-bb1aa1fd416f.png" style=3D"display:block;outline:none;=
+text-decoration:none;height:auto;font-size:13px;width:100%;" width=3D"546">
+</a>
+</td></tr></tbody></table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"vertical-align:top;padding-top:0px;padding-right:0p=
+x;padding-bottom:0px;padding-left:0px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" class=3D"kl-image" style=3D"font-size:0px;word-break:b=
+reak-word;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-col=
+lapse:collapse;border-spacing:0px;">
+<tbody>
+<tr>
+<td class=3D"kl-img-base-auto-width" style=3D"border:0;padding:0px 0px 0px =
+0px;width:600px;" valign=3D"top">
+<a class=3D"kl-img-link" style=3D"color:#394352; text-decoration:none under=
+line; display:block" href=3D"https://ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2=
+PMHBSPC_17">
+<img alt=3D"" src=3D"https://d3k81ch9hvuctc.cloudfront.net/company/YkpV23/i=
+mages/661a2574-e86a-4705-9821-0f5a487cfcfa.png" style=3D"display:block;outl=
+ine:none;text-decoration:none;height:auto;font-size:13px;width:100%;" title=
+=3D"" width=3D"600">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!--[if true]></td><![endif]-->
+</div>
+<!--[if true]></tr></table><![endif]-->
+</div>
+<!--[if mso | IE]></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"kl-section" role=3D"presentation" style=3D"width:100%;">
+<tbody>
+<tr>
+<td>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" class=3D"kl-section-outlook" style=3D"width:600px;" width=
+=3D"600" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-ru=
+le:exactly;"><![endif]-->
+<div style=3D"margin:0px auto;max-width:600px;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"width:100%;">
+<tbody>
+<tr>
+<td style=3D"direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><table align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" class=3D"" style=3D"width:600px;" width=3D"600" bgcolor=
+=3D"#FCF8F2" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-heigh=
+t-rule:exactly;"><![endif]-->
+<div style=3D"background:#FCF8F2;background-color:#FCF8F2;margin:0px auto;b=
+order-radius:0px 0px 0px 0px;max-width:600px;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"background:#FCF8F2;background-color:#FCF8F2;wi=
+dth:100%;border-radius:0px 0px 0px 0px;">
+<tbody>
+<tr>
+<td style=3D"direction:ltr;font-size:0px;padding:20px 0;padding-bottom:0px;=
+padding-left:0px;padding-right:0px;padding-top:0px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><![endif]-->
+<div class=3D"content-padding last">
+<!--[if true]><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"600" style=3D"width:600px;direction:ltr"><tr><![endif]-->
+<div class=3D"kl-row colstack" style=3D"display:table;table-layout:fixed;wi=
+dth:100%;">
+<!--[if true]><td style=3D"vertical-align:top;width:600px;"><![endif]-->
+<div class=3D"kl-column" style=3D"display:table-cell;vertical-align:top;wid=
+th:100%;">
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper kl-t=
+ext-table-layout" style=3D"font-size:0px;text-align:left;direction:ltr;vert=
+ical-align:top;width:100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"vertical-align:top;padding-top:0px;padding-right:0p=
+x;padding-bottom:18px;padding-left:0px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" class=3D"kl-text" style=3D"font-size:0px;padding:0px;p=
+adding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;word=
+-break:break-word;">
+<div style=3D"font-family:'Nunito Sans', 'Helvetica Neue', Helvetica, Arial=
+, sans-serif;font-size:11px;font-style:normal;font-weight:400;letter-spacin=
+g:0px;line-height:1.5;text-align:center;color:#222222;"><div><span style=3D=
+"color: rgb(57, 67, 82); font-size: 14px;"><strong><span style=3D"font-fami=
+ly: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-sty=
+le: normal;">NEED HELP? CONTACT US!</span></strong></span><br><span style=
+=3D"font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-se=
+rif; font-weight: 400; font-style: normal; font-size: 12px; color: rgb(57, =
+67, 82);">(360) 692-0696</span><br><span style=3D"font-family: 'Nunito Sans=
+', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400; font-s=
+tyle: normal; font-size: 12px; color: rgb(57, 67, 82);">9am - 4pm PT Mon - =
+Fri</span><br><span style=3D"font-family: 'Nunito Sans', 'Helvetica Neue', =
+Helvetica, Arial, sans-serif; font-weight: 400; font-style: normal; font-si=
+ze: 12px; color: rgb(57, 67, 82);">&nbsp;</span><br><span style=3D"font-fam=
+ily: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-we=
+ight: 400; font-style: normal; font-size: 12px; color: rgb(57, 67, 82);">Ca=
+n't see the images? <a class=3D"web-view" style=3D"color:#394352;font-style=
+:normal;font-weight:400;text-decoration:none underline;" href=3D"https://ct=
+rk.klclick.com/l/01KAVC2K6HE7RE1D8Q2PMHBSPC_18">View in Your Browser</a></s=
+pan><br><span style=3D"font-family: 'Nunito Sans', 'Helvetica Neue', Helvet=
+ica, Arial, sans-serif; font-weight: 400; font-style: normal; font-size: 12=
+px; color: rgb(57, 67, 82);">&nbsp;</span><br><span style=3D"font-size: 12p=
+x;"><span style=3D"font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica,=
+ Arial, sans-serif; font-weight: 400; font-style: normal; color: rgb(57, 67=
+, 82);"><a style=3D"color:#394352; text-decoration:none underline" href=3D"=
+https://ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2PMHBSPC_19">Terms of Use</a> =
+&nbsp; | &nbsp; <a style=3D"color:#394352; text-decoration:none underline" =
+href=3D"https://ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2PMHBSPC_20">Privacy P=
+olicy</a> &nbsp;| &nbsp; <a class=3D"unsubscribe-link" style=3D"color:#3943=
+52;font-style:normal;font-weight:400;text-decoration:none underline;" href=
+=3D"https://ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2PMHBSPC_21">Unsubscribe</=
+a></span><span style=3D"font-family: 'Nunito Sans', 'Helvetica Neue', Helve=
+tica, Arial, sans-serif; font-weight: 400; font-style: normal; color: rgb(5=
+7, 67, 82);">&nbsp;</span></span><br><span style=3D"font-family: 'Nunito Sa=
+ns', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400; font=
+-style: normal; font-size: 14px; color: rgb(57, 67, 82);"><span style=3D"fo=
+nt-size: 12px;">www.neometal.com</span><br></span><br><span style=3D"font-f=
+amily: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-=
+weight: 400; font-style: normal; font-size: 11px; color: rgb(57, 67, 82);">=
+Copyright =C2=A92024 NeoMetal, Inc. All rights reserved.</span><br><span st=
+yle=3D"font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans=
+-serif; font-weight: 400; font-style: normal; font-size: 11px; color: rgb(5=
+7, 67, 82);">1816 Ackley Cir Oakdale, California 95361</span></div></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"vertical-align:top;padding-top:0px;padding-right:0p=
+x;padding-bottom:27px;padding-left:0px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td>
+<div style=3D"width:100%;text-align:center">
+<!--[if true]><table style=3D"all:unset;opacity:0;" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" ><tr><![endif]-->
+<!--[if !true]><!--><div class=3D"" style=3D"display:inline-block;padding-r=
+ight:10px;"><!--<![endif]-->
+<!--[if true]><td style=3D"padding-right:10px;"><![endif]-->
+<div style=3D"text-align: center;">
+<a style=3D"color:#394352; text-decoration:none underline" target=3D"_blank=
+" href=3D"https://ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2PMHBSPC_22">
+<img alt=3D"Instagram" src=3D"https://d3k81ch9hvuctc.cloudfront.net/assets/=
+email/buttons/subtle/instagram_96.png" style=3D"width:32px;" width=3D"32">
+</a>
+</div>
+<!--[if true]></td><![endif]-->
+<!--[if !true]><!--></div><!--<![endif]-->
+<!--[if !true]><!--><div class=3D"" style=3D"display:inline-block;padding-r=
+ight:10px;"><!--<![endif]-->
+<!--[if true]><td style=3D"padding-right:10px;"><![endif]-->
+<div style=3D"text-align: center;">
+<a style=3D"color:#394352; text-decoration:none underline" target=3D"_blank=
+" href=3D"https://ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2PMHBSPC_23">
+<img alt=3D"Facebook" src=3D"https://d3k81ch9hvuctc.cloudfront.net/assets/e=
+mail/buttons/subtle/facebook_96.png" style=3D"width:32px;" width=3D"32">
+</a>
+</div>
+<!--[if true]></td><![endif]-->
+<!--[if !true]><!--></div><!--<![endif]-->
+<!--[if !true]><!--><div class=3D"" style=3D"display:inline-block;padding-r=
+ight:10px;"><!--<![endif]-->
+<!--[if true]><td style=3D"padding-right:10px;"><![endif]-->
+<div style=3D"text-align: center;">
+<a style=3D"color:#394352; text-decoration:none underline" target=3D"_blank=
+" href=3D"https://ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2PMHBSPC_24">
+<img alt=3D"YouTube" src=3D"https://d3k81ch9hvuctc.cloudfront.net/assets/em=
+ail/buttons/subtle/youtube_96.png" style=3D"width:32px;" width=3D"32">
+</a>
+</div>
+<!--[if true]></td><![endif]-->
+<!--[if !true]><!--></div><!--<![endif]-->
+<!--[if !true]><!--><div class=3D"" style=3D"display:inline-block;"><!--<![=
+endif]-->
+<!--[if true]><td style=3D""><![endif]-->
+<div style=3D"text-align: center;">
+<a style=3D"color:#394352; text-decoration:none underline" target=3D"_blank=
+" href=3D"https://ctrk.klclick.com/l/01KAVC2K6HE7RE1D8Q2PMHBSPC_25">
+<img alt=3D"Tiktok" src=3D"https://d3k81ch9hvuctc.cloudfront.net/assets/ema=
+il/buttons/subtle/tiktok_96.png" style=3D"width:32px;" width=3D"32">
+</a>
+</div>
+<!--[if true]></td><![endif]-->
+<!--[if !true]><!--></div><!--<![endif]-->
+<!--[if true]></tr></table><![endif]-->
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!--[if true]></td><![endif]-->
+</div>
+<!--[if true]></tr></table><![endif]-->
+</div>
+<!--[if mso | IE]></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<img src=3D"https://ctrk.klclick.com/o/01KAVC2K6HE7RE1D8Q2PMHBSPC" alt=3D""=
+ width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !important;width=
+:1px !important;border-width:0 !important;margin-top:0 !important;margin-bo=
+ttom:0 !important;margin-right:0 !important;margin-left:0 !important;paddin=
+g-top:0 !important;padding-bottom:0 !important;padding-right:0 !important;p=
+adding-left:0 !important;"/>
+
+</body></html>
+--a54e152994f313209811b2a09dccf0f327d411edc238e0b6d60de34adfb2--
