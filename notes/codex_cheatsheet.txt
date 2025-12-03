@@ -1,0 +1,16 @@
+1. Pull latest repo updates onto server
+cd /srv/backend
+git pull origin main
+2. Check repo status
+cd /srv/backend
+git status
+3. Switch branches (if Codex created a branch)
+git checkout <branch-name>
+4. Update dependencies if needed
+npm install
+5. Restart services after pulling code
+pm2 restart all
+6. View last commits
+git log --oneline --decorate --graph -n 10
+7. Hard reset if something goes sideways
+git reset --hard origin/main
