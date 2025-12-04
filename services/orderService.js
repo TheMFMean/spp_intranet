@@ -39,8 +39,13 @@ function toDecimal(value) {
  * Simple helper kept for flexibility: save a raw order if you ever
  * call this directly from somewhere else.
  *
- * Note: this assumes order.items is already shaped for OrderItem.
- * It is not used by the gmailPoller path.
+ * WARNING: This function assumes order.items are ALREADY NORMALIZED.
+ * If calling this directly, ensure items have been processed through
+ * normalizeItem() first to assign internalSku values.
+ * 
+ * Prefer using saveParsedOrder() which handles normalization automatically.
+ * 
+ * Not used by the gmailPoller path.
  */
 export async function saveOrder(order) {
     return prisma.order.create({
@@ -148,7 +153,12 @@ export async function saveParsedOrder({
     const status =
         parsedOrder.orderStatus || parsedOrder.order_status || null;
 
-    // Map and normalize parsed line items into DB friendly shape for OrderItem
+    // ========== ITEM NORMALIZATION ==========
+    // All items are normalized here via itemNormalizer.normalizeItem()
+    // Dummy SKUs (SPP-XXXXXX) are generated only here, ensuring stable internalSku
+    // for the same (vendorId, vendorOrderNumber, description) combination.
+    // =========================================
+
     const rawItems = parsedOrder.items || [];
 
     const items = await Promise.all(

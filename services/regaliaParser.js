@@ -357,3 +357,18 @@ export function parseRegaliaOrder({
 export default {
     parseRegaliaOrder,
 };
+
+/**
+ * Regalia Parser - Item Extraction Support
+ * 
+ * Supports item parsing for:
+ * - confirmed: Extracts items with description, quantity, unitPrice, lineTotal, retailLineTotal, discountTotal from HTML
+ * - shipped: Extracts items with description, quantity (no prices) from "Items in this shipment" plain-text section
+ * - out_for_delivery: Extracts items with description, quantity (no prices) from shipment section
+ * - delivered: Extracts items with description, quantity (no prices) from shipment section
+ * - canceled: Extracts items if present in email body
+ * 
+ * Note: Regalia emails do not expose vendor SKU codes.
+ * Parser removes "Ready to Ship" suffixes and discount notation from descriptions.
+ * Confirmation emails include retail pricing and discount allocation information.
+ */

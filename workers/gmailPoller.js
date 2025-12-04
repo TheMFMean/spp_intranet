@@ -1,10 +1,25 @@
 // /srv/backend/workers/gmailPoller.js
+//
+// VENDOR EMAIL CLASSIFICATION PROCESS:
+// =====================================
+// 1. Gmail queries fetch messages based on vendor emailFromTokens and subjectQuery
+// 2. For each message, classifyVendorOrderEmail() is called with email metadata and body text
+// 3. Classification logic:
+//    - Matches vendor by emailFromTokens in the "from" header
+//    - Scans body+subject for status patterns in priority order:
+//      canceled → refunded → delivered → out_for_delivery → shipped → confirmed
+//    - Returns { isOrderEmail: boolean, vendorId: string, orderStatus: string }
+// 4. If isOrderEmail is false, the message is skipped (logged and not saved)
+// 5. If isOrderEmail is true, the message proceeds to vendor-specific parsing
+// 6. Accepted statuses: confirmed, shipped, out_for_delivery, delivered, canceled, refunded, other
+//
+// Note: "other" status means transactional email without clear lifecycle state (not saved as order event)
 
 import dotenv from "dotenv";
 dotenv.config();
 
 import { createGmailClient } from "../services/gmailClient.js";
-import { vendorEmailConfig } from "../config/vendorEmailConfig.js";
+import { vendorEmailConfig, classifyVendorOrderEmail } from "../config/vendorEmailConfig.js";
 import { fetchAndExtractMessage } from "../services/emailExtractor.js";
 
 // Vendor parsers
@@ -23,7 +38,6 @@ import { parseQuetzalliOrder } from "../services/quetzalliParser.js";
 
 import { isQuetzalliOrderEmail } from "../services/quetzalliGuards.js";
 import { saveParsedOrder } from "../services/orderService.js";
-import { classifyVendorOrderEmail } from "../config/isVendorOrderEmail.js";
 
 // Default days back for Gmail queries; override via env if needed
 const DAYS_BACK = parseInt(process.env.GMAIL_DAYS_BACK ?? "180", 10);
@@ -32,11 +46,29 @@ const DAYS_BACK = parseInt(process.env.GMAIL_DAYS_BACK ?? "180", 10);
 // Gmail helpers
 // ----------------------------------------
 
+// Global stats tracking for summary
+const vendorStats = {};
+
+function initVendorStats(vendorId) {
+    if (!vendorStats[vendorId]) {
+        vendorStats[vendorId] = {
+            totalMessagesScanned: 0,
+            orderEmailsClassified: 0,
+            eventsPersisted: 0,
+        };
+    }
+}
+
+function incrementStat(vendorId, statName) {
+    initVendorStats(vendorId);
+    vendorStats[vendorId][statName]++;
+}
+
 /**
  * Helper to classify if an email is a vendor order email
  * Returns null if not an order email, otherwise returns classification
  */
-async function classifyEmail(gmail, details) {
+async function classifyEmail(gmail, details, vendorId) {
     try {
         const content = await fetchAndExtractMessage(gmail, details.id);
         const bodyText = content.textPlain || content.textHtml || "";
@@ -55,6 +87,7 @@ async function classifyEmail(gmail, details) {
         }
 
         console.log(`    classification: vendorId=${classification.vendorId}, status=${classification.orderStatus}`);
+        incrementStat(vendorId, 'orderEmailsClassified');
         return { classification, content, bodyText };
     } catch (err) {
         console.error("    error during classification:", err.message);
@@ -165,7 +198,7 @@ function isOrderEvent(parsed) {
 async function handleGlasswear(gmail, vendor, details, headerMatches) {
     if (!headerMatches.length) return;
 
-    const result = await classifyEmail(gmail, details);
+    const result = await classifyEmail(gmail, details, vendor.vendorId);
     if (!result) return;
 
     const { classification, content, bodyText: rawText } = result;
@@ -211,6 +244,7 @@ async function handleGlasswear(gmail, vendor, details, headerMatches) {
             attachments: content.attachments || [],
         });
 
+        incrementStat(vendor.vendorId, 'eventsPersisted');
         console.log(
             `    [glass_wear] saved to DB: orderId=${saved.id}, items=${saved.items.length}`
         );
@@ -225,7 +259,7 @@ async function handleGlasswear(gmail, vendor, details, headerMatches) {
 async function handleCascade(gmail, vendor, details, headerMatches) {
     if (!headerMatches.length) return;
 
-    const result = await classifyEmail(gmail, details);
+    const result = await classifyEmail(gmail, details, vendor.vendorId);
     if (!result) return;
 
     const { classification, content, bodyText: rawText } = result;
@@ -267,6 +301,7 @@ async function handleCascade(gmail, vendor, details, headerMatches) {
             attachments: content.attachments || [],
         });
 
+        incrementStat(vendor.vendorId, 'eventsPersisted');
         console.log(
             `    [cascade] saved to DB: orderId=${saved.id}, items=${saved.items.length}`
         );
@@ -281,7 +316,7 @@ async function handleCascade(gmail, vendor, details, headerMatches) {
 async function handleAnatometal(gmail, vendor, details, headerMatches) {
     if (!headerMatches.length) return;
 
-    const result = await classifyEmail(gmail, details);
+    const result = await classifyEmail(gmail, details, vendor.vendorId);
     if (!result) return;
 
     const { classification, content, bodyText: rawText } = result;
@@ -326,6 +361,7 @@ async function handleAnatometal(gmail, vendor, details, headerMatches) {
             attachments: content.attachments || [],
         });
 
+        incrementStat(vendor.vendorId, 'eventsPersisted');
         console.log(
             `    [anatometal] saved to DB: orderId=${saved.id}, items=${saved.items.length}`
         );
@@ -340,7 +376,7 @@ async function handleAnatometal(gmail, vendor, details, headerMatches) {
 async function handleNeometal(gmail, vendor, details, headerMatches) {
     if (!headerMatches.length) return;
 
-    const result = await classifyEmail(gmail, details);
+    const result = await classifyEmail(gmail, details, vendor.vendorId);
     if (!result) return;
 
     const { classification, content, bodyText: rawText } = result;
@@ -385,6 +421,7 @@ async function handleNeometal(gmail, vendor, details, headerMatches) {
             attachments: content.attachments || [],
         });
 
+        incrementStat(vendor.vendorId, 'eventsPersisted');
         console.log(
             `    [neometal] saved to DB: orderId=${saved.id}, items=${saved.items.length}`
         );
@@ -399,7 +436,7 @@ async function handleNeometal(gmail, vendor, details, headerMatches) {
 async function handleCrucialDiablo(gmail, vendor, details, headerMatches) {
     if (!headerMatches.length) return;
 
-    const result = await classifyEmail(gmail, details);
+    const result = await classifyEmail(gmail, details, vendor.vendorId);
     if (!result) return;
 
     const { classification, content, bodyText: rawText } = result;
@@ -446,6 +483,7 @@ async function handleCrucialDiablo(gmail, vendor, details, headerMatches) {
             attachments: content.attachments || [],
         });
 
+        incrementStat(vendor.vendorId, 'eventsPersisted');
         console.log(
             `    [crucial_diablo] saved to DB: orderId=${saved.id}, items=${saved.items.length}`
         );
@@ -460,7 +498,7 @@ async function handleCrucialDiablo(gmail, vendor, details, headerMatches) {
 async function handleIsc(gmail, vendor, details, headerMatches) {
     if (!headerMatches.length) return;
 
-    const result = await classifyEmail(gmail, details);
+    const result = await classifyEmail(gmail, details, vendor.vendorId);
     if (!result) return;
 
     const { classification, content, bodyText: rawText } = result;
@@ -505,6 +543,7 @@ async function handleIsc(gmail, vendor, details, headerMatches) {
             attachments: content.attachments || [],
         });
 
+        incrementStat(vendor.vendorId, 'eventsPersisted');
         console.log(
             `    [isc] saved to DB: orderId=${saved.id}, items=${saved.items.length}`
         );
@@ -519,7 +558,7 @@ async function handleIsc(gmail, vendor, details, headerMatches) {
 async function handleEmber(gmail, vendor, details, headerMatches) {
     if (!headerMatches.length) return;
 
-    const result = await classifyEmail(gmail, details);
+    const result = await classifyEmail(gmail, details, vendor.vendorId);
     if (!result) return;
 
     const { classification, content, bodyText: rawText } = result;
@@ -561,6 +600,7 @@ async function handleEmber(gmail, vendor, details, headerMatches) {
             attachments: content.attachments || [],
         });
 
+        incrementStat(vendor.vendorId, 'eventsPersisted');
         console.log(
             `    [ember] saved to DB: orderId=${saved.id}, items=${saved.items.length}`
         );
@@ -575,7 +615,7 @@ async function handleEmber(gmail, vendor, details, headerMatches) {
 async function handleTether(gmail, vendor, details, headerMatches) {
     if (!headerMatches.length) return;
 
-    const result = await classifyEmail(gmail, details);
+    const result = await classifyEmail(gmail, details, vendor.vendorId);
     if (!result) return;
 
     const { classification, content, bodyText: rawText } = result;
@@ -617,6 +657,7 @@ async function handleTether(gmail, vendor, details, headerMatches) {
             attachments: content.attachments || [],
         });
 
+        incrementStat(vendor.vendorId, 'eventsPersisted');
         console.log(
             `    [tether] saved to DB: orderId=${saved.id}, items=${saved.items.length}`
         );
@@ -631,7 +672,7 @@ async function handleTether(gmail, vendor, details, headerMatches) {
 async function handleJtw(gmail, vendor, details, headerMatches) {
     if (!headerMatches.length) return;
 
-    const result = await classifyEmail(gmail, details);
+    const result = await classifyEmail(gmail, details, vendor.vendorId);
     if (!result) return;
 
     const { classification, content, bodyText: rawText } = result;
@@ -673,6 +714,7 @@ async function handleJtw(gmail, vendor, details, headerMatches) {
             attachments: content.attachments || [],
         });
 
+        incrementStat(vendor.vendorId, 'eventsPersisted');
         console.log(
             `    [jtw] saved to DB: orderId=${saved.id}, items=${saved.items.length}`
         );
@@ -687,7 +729,7 @@ async function handleJtw(gmail, vendor, details, headerMatches) {
 async function handleRegalia(gmail, vendor, details, headerMatches) {
     if (!headerMatches.length) return;
 
-    const result = await classifyEmail(gmail, details);
+    const result = await classifyEmail(gmail, details, vendor.vendorId);
     if (!result) return;
 
     const { classification, content, bodyText: rawText } = result;
@@ -729,6 +771,7 @@ async function handleRegalia(gmail, vendor, details, headerMatches) {
             attachments: content.attachments || [],
         });
 
+        incrementStat(vendor.vendorId, 'eventsPersisted');
         console.log(
             `    [regalia] saved to DB: orderId=${saved.id}, items=${saved.items.length}`
         );
@@ -743,7 +786,7 @@ async function handleRegalia(gmail, vendor, details, headerMatches) {
 async function handleOracle(gmail, vendor, details, headerMatches) {
     if (!headerMatches.length) return;
 
-    const result = await classifyEmail(gmail, details);
+    const result = await classifyEmail(gmail, details, vendor.vendorId);
     if (!result) return;
 
     const { classification, content, bodyText: rawText } = result;
@@ -785,6 +828,7 @@ async function handleOracle(gmail, vendor, details, headerMatches) {
             attachments: content.attachments || [],
         });
 
+        incrementStat(vendor.vendorId, 'eventsPersisted');
         console.log(
             `    [oracle] saved to DB: orderId=${saved.id}, items=${saved.items.length}`
         );
@@ -804,7 +848,7 @@ async function handleQuetzalli(gmail, vendor, details, headerMatches) {
         return;
     }
 
-    const result = await classifyEmail(gmail, details);
+    const result = await classifyEmail(gmail, details, vendor.vendorId);
     if (!result) return;
 
     const { classification, content, bodyText: rawText } = result;
@@ -853,6 +897,7 @@ async function handleQuetzalli(gmail, vendor, details, headerMatches) {
             attachments: content.attachments || [],
         });
 
+        incrementStat(vendor.vendorId, 'eventsPersisted');
         console.log(
             `    [quetzalli] saved to DB: orderId=${saved.id}, items=${saved.items.length}`
         );
@@ -875,111 +920,137 @@ async function main() {
         console.log(`\n========== Vendor ${vendor.displayName} ==========\n`);
 
         const usedIds = new Set();
-        const queries = [];
+        let totalMessagesScanned = 0;
+        let orderEmailsClassified = 0;
+        let eventsPersisted = 0;
 
-        if (vendor.subjectQuery) {
-            queries.push({ label: "subject", q: vendor.subjectQuery });
+        // Build query based on vendor config
+        // Default: use from-based query if emailFromTokens exist
+        // Only use subject query if explicitly marked with useSubjectOnly: true
+        let query = null;
+        let queryType = "from"; // default
+
+        if (vendor.useSubjectOnly && vendor.subjectQuery) {
+            // Vendor explicitly requires subject-based search
+            query = `${vendor.subjectQuery} newer_than:${DAYS_BACK}d`;
+            queryType = "subject";
+        } else {
+            // Default: use from-based query
+            const fromQuery = buildFromQuery(vendor);
+            if (fromQuery) {
+                query = `${fromQuery} newer_than:${DAYS_BACK}d`;
+                queryType = "from";
+            } else if (vendor.subjectQuery) {
+                // Fallback to subject if no from tokens
+                query = `${vendor.subjectQuery} newer_than:${DAYS_BACK}d`;
+                queryType = "subject";
+            }
         }
 
-        const fromQuery = buildFromQuery(vendor);
-        if (fromQuery) {
-            queries.push({ label: "from", q: fromQuery });
-        }
-
-        if (!queries.length) {
-            console.log("  No queries configured for this vendor; skipping.\n");
+        if (!query) {
+            console.log("  No query configured for this vendor; skipping.\n");
             continue;
         }
 
-        for (const { label, q } of queries) {
-            const query = `${q} newer_than:${DAYS_BACK}d`;
-            console.log(`Query type: ${label}`);
-            console.log(`Query: ${query}\n`);
+        console.log(`Query type: ${queryType}`);
+        console.log(`Query: ${query}\n`);
 
-            try {
-                const messages = await listMessagesForQuery(gmail, query, 20);
+        try {
+            const messages = await listMessagesForQuery(gmail, query, 20);
 
-                if (!messages.length) {
-                    console.log("  No messages found for this query.\n");
-                    continue;
-                }
-
-                for (const msg of messages) {
-                    const messageId = msg.id;
-                    if (usedIds.has(messageId)) {
-                        continue;
-                    }
-                    usedIds.add(messageId);
-
-                    const details = await getMessageDetails(gmail, messageId);
-                    const headerMatches = findMatchingHeaders(
-                        vendor,
-                        details.headers || []
-                    );
-
-                    console.log(
-                        `  - ${details.date} | ${details.from} | ${details.subject}`
-                    );
-
-                    if (headerMatches.length) {
-                        const matchSummary = headerMatches
-                            .map((m) => `${m.headerName} matched "${m.token}"`)
-                            .join("; ");
-                        console.log(`    header matches: ${matchSummary}`);
-                    } else {
-                        console.log("    header matches: none");
-                    }
-
-                    // Per-vendor routing
-                    if (vendor.vendorId === "glass_wear") {
-                        await handleGlasswear(gmail, vendor, details, headerMatches);
-                    } else if (vendor.vendorId === "cascade") {
-                        await handleCascade(gmail, vendor, details, headerMatches);
-                    } else if (vendor.vendorId === "anatometal") {
-                        await handleAnatometal(gmail, vendor, details, headerMatches);
-                    } else if (vendor.vendorId === "neometal") {
-                        await handleNeometal(gmail, vendor, details, headerMatches);
-                    } else if (vendor.vendorId === "crucial_diablo") {
-                        await handleCrucialDiablo(gmail, vendor, details, headerMatches);
-                    } else if (vendor.vendorId === "isc") {
-                        await handleIsc(gmail, vendor, details, headerMatches);
-                    } else if (vendor.vendorId === "ember") {
-                        await handleEmber(gmail, vendor, details, headerMatches);
-                    } else if (vendor.vendorId === "tether") {
-                        await handleTether(gmail, vendor, details, headerMatches);
-                    } else if (vendor.vendorId === "jtw") {
-                        await handleJtw(gmail, vendor, details, headerMatches);
-                    } else if (vendor.vendorId === "regalia") {
-                        await handleRegalia(gmail, vendor, details, headerMatches);
-                    } else if (vendor.vendorId === "oracle") {
-                        await handleOracle(gmail, vendor, details, headerMatches);
-                    } else if (vendor.vendorId === "quetzalli") {
-                        await handleQuetzalli(gmail, vendor, details, headerMatches);
-                    } else {
-                        console.log(
-                            `    no handler implemented for vendorId="${vendor.vendorId}"; skipping`
-                        );
-                    }
-
-                    console.log(""); // spacing per message
-                }
-            } catch (err) {
-                console.error(
-                    `  Error processing query for vendor ${vendor.vendorId}:`,
-                    err
-                );
+            if (!messages.length) {
+                console.log("  No messages found for this query.\n");
+                continue;
             }
 
-            console.log(""); // spacing per query
-        }
+            for (const msg of messages) {
+                const messageId = msg.id;
+                if (usedIds.has(messageId)) {
+                    continue;
+                }
+                usedIds.add(messageId);
+                incrementStat(vendor.vendorId, 'totalMessagesScanned');
 
-        if (!usedIds.size) {
-            console.log(
-                "No messages at all for this vendor in the chosen window.\n"
+                const details = await getMessageDetails(gmail, messageId);
+                const headerMatches = findMatchingHeaders(
+                    vendor,
+                    details.headers || []
+                );
+
+                console.log(
+                    `  - ${details.date} | ${details.from} | ${details.subject}`
+                );
+
+                if (headerMatches.length) {
+                    const matchSummary = headerMatches
+                        .map((m) => `${m.headerName} matched "${m.token}"`)
+                        .join("; ");
+                    console.log(`    header matches: ${matchSummary}`);
+                } else {
+                    console.log("    header matches: none");
+                }
+
+                // Per-vendor routing
+                if (vendor.vendorId === "glass_wear") {
+                    await handleGlasswear(gmail, vendor, details, headerMatches);
+                } else if (vendor.vendorId === "cascade") {
+                    await handleCascade(gmail, vendor, details, headerMatches);
+                } else if (vendor.vendorId === "anatometal") {
+                    await handleAnatometal(gmail, vendor, details, headerMatches);
+                } else if (vendor.vendorId === "neometal") {
+                    await handleNeometal(gmail, vendor, details, headerMatches);
+                } else if (vendor.vendorId === "crucial_diablo") {
+                    await handleCrucialDiablo(gmail, vendor, details, headerMatches);
+                } else if (vendor.vendorId === "isc") {
+                    await handleIsc(gmail, vendor, details, headerMatches);
+                } else if (vendor.vendorId === "ember") {
+                    await handleEmber(gmail, vendor, details, headerMatches);
+                } else if (vendor.vendorId === "tether") {
+                    await handleTether(gmail, vendor, details, headerMatches);
+                } else if (vendor.vendorId === "jtw") {
+                    await handleJtw(gmail, vendor, details, headerMatches);
+                } else if (vendor.vendorId === "regalia") {
+                    await handleRegalia(gmail, vendor, details, headerMatches);
+                } else if (vendor.vendorId === "oracle") {
+                    await handleOracle(gmail, vendor, details, headerMatches);
+                } else if (vendor.vendorId === "quetzalli") {
+                    await handleQuetzalli(gmail, vendor, details, headerMatches);
+                } else {
+                    console.log(
+                        `    no handler implemented for vendorId="${vendor.vendorId}"; skipping`
+                    );
+                }
+
+                console.log(""); // spacing per message
+            }
+        } catch (err) {
+            console.error(
+                `  Error processing query for vendor ${vendor.vendorId}:`,
+                err
             );
         }
+
+        // Print summary for this vendor
+        const stats = vendorStats[vendor.vendorId] || { totalMessagesScanned: 0, orderEmailsClassified: 0, eventsPersisted: 0 };
+        console.log(`\n--- Summary for ${vendor.displayName} ---`);
+        console.log(`  Total messages scanned: ${stats.totalMessagesScanned}`);
+        console.log(`  Order emails classified: ${stats.orderEmailsClassified}`);
+        console.log(`  Events persisted: ${stats.eventsPersisted}`);
+        console.log("");
     }
 
+    console.log("\n========== Overall Summary ==========");
+    let totalScanned = 0;
+    let totalClassified = 0;
+    let totalPersisted = 0;
+    for (const [vendorId, stats] of Object.entries(vendorStats)) {
+        totalScanned += stats.totalMessagesScanned;
+        totalClassified += stats.orderEmailsClassified;
+        totalPersisted += stats.eventsPersisted;
+    }
+    console.log(`Total messages scanned across all vendors: ${totalScanned}`);
+    console.log(`Total order emails classified: ${totalClassified}`);
+    console.log(`Total events persisted: ${totalPersisted}`);
     console.log("\nDone.\n");
 }
 

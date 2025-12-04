@@ -257,3 +257,17 @@ export function parseEmberOrder({
 export default {
     parseEmberOrder,
 };
+
+/**
+ * Ember Parser - Item Extraction Support
+ * 
+ * Supports item parsing for:
+ * - confirmed: Extracts items with description, quantity, unitPrice, lineTotal from HTML order-list__item rows
+ * - shipped: Extracts items with description, quantity (no prices) from "Items in this shipment" plain-text section
+ * - out_for_delivery: Extracts items with description, quantity (no prices) from shipment section
+ * - delivered: Extracts items with description, quantity (no prices) from shipment section
+ * - canceled: Extracts items if present in email body
+ * 
+ * Note: Ember emails do not expose vendor SKU codes.
+ * Description includes title and variant (e.g., metal type, stone color) when available.
+ */
