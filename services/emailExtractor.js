@@ -53,9 +53,65 @@ export async function fetchAndExtractMessage(gmail, messageId) {
     const payload = res.data.payload || {};
     const headers = payload.headers || [];
 
+    // Helper to get header value
+    const getHeader = (name) => {
+        const header = headers.find(
+            (h) => h.name && h.name.toLowerCase() === name.toLowerCase()
+        );
+        return header?.value || "";
+    };
+
+    // Helper to parse email header
+    const parseEmailHeader = (headerValue) => {
+        if (!headerValue) return { address: "", displayName: "" };
+
+        const angleMatch = headerValue.match(/^(.+?)\s*<([^>]+)>$/);
+        if (angleMatch) {
+            const displayName = angleMatch[1].replace(/^["']|["']$/g, "").trim();
+            const address = angleMatch[2].toLowerCase().trim();
+            return { address, displayName };
+        }
+
+        const address = headerValue.toLowerCase().trim();
+        return { address, displayName: "" };
+    };
+
+    // Extract ALL identity headers for Google Group forwarding
+    const fromHeader = getHeader("From");
+    const replyToHeader = getHeader("Reply-To");
+    const toHeader = getHeader("To");
+    const senderHeader = getHeader("Sender");
+    const returnPathHeader = getHeader("Return-Path");
+    const subjectHeader = getHeader("Subject");
+    const dateHeader = getHeader("Date");
+
+    const from = parseEmailHeader(fromHeader);
+    const replyTo = parseEmailHeader(replyToHeader);
+    const to = parseEmailHeader(toHeader);
+    const sender = parseEmailHeader(senderHeader);
+    const returnPath = parseEmailHeader(returnPathHeader);
+
+    // Identity address priority for Google Group forwarding:
+    // 1) Reply-To (true vendor), 2) Sender, 3) Return-Path, 4) From (group address)
+    const identityAddress = replyTo.address || sender.address || returnPath.address || from.address;
+
     const result = {
         id: res.data.id,
         headers,
+        // Identity fields for classification (Google Group aware)
+        identityAddress: identityAddress,
+        replyToAddress: replyTo.address,
+        senderAddress: sender.address,
+        returnPathAddress: returnPath.address,
+        fromAddress: from.address,
+        toAddress: to.address,
+        // Display names
+        fromDisplayName: from.displayName,
+        replyToDisplayName: replyTo.displayName,
+        // Message metadata
+        subject: subjectHeader,
+        messageDate: dateHeader,
+        // Content fields
         textPlain: "",
         textHtml: "",
         attachments: [],
